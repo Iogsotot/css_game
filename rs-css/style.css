@@ -63,6 +63,11 @@ header .wrapper {
   margin: auto 0;
 }
 
+.logo__title {
+  margin-left: 0.5rem;
+  font-style: italic;
+}
+
 .header__nav {
   margin-top: 0.8rem;
 }
@@ -135,10 +140,97 @@ header .wrapper {
 }
 
 main {
+  height: calc(100vh - 4.5rem);
+}
+
+main .wrapper {
+  height: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.order {
+  font-weight: 100;
+  font-size: 4.5rem;
+  letter-spacing: 0.2rem;
+  word-spacing: 0.8rem;
+  text-align: center;
+}
+
+.help {
   display: none;
 }
 
-footer {
+.btn--help {
+  background-color: rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+}
+
+.btn {
+  display: inline-block;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 1rem 2rem;
+  border-radius: 2.5rem;
+}
+
+.show-box .table {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: 2.5fr 3fr 0.3fr;
+      grid-template-rows: 2.5fr 3fr 0.3fr;
+  width: 500px;
+  height: 44.5rem;
+  background-color: #321cb3;
+  background-image: url("./assets/table.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 0px solid transparent;
+  border-radius: 4rem 4rem 0 0;
+}
+
+.show-box .table glass {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  display: inline-block;
+  height: 14rem;
+  width: 10rem;
+  margin: auto;
+  background-image: url("./assets/empty_glass.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.tags-show {
   display: none;
+}
+
+.editors {
+  height: 50rem;
+  width: 100%;
+  background-color: rgba(34, 30, 24, 0.8);
+  padding: 1rem;
+}
+
+.css-editor {
+  border: solid 1px rgba(255, 255, 255, 0.05);
 }
 /*# sourceMappingURL=style.css.map */

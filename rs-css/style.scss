@@ -10,6 +10,7 @@ $light-color: #777777;
 // bg
 $darkest: rgba(34, 30, 24, 0.8);
 $dark: #2e2a23;
+$medium: rgba(0, 0, 0, 0.2);
 
 html {
   font-size: 10px;
@@ -60,6 +61,10 @@ header {
   display: inline-block;
   margin: auto 0;
 }
+.logo__title {
+  margin-left: 0.5rem;
+  font-style: italic;
+}
 .header__nav {
   margin-top: 0.8rem;
 }
@@ -73,15 +78,15 @@ header {
 .nav__item {
   display: inline-block;
 }
-.levels__block {
-}
-.level--current {
-}
+// .levels__block {
+// }
+// .level--current {
+// }
 .level {
   font-size: 2rem;
 }
-.level--total {
-}
+// .level--total {
+// }
 .check-mark {
   display: inline-block;
   width: 1.2rem;
@@ -126,18 +131,112 @@ header {
 // }
 // .burger__icon {
 // }
-.levels-list {
-}
+// .levels-list {
+// }
 // Header End
 
 // Main Start
 main {
+  height: calc(100vh - 4.5rem);
+  .wrapper {
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+.order {
+  font-weight: 100;
+  font-size: 4.5rem;
+  letter-spacing: 0.2rem;
+  word-spacing: 0.8rem;
+  text-align: center;
+}
+.help {
   display: none;
 }
+.btn--help {
+  background-color: $medium;
+  margin: 0 auto;
+}
+.btn {
+  display: inline-block;
+  width: max-content;
+  padding: 1rem 2rem;
+  border-radius: 2.5rem;
+}
+// .help-btn--light {
+// }
+.show-box {
+  .table {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 2.5fr 3fr 0.3fr;
+    width: 500px;
+    height: 44.5rem;
+
+    background-color: rgb(50, 28, 179);
+    background-image: url('./assets/table.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    border: 0px solid transparent;
+    border-radius: 4rem 4rem 0 0;
+
+
+    glass {
+      grid-row: 2/3;
+      display: inline-block;
+      height: 14rem;
+      width: 10rem;
+      margin: auto;
+
+      background-image: url('./assets/empty_glass.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+
+}
+.tags-show {
+  display: none;
+}
+
+// Editors
+.editors {
+  height: 50rem;
+  width: 100%;
+  background-color: $darkest;
+  padding: 1rem;
+}
+.css-editor {
+  border: solid 1px rgba(255,255,255,.05);
+}
+.title {
+}
+.file-window {
+}
+.line-numbers {
+}
+.css-input {
+}
+.btn {
+}
+.btn--enter {
+}
+.html-viewer {
+}
+.markup {
+}
+
 // Main End
 
 // Footer Start
-footer {
-  display: none;
-}
+// footer {
+ 
+// }
 // Footer End
