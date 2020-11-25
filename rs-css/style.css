@@ -1,1 +1,236 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+body {
+  margin: auto;
+  font-size: 1.6rem;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: #2e2a23;
+}
+
+.wrapper {
+  max-width: 500px;
+  margin: auto;
+}
+
+a, .link {
+  text-decoration: none;
+  color: inherit;
+}
+
+header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  height: 4rem;
+  background-color: rgba(34, 30, 24, 0.8);
+}
+
+header .wrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1.5fr 4fr;
+      grid-template-columns: 1.5fr 4fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+}
+
+.logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  justify-items: center;
+}
+
+.logo__img, .logo__title {
+  display: inline-block;
+  margin: auto 0;
+}
+
+.logo__title {
+  margin-left: 0.5rem;
+  font-style: italic;
+}
+
+.header__nav {
+  margin-top: 0.8rem;
+}
+
+.nav__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  list-style: none;
+}
+
+.nav__item {
+  display: inline-block;
+}
+
+.level {
+  font-size: 2rem;
+}
+
+.check-mark {
+  display: inline-block;
+  width: 1.2rem;
+  height: 2rem;
+  margin-left: 1rem;
+  border-right: solid 3px rgba(255, 255, 255, 0.8);
+  border-bottom: solid 3px rgba(255, 255, 255, 0.8);
+  -webkit-transform: rotate(40deg);
+          transform: rotate(40deg);
+}
+
+.levels-control {
+  margin-top: .4rem;
+}
+
+.arrow {
+  display: inline-block;
+  height: 1.5rem;
+  width: 1.5rem;
+  border-top: 2px solid rgba(255, 255, 255, 0.8);
+  border-left: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.arrow-left {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.arrow-right {
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
+}
+
+.level-theory {
+  display: inline-block;
+  height: 2.2rem;
+  width: 2.2rem;
+  text-align: center;
+  font-size: 2rem;
+  line-height: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+main {
+  height: calc(100vh - 4.5rem);
+}
+
+main .wrapper {
+  height: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.order {
+  font-weight: 100;
+  font-size: 4.5rem;
+  letter-spacing: 0.2rem;
+  word-spacing: 0.8rem;
+  text-align: center;
+}
+
+.help {
+  display: none;
+}
+
+.btn--help {
+  background-color: rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+}
+
+.btn {
+  display: inline-block;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 1rem 2rem;
+  border-radius: 2.5rem;
+}
+
+.show-box .table {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: 2.5fr 3fr 0.3fr;
+      grid-template-rows: 2.5fr 3fr 0.3fr;
+  width: 500px;
+  height: 44.5rem;
+  background-color: #321cb3;
+  background-image: url("./assets/table.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 0px solid transparent;
+  border-radius: 4rem 4rem 0 0;
+}
+
+.show-box .table glass {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  display: inline-block;
+  height: 14rem;
+  width: 10rem;
+  margin: auto;
+  background-image: url("./assets/empty_glass.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.tags-show {
+  display: none;
+}
+
+.editors {
+  height: 50rem;
+  width: 100%;
+  background-color: rgba(34, 30, 24, 0.8);
+  padding: 1rem;
+}
+
+.css-editor {
+  border: solid 1px rgba(255, 255, 255, 0.05);
+}
+/*# sourceMappingURL=style.css.map */
