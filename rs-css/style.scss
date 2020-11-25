@@ -1,0 +1,143 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+// text
+$lightest-color: rgba(255, 255, 255, 0.8);
+$light-color: #777777;
+// bg
+$darkest: rgba(34, 30, 24, 0.8);
+$dark: #2e2a23;
+
+html {
+  font-size: 10px;
+  color: $lightest-color;
+}
+body {
+  margin: auto;
+
+  font-size: 1.6rem;
+  // font-family: 'Courier New', Courier, monospace;
+  // font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: $dark;
+}
+.wrapper {
+  max-width: 500px;
+  margin: auto;
+}
+
+a, .link {
+  text-decoration: none;
+  color: inherit;
+}
+
+// .nav {
+// }
+// Header Start
+header {
+  position: sticky;
+  top: 0;
+  height: 4rem;
+  // padding: 1rem;  
+  background-color: $darkest;
+
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1.5fr 4fr;
+    grid-template-rows: 1fr;
+  }
+}
+.logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-items: center;
+}
+.logo__img, .logo__title {
+  display: inline-block;
+  margin: auto 0;
+}
+.header__nav {
+  margin-top: 0.8rem;
+}
+.nav__list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  list-style: none;
+}
+.nav__item {
+  display: inline-block;
+}
+.levels__block {
+}
+.level--current {
+}
+.level {
+  font-size: 2rem;
+}
+.level--total {
+}
+.check-mark {
+  display: inline-block;
+  width: 1.2rem;
+  height: 2rem;
+  margin-left: 1rem;
+
+  border-right: solid 3px $lightest-color;
+  border-bottom: solid 3px $lightest-color;
+
+  transform: rotate(40deg);
+}
+.levels-control {
+  margin-top: .4rem;
+}
+.arrow {
+  display: inline-block;
+  height: 1.5rem;
+  width: 1.5rem;
+
+  border-top: 2px solid  $lightest-color;
+  border-left: 2px solid $lightest-color;
+}
+.arrow-left {
+  transform: rotate(-45deg);
+}
+.arrow-right {
+  transform: rotate(135deg);
+}
+.level-theory {
+  display: inline-block;
+  height: 2.2rem;
+  width: 2.2rem;
+
+  text-align: center;
+  font-size: 2rem;
+  line-height: 2rem;
+  border: 1px solid $lightest-color;
+}
+// .burger {
+// }
+// .icon {
+// }
+// .burger__icon {
+// }
+.levels-list {
+}
+// Header End
+
+// Main Start
+main {
+  display: none;
+}
+// Main End
+
+// Footer Start
+footer {
+  display: none;
+}
+// Footer End

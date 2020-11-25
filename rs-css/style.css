@@ -1,1 +1,144 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+body {
+  margin: auto;
+  font-size: 1.6rem;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: #2e2a23;
+}
+
+.wrapper {
+  max-width: 500px;
+  margin: auto;
+}
+
+a, .link {
+  text-decoration: none;
+  color: inherit;
+}
+
+header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  height: 4rem;
+  background-color: rgba(34, 30, 24, 0.8);
+}
+
+header .wrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1.5fr 4fr;
+      grid-template-columns: 1.5fr 4fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+}
+
+.logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  justify-items: center;
+}
+
+.logo__img, .logo__title {
+  display: inline-block;
+  margin: auto 0;
+}
+
+.header__nav {
+  margin-top: 0.8rem;
+}
+
+.nav__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  list-style: none;
+}
+
+.nav__item {
+  display: inline-block;
+}
+
+.level {
+  font-size: 2rem;
+}
+
+.check-mark {
+  display: inline-block;
+  width: 1.2rem;
+  height: 2rem;
+  margin-left: 1rem;
+  border-right: solid 3px rgba(255, 255, 255, 0.8);
+  border-bottom: solid 3px rgba(255, 255, 255, 0.8);
+  -webkit-transform: rotate(40deg);
+          transform: rotate(40deg);
+}
+
+.levels-control {
+  margin-top: .4rem;
+}
+
+.arrow {
+  display: inline-block;
+  height: 1.5rem;
+  width: 1.5rem;
+  border-top: 2px solid rgba(255, 255, 255, 0.8);
+  border-left: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.arrow-left {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.arrow-right {
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
+}
+
+.level-theory {
+  display: inline-block;
+  height: 2.2rem;
+  width: 2.2rem;
+  text-align: center;
+  font-size: 2rem;
+  line-height: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+main {
+  display: none;
+}
+
+footer {
+  display: none;
+}
+/*# sourceMappingURL=style.css.map */
