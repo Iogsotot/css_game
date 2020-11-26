@@ -3,6 +3,8 @@
   margin: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  -webkit-transition: all 350ms ease;
+  transition: all 350ms ease;
 }
 
 html {
@@ -19,6 +21,7 @@ body {
       grid-template-rows: auto auto auto;
       grid-template-areas: "header", "main", "footer";
   margin: auto;
+  overflow-x: hidden;
   font-size: 1.6rem;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   background-color: #2e2a23;
@@ -183,6 +186,7 @@ main .wrapper {
   letter-spacing: 0.2rem;
   word-spacing: 0.8rem;
   text-align: center;
+  margin: 1rem auto;
 }
 
 .help {
@@ -191,7 +195,7 @@ main .wrapper {
 
 .btn--help {
   background-color: rgba(0, 0, 0, 0.2);
-  margin: 0 auto;
+  margin: 1rem auto;
 }
 
 .btn {
@@ -201,6 +205,10 @@ main .wrapper {
   width: max-content;
   padding: 1rem 2rem;
   border-radius: 2.5rem;
+}
+
+.show-box {
+  position: relative;
 }
 
 .show-box .table {
@@ -213,7 +221,7 @@ main .wrapper {
   width: 500px;
   height: 44.5rem;
   background-color: #321cb3;
-  background-image: url("./assets/table.png");
+  background-image: url("../assets/table.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -229,14 +237,28 @@ main .wrapper {
   height: 14rem;
   width: 10rem;
   margin: auto;
-  background-image: url("./assets/empty_glass.png");
+  background-image: url("../assets/empty_glass.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  -webkit-transition: none;
+  transition: none;
+}
+
+.show-box .table glass:hover {
+  outline: 3px dashed rgba(255, 0, 0, 0.651);
+  -webkit-transition: none;
+  transition: none;
 }
 
 .tags-show {
-  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.tag {
+  background-color: #fff6eb;
 }
 
 .editors {
@@ -378,5 +400,44 @@ footer {
 
 .copyright {
   padding: 1rem;
+}
+
+@media (min-width: 550px) {
+  .wrapper {
+    max-width: unset;
+  }
+  header {
+    height: 6rem;
+    padding: 1rem 1rem 0.5rem;
+  }
+  .show-box {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (min-width: 701px) {
+  .editors {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: 1fr;
+        grid-template-rows: 1fr;
+  }
+  footer {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+@media (min-width: 1268px) {
+  .wrapper {
+    max-width: 1260px;
+  }
 }
 /*# sourceMappingURL=style.css.map */

@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  transition: all 350ms ease;
 }
 
 // text
@@ -34,6 +35,7 @@ body {
   "main",
   "footer";
   margin: auto;
+  overflow-x: hidden;
 
   font-size: 1.6rem;
   // font-family: 'Courier New', Courier, monospace;
@@ -179,13 +181,15 @@ main {
   letter-spacing: 0.2rem;
   word-spacing: 0.8rem;
   text-align: center;
+
+  margin: 1rem auto;
 }
 .help {
   display: none;
 }
 .btn--help {
   background-color: $main-medium;
-  margin: 0 auto;
+  margin: 1rem auto;
 }
 .btn {
   display: inline-block;
@@ -196,6 +200,7 @@ main {
 // .help-btn--light {
 // }
 .show-box {
+  position: relative;
   .table {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -204,7 +209,7 @@ main {
     height: 44.5rem;
 
     background-color: rgb(50, 28, 179);
-    background-image: url('./assets/table.png');
+    background-image: url('../assets/table.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -220,16 +225,27 @@ main {
       width: 10rem;
       margin: auto;
 
-      background-image: url('./assets/empty_glass.png');
+      background-image: url('../assets/empty_glass.png');
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
+      transition: none;
+    }
+    glass:hover {
+      outline: 3px dashed rgba(255, 0, 0, 0.651);
+      transition: none;
     }
   }
 
 }
 .tags-show {
-  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.tag {
+  background-color: rgb(255, 246, 235);
 }
 
 // Editors
@@ -347,8 +363,8 @@ footer {
 .social-block {
   padding: 1rem;
 }
-.social__list {
-}
+// .social__list {
+// }
 .social__item {
   display: inline-block;
   margin: 0 0 0 1rem;
@@ -362,3 +378,35 @@ footer {
 }
 
 // Footer End
+
+@media (min-width: 550px) {
+  .wrapper {
+    max-width: unset;
+  }
+  header {
+    height: 6rem;
+    padding: 1rem 1rem 0.5rem;
+  }
+  .show-box {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (min-width: 701px) { 
+  .editors {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  footer {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 1268px) {
+  .wrapper {
+    max-width: 1260px;
+  }
+ }
