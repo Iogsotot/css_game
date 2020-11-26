@@ -55,7 +55,7 @@ a, .link {
 // }
 // Header Start
 header {
-  grid-template: header;
+  // grid-template: header;
   position: sticky;
   top: 0;
   height: 4rem;
@@ -63,9 +63,11 @@ header {
   background-color: $main-darkest;
 
   .wrapper {
-    display: grid;
-    grid-template-columns: 1.5fr 4fr;
-    grid-template-rows: 1fr;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    overflow-x: hidden;
   }
 }
 .logo {
@@ -73,6 +75,7 @@ header {
   flex-direction: row;
   justify-content: center;
   justify-items: center;
+  margin-right: 1rem;
 }
 .logo__img, .logo__title {
   display: inline-block;
@@ -83,7 +86,8 @@ header {
   font-style: italic;
 }
 .header__nav {
-  margin-top: 0.8rem;
+  margin-top: 0.6rem;
+  margin-right: 1rem;
 }
 .nav__list {
   display: flex;
@@ -91,6 +95,10 @@ header {
   flex-wrap: nowrap;
   justify-content: space-between;
   list-style: none;
+
+  // padding: 0;
+  // margin: 0;
+  width: 34rem;
 }
 .nav__item {
   display: inline-block;
@@ -291,15 +299,66 @@ main {
   margin-left: 1rem;
   // margin-top: -0.2rem;
 }
-// .html-viewer {
-// }
-// .markup {
-// }
+.html-viewer {
+
+  .line-numbers {
+    background-color: #201d18;
+    color: $light-color;
+  }
+  .file-window {
+    background-color: #201d18;
+    color: $light-color;
+  }
+}
+.markup {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+  padding-top: 1rem;
+  line-height: 2.1rem;
+
+  cursor: default;
+}
+.markup > div {
+  padding-left: 1rem;
+}
+
+.markup > div:hover { 
+  color: $medium-color;
+  transition: all 150ms ease;
+}
 
 // Main End
 
 // Footer Start
 footer {
- grid-template: footer;
+//  grid-template: footer;
+ display: flex;
+ flex-wrap: nowrap;
+ flex-direction: column;
+ text-align: center;
+
+ font-family: "Exo 2", "Lato", "Helvetica Neue", sans-serif;
+ color: rgba(255, 255, 255, 0.302);
 }
+
+// .social {
+// }
+.social-block {
+  padding: 1rem;
+}
+.social__list {
+}
+.social__item {
+  display: inline-block;
+  margin: 0 0 0 1rem;
+}
+.social__link, .copyright__link {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.copyright {
+  padding: 1rem;
+}
+
 // Footer End
