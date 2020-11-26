@@ -28,19 +28,16 @@ html {
 }
 body {
   display: grid;
-  grid-template-columns:auto;
+  grid-template-columns: auto;
   grid-template-rows: auto auto auto;
-  grid-template-areas: 
-  "header",
-  "main",
-  "footer";
+  grid-template-areas: "header", "main", "footer";
   margin: auto;
   overflow-x: hidden;
 
   font-size: 1.6rem;
   // font-family: 'Courier New', Courier, monospace;
   // font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   background-color: $main-dark;
 }
 .wrapper {
@@ -48,7 +45,8 @@ body {
   margin: auto;
 }
 
-a, .link {
+a,
+.link {
   text-decoration: none;
   color: inherit;
 }
@@ -57,12 +55,11 @@ a, .link {
 // }
 // Header Start
 header {
-  // grid-template: header;
   position: sticky;
   top: 0;
   height: 4rem;
-  // padding: 1rem;  
   background-color: $main-darkest;
+  z-index: 10;
 
   .wrapper {
     display: flex;
@@ -79,7 +76,8 @@ header {
   justify-items: center;
   margin-right: 1rem;
 }
-.logo__img, .logo__title {
+.logo__img,
+.logo__title {
   display: inline-block;
   margin: auto 0;
 }
@@ -126,14 +124,14 @@ header {
   transform: rotate(40deg);
 }
 .levels-control {
-  margin-top: .4rem;
+  margin-top: 0.4rem;
 }
 .arrow {
   display: inline-block;
   height: 1.5rem;
   width: 1.5rem;
 
-  border-top: 2px solid  $lightest-color;
+  border-top: 2px solid $lightest-color;
   border-left: 2px solid $lightest-color;
 }
 .arrow-left {
@@ -209,14 +207,13 @@ main {
     height: 44.5rem;
 
     background-color: rgb(50, 28, 179);
-    background-image: url('../assets/table.png');
+    background-image: url("../assets/table.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 
     border: 0px solid transparent;
     border-radius: 4rem 4rem 0 0;
-
 
     glass {
       grid-row: 2/3;
@@ -225,27 +222,51 @@ main {
       width: 10rem;
       margin: auto;
 
-      background-image: url('../assets/empty_glass.png');
+      background-image: url("../assets/empty_glass.png");
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
       transition: none;
+
+      animation: dance 2s linear infinite;
     }
     glass:hover {
       outline: 3px dashed rgba(255, 0, 0, 0.651);
       transition: none;
     }
   }
-
 }
-.tags-show {
+// .tags-show {
+//   // position: absolute;
+//   // top: 0;
+//   // left: 0;
+// }
+
+.tag {
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
+  background-color: rgba(255, 246, 235, 0.9);
+  color: #3a2e1a;
+  font-size: 1.7rem;
+  // font-weight: 700;
+  padding: 1rem;
+  border: 1px solid rgba(255, 246, 235, 0.9);
+  border-radius: 0.4rem;
 }
 
-.tag {
-  background-color: rgb(255, 246, 235);
+.tag:nth-of-type(1) {
+  top: 18rem;
+}
+.tag:nth-of-type(2) {
+  top: 39rem;
+  left: 15rem;
+}
+.tag:nth-of-type(3) {
+  top: 18rem;
+  left: unset;
+  right: 0;
 }
 
 // Editors
@@ -259,7 +280,6 @@ main {
 .css-editor {
   border: solid 1px $main-lightest;
   background-color: $main-light;
-  
 }
 .title {
   font-weight: 300;
@@ -268,7 +288,7 @@ main {
   display: grid;
   grid-template-columns: 3.6rem 11fr 3fr;
   grid-template-rows: 3.2rem repeat(19, 2.1rem);
-  
+
   border: solid 1px $main-lightest;
   // padding-top: 1rem;
 
@@ -294,16 +314,37 @@ main {
   grid-row: 1/2;
   background-color: $editor-lightest;
   border: none;
-  margin-left: 1rem; 
-  // margin-top: 1.5rem;
-  padding-top: 0.5rem;
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+  // padding-top: 0.5rem;
+  animation: strobe 850ms linear infinite;
+}
+
+.css-input:active, .css-input:focus {
+  outline: none;
+  background-color: $editor-lightest;
+  animation: none;
 }
 
 .btn--enter {
   grid-row: 1/2;
   grid-column: 3/4;
-  padding: 0 1rem;
+  padding: 0 1rem 0;
+  margin-top: 0.5rem;
+  
+  background: #ddd;
+  padding: 2px 7px 2px 7px;
+  font-size: 1.2rem;
+  color: #666;
+  border: solid 3px #999;
+  border-radius: 2px;
+  border-width: 1px 1px 6px 1px;
+}
 
+.btn--enter:active {
+  margin-top: 1rem;
+  // height: 22px;
+  border-width: 1px 1px 1px 1px;
 }
 
 .task-reminder-text {
@@ -311,12 +352,11 @@ main {
   grid-column: 2/3;
 
   line-height: 2.1rem;
-  text-align:  left;
+  text-align: left;
   margin-left: 1rem;
   // margin-top: -0.2rem;
 }
 .html-viewer {
-
   .line-numbers {
     background-color: #201d18;
     color: $light-color;
@@ -339,7 +379,7 @@ main {
   padding-left: 1rem;
 }
 
-.markup > div:hover { 
+.markup > div:hover {
   color: $medium-color;
   transition: all 150ms ease;
 }
@@ -348,14 +388,14 @@ main {
 
 // Footer Start
 footer {
-//  grid-template: footer;
- display: flex;
- flex-wrap: nowrap;
- flex-direction: column;
- text-align: center;
+  //  grid-template: footer;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  text-align: center;
 
- font-family: "Exo 2", "Lato", "Helvetica Neue", sans-serif;
- color: rgba(255, 255, 255, 0.302);
+  font-family: "Exo 2", "Lato", "Helvetica Neue", sans-serif;
+  color: rgba(255, 255, 255, 0.302);
 }
 
 // .social {
@@ -369,7 +409,8 @@ footer {
   display: inline-block;
   margin: 0 0 0 1rem;
 }
-.social__link, .copyright__link {
+.social__link,
+.copyright__link {
   color: rgba(255, 255, 255, 0.5);
 }
 
@@ -392,7 +433,7 @@ footer {
   }
 }
 
-@media (min-width: 701px) { 
+@media (min-width: 701px) {
   .editors {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -409,4 +450,36 @@ footer {
   .wrapper {
     max-width: 1260px;
   }
- }
+}
+
+@keyframes dance {
+  0% {
+    transform: skew(0deg);
+  }
+  25% {
+    transform: skew(-5deg);
+  }
+  50% {
+    transform: skew(0deg);
+  }
+  75% {
+    transform: skew(5deg);
+  }
+  100% {
+    transform: skew(0deg);
+  }
+}
+
+@keyframes strobe {
+  0% {
+    background-color: $editor-lightest;
+  }
+
+  50% {
+    background-color: rgba(142, 221, 252, 0.55);
+  }
+
+  100% {
+    background-color: $editor-lightest;
+  }
+}

@@ -23,7 +23,7 @@ body {
   margin: auto;
   overflow-x: hidden;
   font-size: 1.6rem;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   background-color: #2e2a23;
 }
 
@@ -32,7 +32,8 @@ body {
   margin: auto;
 }
 
-a, .link {
+a,
+.link {
   text-decoration: none;
   color: inherit;
 }
@@ -43,6 +44,7 @@ header {
   top: 0;
   height: 4rem;
   background-color: rgba(34, 30, 24, 0.8);
+  z-index: 10;
 }
 
 header .wrapper {
@@ -76,7 +78,8 @@ header .wrapper {
   margin-right: 1rem;
 }
 
-.logo__img, .logo__title {
+.logo__img,
+.logo__title {
   display: inline-block;
   margin: auto 0;
 }
@@ -128,7 +131,7 @@ header .wrapper {
 }
 
 .levels-control {
-  margin-top: .4rem;
+  margin-top: 0.4rem;
 }
 
 .arrow {
@@ -243,6 +246,8 @@ main .wrapper {
   background-position: center;
   -webkit-transition: none;
   transition: none;
+  -webkit-animation: dance 2s linear infinite;
+          animation: dance 2s linear infinite;
 }
 
 .show-box .table glass:hover {
@@ -251,14 +256,32 @@ main .wrapper {
   transition: none;
 }
 
-.tags-show {
+.tag {
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
+  background-color: rgba(255, 246, 235, 0.9);
+  color: #3a2e1a;
+  font-size: 1.7rem;
+  padding: 1rem;
+  border: 1px solid rgba(255, 246, 235, 0.9);
+  border-radius: 0.4rem;
 }
 
-.tag {
-  background-color: #fff6eb;
+.tag:nth-of-type(1) {
+  top: 18rem;
+}
+
+.tag:nth-of-type(2) {
+  top: 39rem;
+  left: 15rem;
+}
+
+.tag:nth-of-type(3) {
+  top: 18rem;
+  left: unset;
+  right: 0;
 }
 
 .editors {
@@ -311,7 +334,16 @@ main .wrapper {
   background-color: #efefef;
   border: none;
   margin-left: 1rem;
-  padding-top: 0.5rem;
+  margin-top: 0.5rem;
+  -webkit-animation: strobe 850ms linear infinite;
+          animation: strobe 850ms linear infinite;
+}
+
+.css-input:active, .css-input:focus {
+  outline: none;
+  background-color: #efefef;
+  -webkit-animation: none;
+          animation: none;
 }
 
 .btn--enter {
@@ -321,7 +353,20 @@ main .wrapper {
   -ms-grid-column: 3;
   -ms-grid-column-span: 1;
   grid-column: 3/4;
-  padding: 0 1rem;
+  padding: 0 1rem 0;
+  margin-top: 0.5rem;
+  background: #ddd;
+  padding: 2px 7px 2px 7px;
+  font-size: 1.2rem;
+  color: #666;
+  border: solid 3px #999;
+  border-radius: 2px;
+  border-width: 1px 1px 6px 1px;
+}
+
+.btn--enter:active {
+  margin-top: 1rem;
+  border-width: 1px 1px 1px 1px;
 }
 
 .task-reminder-text {
@@ -394,7 +439,8 @@ footer {
   margin: 0 0 0 1rem;
 }
 
-.social__link, .copyright__link {
+.social__link,
+.copyright__link {
   color: rgba(255, 255, 255, 0.5);
 }
 
@@ -438,6 +484,76 @@ footer {
 @media (min-width: 1268px) {
   .wrapper {
     max-width: 1260px;
+  }
+}
+
+@-webkit-keyframes dance {
+  0% {
+    -webkit-transform: skew(0deg);
+            transform: skew(0deg);
+  }
+  25% {
+    -webkit-transform: skew(-5deg);
+            transform: skew(-5deg);
+  }
+  50% {
+    -webkit-transform: skew(0deg);
+            transform: skew(0deg);
+  }
+  75% {
+    -webkit-transform: skew(5deg);
+            transform: skew(5deg);
+  }
+  100% {
+    -webkit-transform: skew(0deg);
+            transform: skew(0deg);
+  }
+}
+
+@keyframes dance {
+  0% {
+    -webkit-transform: skew(0deg);
+            transform: skew(0deg);
+  }
+  25% {
+    -webkit-transform: skew(-5deg);
+            transform: skew(-5deg);
+  }
+  50% {
+    -webkit-transform: skew(0deg);
+            transform: skew(0deg);
+  }
+  75% {
+    -webkit-transform: skew(5deg);
+            transform: skew(5deg);
+  }
+  100% {
+    -webkit-transform: skew(0deg);
+            transform: skew(0deg);
+  }
+}
+
+@-webkit-keyframes strobe {
+  0% {
+    background-color: #efefef;
+  }
+  50% {
+    background-color: rgba(142, 221, 252, 0.55);
+  }
+  100% {
+    background-color: #efefef;
+  }
+}
+
+@keyframes strobe {
+  0% {
+    background-color: #efefef;
+  }
+  50% {
+    background-color: rgba(142, 221, 252, 0.55);
+  }
+  100% {
+    background-color: #efefef;
   }
 }
 /*# sourceMappingURL=style.css.map */
