@@ -230,11 +230,19 @@ main {
 
       animation: dance 2s linear infinite;
     }
-    glass:hover {
+    glass.hover {
       outline: 3px dashed rgba(255, 0, 0, 0.651);
       transition: none;
     }
   }
+}
+
+.flyAway {
+  animation: flyAway 1s linear;
+}
+
+.wrong {
+  animation: wrong 1s linear;
 }
 // .tags-show {
 //   // position: absolute;
@@ -254,6 +262,10 @@ main {
   padding: 1rem;
   border: 1px solid rgba(255, 246, 235, 0.9);
   border-radius: 0.4rem;
+
+  &.hover {
+    display: block;
+  }
 }
 
 .tag:nth-of-type(1) {
@@ -294,6 +306,9 @@ main {
 
   background-color: #efefef;
   color: #aaaaaa;
+}
+.wrong {
+  animation: wrong 800ms linear;
 }
 .line-numbers {
   grid-row: 1 / 21;
@@ -379,10 +394,11 @@ main {
   padding-left: 1rem;
 }
 
-.markup > div:hover {
+.markup > div.hover {
   color: $medium-color;
   transition: all 150ms ease;
 }
+
 
 // Main End
 
@@ -481,5 +497,47 @@ footer {
 
   100% {
     background-color: $editor-lightest;
+  }
+}
+
+@keyframes flyAway {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+
+  50% {
+    transform: scale(0.5) translateY(-30rem);
+  }
+
+  100% {
+    transform: scale(0) translateY(-80rem);
+  }
+}
+
+@keyframes wrong {
+  0% {
+    transform: skew(0deg);
+    background-color: #efefef;
+    outline: 3px solid rgba(255, 0, 0, 0.719);
+  }
+  25% {
+    transform: skew(-0.5deg);
+    background-color: red;
+    outline: 3px solid #efefef;
+  }
+  50% {
+    transform: skew(0deg);
+    background-color: #efefef;
+    outline: 3px solid rgba(255, 0, 0, 0.719);
+  }
+  75% {
+    transform: skew(0.5deg);
+    background-color: red;
+    outline: 3px solid #efefef;
+  }
+  100% {
+    transform: skew(0deg);
+    background-color: #efefef;
+    outline: 3px solid rgba(255, 0, 0, 0.719);
   }
 }

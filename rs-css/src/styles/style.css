@@ -250,10 +250,20 @@ main .wrapper {
           animation: dance 2s linear infinite;
 }
 
-.show-box .table glass:hover {
+.show-box .table glass.hover {
   outline: 3px dashed rgba(255, 0, 0, 0.651);
   -webkit-transition: none;
   transition: none;
+}
+
+.flyAway {
+  -webkit-animation: flyAway 1s linear;
+          animation: flyAway 1s linear;
+}
+
+.wrong {
+  -webkit-animation: wrong 1s linear;
+          animation: wrong 1s linear;
 }
 
 .tag {
@@ -267,6 +277,10 @@ main .wrapper {
   padding: 1rem;
   border: 1px solid rgba(255, 246, 235, 0.9);
   border-radius: 0.4rem;
+}
+
+.tag.hover {
+  display: block;
 }
 
 .tag:nth-of-type(1) {
@@ -310,6 +324,11 @@ main .wrapper {
   border: solid 1px rgba(255, 255, 255, 0.051);
   background-color: #efefef;
   color: #aaaaaa;
+}
+
+.wrong {
+  -webkit-animation: wrong 800ms linear;
+          animation: wrong 800ms linear;
 }
 
 .line-numbers {
@@ -409,7 +428,7 @@ main .wrapper {
   padding-left: 1rem;
 }
 
-.markup > div:hover {
+.markup > div.hover {
   color: #999999;
   -webkit-transition: all 150ms ease;
   transition: all 150ms ease;
@@ -554,6 +573,102 @@ footer {
   }
   100% {
     background-color: #efefef;
+  }
+}
+
+@-webkit-keyframes flyAway {
+  0% {
+    -webkit-transform: scale(1) translateY(0);
+            transform: scale(1) translateY(0);
+  }
+  50% {
+    -webkit-transform: scale(0.5) translateY(-30rem);
+            transform: scale(0.5) translateY(-30rem);
+  }
+  100% {
+    -webkit-transform: scale(0) translateY(-80rem);
+            transform: scale(0) translateY(-80rem);
+  }
+}
+
+@keyframes flyAway {
+  0% {
+    -webkit-transform: scale(1) translateY(0);
+            transform: scale(1) translateY(0);
+  }
+  50% {
+    -webkit-transform: scale(0.5) translateY(-30rem);
+            transform: scale(0.5) translateY(-30rem);
+  }
+  100% {
+    -webkit-transform: scale(0) translateY(-80rem);
+            transform: scale(0) translateY(-80rem);
+  }
+}
+
+@-webkit-keyframes wrong {
+  0% {
+    -webkit-transform: skew(0deg);
+            transform: skew(0deg);
+    background-color: #efefef;
+    outline: 3px solid rgba(255, 0, 0, 0.719);
+  }
+  25% {
+    -webkit-transform: skew(-0.5deg);
+            transform: skew(-0.5deg);
+    background-color: red;
+    outline: 3px solid #efefef;
+  }
+  50% {
+    -webkit-transform: skew(0deg);
+            transform: skew(0deg);
+    background-color: #efefef;
+    outline: 3px solid rgba(255, 0, 0, 0.719);
+  }
+  75% {
+    -webkit-transform: skew(0.5deg);
+            transform: skew(0.5deg);
+    background-color: red;
+    outline: 3px solid #efefef;
+  }
+  100% {
+    -webkit-transform: skew(0deg);
+            transform: skew(0deg);
+    background-color: #efefef;
+    outline: 3px solid rgba(255, 0, 0, 0.719);
+  }
+}
+
+@keyframes wrong {
+  0% {
+    -webkit-transform: skew(0deg);
+            transform: skew(0deg);
+    background-color: #efefef;
+    outline: 3px solid rgba(255, 0, 0, 0.719);
+  }
+  25% {
+    -webkit-transform: skew(-0.5deg);
+            transform: skew(-0.5deg);
+    background-color: red;
+    outline: 3px solid #efefef;
+  }
+  50% {
+    -webkit-transform: skew(0deg);
+            transform: skew(0deg);
+    background-color: #efefef;
+    outline: 3px solid rgba(255, 0, 0, 0.719);
+  }
+  75% {
+    -webkit-transform: skew(0.5deg);
+            transform: skew(0.5deg);
+    background-color: red;
+    outline: 3px solid #efefef;
+  }
+  100% {
+    -webkit-transform: skew(0deg);
+            transform: skew(0deg);
+    background-color: #efefef;
+    outline: 3px solid rgba(255, 0, 0, 0.719);
   }
 }
 /*# sourceMappingURL=style.css.map */
