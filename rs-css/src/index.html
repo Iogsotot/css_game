@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./styles/style.css">
   <title>rs-css</title>
 </head>
 <body>
@@ -69,29 +69,53 @@
       </div>
       <a href="#" class="btn--help btn">Help, I'm stuck!</a>
       <div class="show-box">
-        <div class="table">
-          <glass></glass>
-          <glass></glass>
-          <glass></glass>
+        <div class="table" id="parent">
+          <glass class="empty"></glass>
+          <glass class="empty"></glass>
+          <glass class="empty"></glass>
         </div>
 
+        <div class="tags-show">
+          <div class="tag">&lt;glass class="empty" /&gt; </div>
+          <div class="tag">&lt;glass class="empty" /&gt; </div>
+          <div class="tag">&lt;glass class="empty" /&gt; </div>
+        </div>
       </div>
-      <div class="tags-show">tags-show</div>
   
       <div class="editors">
         <div class="css-editor">
           <h3 class="title">CSS Editor</h3>
           <div class="file-window">
-            <div class="line-numbers"></div>
-            <input type="text" class="css-input" placeholder="Type in a CSS selector">...</input>
-            <a href="#" class="btn btn--enter">enter</a>
+            <div class="line-numbers">
+              1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+            </div>
+            <input type="text" class="css-input" placeholder="Type in a CSS selector"></input>
+            <a href="#" class="btn btn--enter" id="enter">enter</a>
+            <div class="task-reminder-text">
+                  { <br>
+                  /* Styles would go here. */ <br>
+                  } <br>
+                  <br>
+                  /* <br>
+                  Type a number to skip to a level. <br>
+                  Ex → "5" for level 5 <br>
+                  */ 
+            </div>
           </div>
         </div>
         <div class="html-viewer">
           <h3 class="title">HTML Viewer</h3>
           <div class="file-window">
-            <div class="line-numbers"></div>
-            <div class="markup"></div>
+            <div class="line-numbers">
+              1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+            </div>
+            <div class="markup">
+              &lt;div class="table"&gt; 
+                <div>&lt;glass class="empty" /&gt; </div>
+                <div>&lt;glass class="empty" /&gt; </div>
+                <div>&lt;glass class="empty" /&gt; </div>
+              &lt;/div&gt; 
+            </div>
   
   
           </div>
@@ -111,8 +135,9 @@
       </ul>
     </div>
     <div class="copyright">
-      Made by <a href="" class="copyright__link link">Anne Justus</a>  for <a href="" class="copyright__link link">RSS</a> in 2020
+      Made by <a href="https://github.com/Iogsotot" class="copyright__link link">Anne Justus</a>  for <a href="https://rs.school/" class="copyright__link link">RSS</a> in 2020
     </div>
   </footer>
+  <script src="../src/scripts/app.js" type="module"></script>
 </body>
 </html>
