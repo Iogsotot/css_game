@@ -384,17 +384,20 @@ main {
 .markup {
   display: flex;
   flex-direction: column;
+  height: fit-content;
+
   padding-left: 1rem;
   padding-top: 1rem;
+
   line-height: 2.1rem;
 
   cursor: default;
 }
-.markup > div {
+.markup > * {
   padding-left: 1rem;
 }
 
-.markup > div.hover {
+.markup > *.hover {
   color: $medium-color;
   transition: all 150ms ease;
 }

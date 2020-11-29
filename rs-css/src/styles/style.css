@@ -418,17 +418,20 @@ main .wrapper {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   padding-left: 1rem;
   padding-top: 1rem;
   line-height: 2.1rem;
   cursor: default;
 }
 
-.markup > div {
+.markup > * {
   padding-left: 1rem;
 }
 
-.markup > div.hover {
+.markup > *.hover {
   color: #999999;
   -webkit-transition: all 150ms ease;
   transition: all 150ms ease;
