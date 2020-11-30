@@ -1,14 +1,15 @@
 export default function createLevels() {
   // console.log('work')
-  
+
   // чтобы добавить всю эту херобору на страницу: 
   // table.innerHTML = levels[1].divTemplate или markup.innerHTML = levels[1].markupTemplate
-  
+
   const levels = {
     1:
     {
       level: 1,
       isComplete: 'no',
+      answer: 'glass',
       name: 'tag',
       theory: 'some theory 1',
       divTemplate: createHTML(1, 'real'),
@@ -18,7 +19,8 @@ export default function createLevels() {
     {
       level: 2,
       isComplete: 'no',
-      name: 'tag',
+      answer: '.empty',
+      name: 'class',
       theory: 'some theory 2',
       divTemplate: createHTML(2, 'real'),
       markupTemplate: createHTML(2, 'show'),
@@ -27,7 +29,8 @@ export default function createLevels() {
     {
       level: 3,
       isComplete: 'no',
-      name: 'tag',
+      answer: '.white.bubble',
+      name: 'several classes',
       theory: 'some theory 3',
       divTemplate: createHTML(3, 'real'),
       markupTemplate: createHTML(3, 'show'),
@@ -36,6 +39,7 @@ export default function createLevels() {
     {
       level: 4,
       isComplete: 'no',
+      answer: '',
       name: 'tag',
       theory: 'some theory 4',
       divTemplate: createHTML(4, 'real'),
@@ -45,6 +49,7 @@ export default function createLevels() {
     {
       level: 5,
       isComplete: 'no',
+      answer: '',
       name: 'tag',
       theory: 'some theory 5',
       divTemplate: createHTML(5, 'real'),
@@ -54,6 +59,7 @@ export default function createLevels() {
     {
       level: 6,
       isComplete: 'no',
+      answer: '',
       name: 'tag',
       theory: 'some theory 6',
       divTemplate: createHTML(6, 'real'),
@@ -63,6 +69,7 @@ export default function createLevels() {
     {
       level: 7,
       isComplete: 'no',
+      answer: '',
       name: 'tag',
       theory: 'some theory 7',
       divTemplate: createHTML(7, 'real'),
@@ -72,6 +79,7 @@ export default function createLevels() {
     {
       level: 8,
       isComplete: 'no',
+      answer: '',
       name: 'tag',
       theory: 'some theory 8',
       divTemplate: createHTML(8, 'real'),
@@ -81,6 +89,7 @@ export default function createLevels() {
     {
       level: 9,
       isComplete: 'no',
+      answer: '',
       name: 'tag',
       theory: 'some theory 9',
       divTemplate: createHTML(9, 'real'),
@@ -90,6 +99,7 @@ export default function createLevels() {
     {
       level: 10,
       isComplete: 'no',
+      answer: '',
       name: 'tag',
       theory: 'some theory 10',
       divTemplate: createHTML(10, 'real'),
@@ -99,6 +109,7 @@ export default function createLevels() {
     {
       level: 11,
       isComplete: 'no',
+      answer: '',
       name: 'tag',
       theory: 'some theory 11',
       divTemplate: createHTML(11, 'real'),
@@ -108,6 +119,7 @@ export default function createLevels() {
     {
       level: 12,
       isComplete: 'no',
+      answer: '',
       name: 'tag',
       theory: 'some theory 12',
       divTemplate: createHTML(12, 'real'),
@@ -117,6 +129,7 @@ export default function createLevels() {
     {
       level: 13,
       isComplete: 'no',
+      answer: '',
       name: 'tag',
       theory: 'some theory 13',
       divTemplate: createHTML(13, 'real'),
@@ -126,6 +139,7 @@ export default function createLevels() {
     {
       level: 14,
       isComplete: 'no',
+      answer: '',
       name: 'tag',
       theory: 'some theory 14',
       divTemplate: createHTML(14, 'real'),
@@ -135,6 +149,7 @@ export default function createLevels() {
     {
       level: 15,
       isComplete: 'no',
+      answer: '',
       name: 'tag',
       theory: 'some theory 15',
       divTemplate: createHTML(15, 'real'),
@@ -144,6 +159,7 @@ export default function createLevels() {
     {
       level: 16,
       isComplete: 'no',
+      answer: '',
       name: 'tag',
       theory: 'some theory 16',
       divTemplate: createHTML(16, 'real'),
@@ -153,6 +169,7 @@ export default function createLevels() {
     {
       level: 17,
       isComplete: 'no',
+      answer: '',
       name: 'tag',
       theory: 'some theory 17',
       divTemplate: createHTML(17, 'real'),
@@ -162,6 +179,7 @@ export default function createLevels() {
     {
       level: 18,
       isComplete: 'no',
+      answer: '',
       name: 'tag',
       theory: 'some theory 18',
       divTemplate: createHTML(18, 'real'),
@@ -171,6 +189,7 @@ export default function createLevels() {
     {
       level: 19,
       isComplete: 'no',
+      answer: '',
       name: 'tag',
       theory: 'some theory 19',
       divTemplate: createHTML(19, 'real'),
@@ -180,6 +199,7 @@ export default function createLevels() {
     {
       level: 20,
       isComplete: 'no',
+      answer: '',
       name: 'tag',
       theory: 'some theory 20',
       divTemplate: createHTML(20, 'real'),
@@ -367,13 +387,13 @@ export default function createLevels() {
       markup = `
       
       `
-    } else { 
+    } else {
       // console.log('Хьюстон, у нас проблемы'); 
     }
 
     if (showOrReal === 'show') {
       return markup;
-    } else if (showOrReal === 'real') { 
+    } else if (showOrReal === 'real') {
       return HTML;
     }
   }

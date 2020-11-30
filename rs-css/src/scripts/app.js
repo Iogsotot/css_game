@@ -32,24 +32,44 @@ function makeAGuess() {
     fail();
   }
   // console.log(selector);
-  console.log(guessEls); // возвращает NodeList с совпадениями
+  // console.log(guessEls); // возвращает NodeList с совпадениями
   // добавить элементу/элементам класс 'selected'
   // учесть, что может придти одна нода или их array
+  // учесть ситуацию, когда по предположенному селектору нет Node
   for (let i = 0; i < guessEls.length; i++) {
     guessEls[i].classList.add('selected');
   }
-  console.log(guessEls)
+  console.log('guess: ' + guessEls)
   return guessEls;
 }
 
 function checkAnswer() {
-  
-  // проверить есть ли у всех элементов с классом correct класс select
-  // проверить есть ли класс correct у элементов без класс correct
-  // return true / false 
-  let guessEls = makeAGuess();  // возвращает NodeList с совпадениями
-  // вставляем селектор в функцию Selected(selector)
+  // достать из объекта текущего уровня селектор-ответ
+  let correctSelector = levels[currentLevel]
+  console.log('answer: ' + correctSelector.answer);
+  let correctEls = table.querySelectorAll(correctSelector.answer);  // Nodelist
+  console.log(correctEls[0].classList)
+  // let guessEls = makeAGuess();  // возвращает NodeList с совпадениями
+  let result;
+
+  for (let i = 0; i < correctEls.length; i++) {
+    correctEls[i].classList.toggle('selected');
+  }
+  for (let j = 0; j < table.children.length; j++) {
+    if (table.children[j].classList.contains('selected')) {
+      result = false;
+    } else {
+      result = true;
+    }
+  }
+  if (result === true) {
+    win()
+  } else if (result === false) {
+    fail()
+  }
 }
+
+
 // если checkAnswer() return true то запускаем win()
 // если checkAnswer() return false то запускаем fail()
 
@@ -58,12 +78,14 @@ let table = document.querySelector('#table');
 let markup = document.querySelector('#markup');
 // создаём объект с данными всех уровней и их состоянием
 const levels = createLevels();
+// console.log(levels)
 // переписать добавление HTML в динамический вид (в зависимости от уровня, на котором сейчас страница)
 // уровень можно переключать мышью (щелкая по его представлению в меню уровней)
 // уровень автоматически увеличивается после успешного прохождения текущего уровня
 // состояние уровней( =прогресс) можно обнулить нажав на кнопку сброса прогресса
-table.innerHTML = levels[3].divTemplate;
-markup.innerHTML = levels[3].markupTemplate;
+let currentLevel = 3;
+table.innerHTML = levels[currentLevel].divTemplate;
+markup.innerHTML = levels[currentLevel].markupTemplate;
 
 
 // функция setHoveredElements() - берет селектор, на котором мышь(parent)
