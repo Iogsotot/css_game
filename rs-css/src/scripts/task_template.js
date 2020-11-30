@@ -1,5 +1,5 @@
 export default function createLevels() {
-  console.log('work')
+  // console.log('work')
   
   // чтобы добавить всю эту херобору на страницу: 
   // table.innerHTML = levels[1].divTemplate или markup.innerHTML = levels[1].markupTemplate
@@ -377,7 +377,7 @@ export default function createLevels() {
       return HTML;
     }
   }
-  console.log(levels)
+  // console.log(levels)
   return levels;
 }
 

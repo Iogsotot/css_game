@@ -7,6 +7,7 @@ let fileWindowEl = document.querySelector('.css-editor > .file-window');
 
 function clearState() {
   fileWindowEl.classList.remove('wrong');
+  fileWindowEl.classList.remove('win');
 }
 
 function fail() {
@@ -14,28 +15,40 @@ function fail() {
   setTimeout(clearState, 900);
 }
 
+function win() {
+  fileWindowEl.classList.add('win');
+  alert('вы выиграли!');
+  setTimeout(clearState, 900);
+}
+
 function makeAGuess() {
   // достать селектор из инпута
-  // навестисть на элемент с таким селектором (если не нулл)
-  // добавить элементу класс 'select'
   let selector = cssInput.value;
   try {
-    guessEls = document.querySelectorAll(selector);  // array or null
+    // наводится на все эл. внутри table и ищет там selector
+    guessEls = table.querySelectorAll(selector);  // array or null
   } catch (error) {
     console.log('invalid property in input');
     fail();
-    
   }
-  console.log(selector);
+  // console.log(selector);
+  console.log(guessEls); // возвращает NodeList с совпадениями
+  // добавить элементу/элементам класс 'selected'
+  // учесть, что может придти одна нода или их array
+  for (let i = 0; i < guessEls.length; i++) {
+    guessEls[i].classList.add('selected');
+  }
+  console.log(guessEls)
   return guessEls;
 }
 
 function checkAnswer() {
-  // навестись на все элементы внутри table 
+  
   // проверить есть ли у всех элементов с классом correct класс select
   // проверить есть ли класс correct у элементов без класс correct
   // return true / false 
-  makeAGuess()
+  let guessEls = makeAGuess();  // возвращает NodeList с совпадениями
+  // вставляем селектор в функцию Selected(selector)
 }
 // если checkAnswer() return true то запускаем win()
 // если checkAnswer() return false то запускаем fail()
