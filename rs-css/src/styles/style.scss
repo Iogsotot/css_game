@@ -215,9 +215,10 @@ main {
     border: 0px solid transparent;
     border-radius: 4rem 4rem 0 0;
 
-    glass {
+    * {
       grid-row: 2/3;
       display: inline-block;
+      position: relative;
       height: 14rem;
       width: 10rem;
       margin: auto;
@@ -230,9 +231,26 @@ main {
 
       animation: dance 2s linear infinite;
     }
-    glass.hover {
+    *.hover {
       outline: 3px dashed rgba(255, 0, 0, 0.651);
       transition: none;
+    }
+
+    *:hover::after {
+      content: attr(data-title);
+      position: absolute; 
+      left: -6rem; 
+      right: 0; 
+      bottom: -4.5rem; 
+      z-index: 1; 
+      width: 20rem;
+      padding: 1rem;      
+
+      background: lightgoldenrodyellow; 
+      color: $main-dark;
+      text-align: center;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 14px; /* Размер текста подсказки */
     }
   }
 }
