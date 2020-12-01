@@ -1,11 +1,13 @@
 import createLevels from './task_template.js';
 import { hovered, unhovered } from './setHoveredElements.js';
 import typewriterEffect from './typewriter.js';
+import codeColor from './codeColor.js';
 
 const cssInput = document.querySelector('input');
 const enterBtn = document.querySelector('#enter');
 let guessEls;
 let fileWindowEl = document.querySelector('.css-editor > .file-window');
+let taskField = document.querySelector('#task');
 
 function clearState() {
   fileWindowEl.classList.remove('wrong');
@@ -45,16 +47,9 @@ function makeAGuess() {
 
 // добавить сброс состояния после win() / fail()
 function checkAnswer() {
+  // метим классом selected элементы, которые выбрал юзер
   makeAGuess();
-  // очищение состояния - удаления класса selected у всех детей
-  // table.querySelectorAll('*').forEach(el => el.classList.remove('selected'));
-  // достать из объекта текущего уровня селектор-ответ
-  // let correctSelector = levels[currentLevel];
-  // console.log('answer: ' + correctSelector.answer);
-  // let correctEls = table.querySelectorAll(correctSelector.answer);  // Nodelist
-  // console.log(correctEls[0].classList)
-  // let guessEls = makeAGuess();  // возвращает NodeList с совпадениями
-  let result = false;
+  let result = null;
 
   // for (let i = 0; i < correctEls.length; i++) {
   //   correctEls[i].classList.toggle('selected');
@@ -63,7 +58,7 @@ function checkAnswer() {
   for (let j = 0; j < table.children.length; j++) {
     if (table.children[j].classList.contains('selected')) {
       // проверяем есть ли у детей с selected ещё и класс correct
-      if (table.children[j].classList.contains('correct')) {
+      if (table.children[j].classList.contains('correct') && result == null) {
         // если последний элемент проходит все проверки, то результат получается true, 
         // даже если другие эл. возвращали false - это баг, его надо пофиксить
         // можно попробовать чекать каждый элемент на корректность и составить массив ответов, 
@@ -79,7 +74,7 @@ function checkAnswer() {
 
   if (result === true) {
     win();
-    // очищаем состояние (возможно, стоит это вынести в отдельную функцию)
+    // очищаем состояние (возможно, стоит это вынести в отдельную функцию - clearState)
     table.querySelectorAll('*').forEach(el => el.classList.remove('selected'));
   } else if (result === false) {
     fail();
@@ -96,8 +91,6 @@ function addClassCorrect() {
 }
 
 
-
-
 let table = document.querySelector('#table');
 let markup = document.querySelector('#markup');
 // создаём объект с данными всех уровней и их состоянием
@@ -108,9 +101,11 @@ const levels = createLevels();
 // уровень можно переключать мышью (щелкая по его представлению в меню уровней)
 // уровень автоматически увеличивается после успешного прохождения текущего уровня
 // состояние уровней( =прогресс) можно обнулить нажав на кнопку сброса прогресса
-let currentLevel = 2;
+let currentLevel = 3;
+// мб иннеры тоже все в одну функцию стоит засунуть?
 table.innerHTML = levels[currentLevel].divTemplate;
 markup.innerHTML = levels[currentLevel].markupTemplate;
+taskField.innerHTML = levels[currentLevel].task;
 
 
 markup.addEventListener('mouseover', hovered);
@@ -127,6 +122,15 @@ function showMeAnswer() {
 let helpBtn = document.querySelector('#help_btn');
 helpBtn.addEventListener('click', showMeAnswer);
 
+
+addClassCorrect();
+// codeColor(document.getElementById("markup"));
 export { table, markup }
 
-addClassCorrect() 
+// подсветка кода (ниработает =( )
+// document.addEventListener('click', (event) => {
+//   document.querySelectorAll('markup').forEach((block) => {
+//     console.log('свечу')
+//     hljs.highlightBlock(block);
+//   });
+// });
