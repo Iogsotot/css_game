@@ -1,6 +1,4 @@
 export default function createLevels() {
-  // console.log('work')
-
   // чтобы добавить всю эту херобору на страницу: 
   // table.innerHTML = levels[1].divTemplate или markup.innerHTML = levels[1].markupTemplate
 
@@ -237,7 +235,7 @@ export default function createLevels() {
       <glass data-title="&lt;glass /&gt;"></glass>
       `;
       markup = `
-      &lt;div class="table"&gt;
+      &lt;div class='table'&gt;
         <glass>&lt;glass /&gt;</glass>
         <glass>&lt;glass /&gt;</glass>
         <glass>&lt;glass /&gt;</glass>
@@ -251,7 +249,7 @@ export default function createLevels() {
       <glass data-title="&lt;glass /&gt;"></glass>
       `;
       markup = `
-      &lt;div class="table"&gt;
+      &lt;div class='table'&gt;
         <glass>&lt;glass /&gt;</glass>
         <glass class="empty">&lt;glass class='empty' /&gt;</glass>
         <glass>&lt;glass /&gt;</glass>
@@ -265,7 +263,7 @@ export default function createLevels() {
       <vine class="white bubble" data-title="&lt;vine class='white bubble' /&gt;"></vine>
       `
       markup = `
-      &lt;div class="table"&gt;
+      &lt;div class='table'&gt;
         <vine class="white">&lt;vine class='white' /&gt;</vine>
         <vine class="red">&lt;vine class='red' /&gt;</vine>
         <vine class="white bubble">&lt;vine class='white bubble' /&gt;</vine>

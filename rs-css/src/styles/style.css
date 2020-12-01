@@ -428,8 +428,34 @@ main .wrapper {
 }
 
 .html-viewer .file-window {
+  position: relative;
   background-color: #201d18;
   color: #777777;
+}
+
+.html-viewer .file-window #colorMarkup {
+  position: absolute;
+  top: 0rem;
+  left: 0;
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding-left: 1rem;
+  padding-top: 1rem;
+  margin-left: 4.6rem;
+  line-height: 2.1rem;
+}
+
+.html-viewer .file-window #colorMarkup > span:first-of-type, .html-viewer .file-window #colorMarkup > span:last-of-type {
+  margin-left: -1rem;
 }
 
 .markup {
@@ -445,8 +471,11 @@ main .wrapper {
   height: fit-content;
   padding-left: 1rem;
   padding-top: 1rem;
+  font-family: Consolas, "Courier New", monospace;
   line-height: 2.1rem;
+  color: transparent;
   cursor: default;
+  z-index: 10;
 }
 
 .markup > * {
@@ -454,7 +483,8 @@ main .wrapper {
 }
 
 .markup > *.hover {
-  color: #999999;
+  color: black;
+  opacity: 0.5;
   -webkit-transition: all 150ms ease;
   transition: all 150ms ease;
 }

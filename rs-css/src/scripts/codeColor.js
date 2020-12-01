@@ -1,24 +1,25 @@
-// from w3School
+// export from w3School and modified by me
 
 export default function codeColor(elmnt, mode) {
   var lang = (mode || "html");
   var elmntObj = (document.getElementById(elmnt) || elmnt);
   var elmntTxt = elmntObj.innerHTML;
-  var tagcolor = "mediumblue";
-  var tagnamecolor = "brown";
-  var attributecolor = "red";
-  var attributevaluecolor = "mediumblue";
-  var commentcolor = "green";
-  var cssselectorcolor = "brown";
+  // < >
+  var tagcolor = "#ff2929";
+  var tagnamecolor = "#ffa7c4";
+  var attributecolor = "#34c450";
+  var attributevaluecolor = "#eca34f";
+  var commentcolor = "red";
+  var cssselectorcolor = "red";
   var csspropertycolor = "red";
-  var csspropertyvaluecolor = "mediumblue";
-  var cssdelimitercolor = "black";
+  var csspropertyvaluecolor = "red";
+  var cssdelimitercolor = "red";
   var cssimportantcolor = "red";
-  var jscolor = "black";
-  var jskeywordcolor = "mediumblue";
-  var jsstringcolor = "brown";
+  var jscolor = "red";
+  var jskeywordcolor = "red";
+  var jsstringcolor = "red";
   var jsnumbercolor = "red";
-  var jspropertycolor = "black";
+  var jspropertycolor = "red";
   elmntObj.style.fontFamily = "Consolas,'Courier New', monospace";
   if (!lang) { lang = "html"; }
   if (lang == "html") { elmntTxt = htmlMode(elmntTxt); }

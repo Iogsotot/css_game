@@ -93,6 +93,7 @@ function addClassCorrect() {
 
 let table = document.querySelector('#table');
 let markup = document.querySelector('#markup');
+let colorMarkup = document.querySelector('#colorMarkup');
 // создаём объект с данными всех уровней и их состоянием
 const levels = createLevels();
 
@@ -101,10 +102,11 @@ const levels = createLevels();
 // уровень можно переключать мышью (щелкая по его представлению в меню уровней)
 // уровень автоматически увеличивается после успешного прохождения текущего уровня
 // состояние уровней( =прогресс) можно обнулить нажав на кнопку сброса прогресса
-let currentLevel = 3;
+let currentLevel = 2;
 // мб иннеры тоже все в одну функцию стоит засунуть?
 table.innerHTML = levels[currentLevel].divTemplate;
 markup.innerHTML = levels[currentLevel].markupTemplate;
+colorMarkup.innerHTML = levels[currentLevel].markupTemplate;
 taskField.innerHTML = levels[currentLevel].task;
 
 
@@ -124,13 +126,14 @@ helpBtn.addEventListener('click', showMeAnswer);
 
 
 addClassCorrect();
-// codeColor(document.getElementById("markup"));
+
 export { table, markup }
 
-// подсветка кода (ниработает =( )
-// document.addEventListener('click', (event) => {
-//   document.querySelectorAll('markup').forEach((block) => {
-//     console.log('свечу')
-//     hljs.highlightBlock(block);
-//   });
-// });
+// подсветка кода 
+// как вариант - посчитать детей => получить таким образом все id для кода 
+// (можно лапками вбить, можно функцию назначения сделать)
+// итерироваться по детям и назначать им функцию с динамически 
+// подставляемым кодом (это вообще сработает?)
+codeColor(document.getElementById("colorMarkup"));
+// codeColor(document.getElementById("code2"));
+// codeColor(document.getElementById("code3"));

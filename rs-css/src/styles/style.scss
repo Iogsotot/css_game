@@ -396,8 +396,30 @@ main {
     color: $light-color;
   }
   .file-window {
+    position: relative;
     background-color: #201d18;
     color: $light-color;
+
+    #colorMarkup {
+      position: absolute;
+      top: 0rem;
+      left: 0;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      height: fit-content;
+
+      padding-left: 1rem;
+      padding-top: 1rem;
+      margin-left: 4.6rem;
+      // width: 500px;
+      // height: 500px;
+      line-height: 2.1rem;   
+
+      >span:first-of-type, >span:last-of-type {
+        margin-left: -1rem;
+      }
+    }
   }
 }
 .markup {
@@ -408,16 +430,22 @@ main {
   padding-left: 1rem;
   padding-top: 1rem;
 
+  font-family: Consolas, "Courier New", monospace;
   line-height: 2.1rem;
+  color: transparent;
 
   cursor: default;
+  z-index: 10;
 }
 .markup > * {
   padding-left: 1rem;
 }
 
 .markup > *.hover {
-  color: $medium-color;
+  // color: rgb(255, 255, 255);
+  // opacity: 0.6;
+  color: black;
+  opacity: 0.5;
   transition: all 150ms ease;
 }
 
