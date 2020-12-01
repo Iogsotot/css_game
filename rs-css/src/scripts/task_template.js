@@ -8,6 +8,7 @@ export default function createLevels() {
     1:
     {
       level: 1,
+      task: 'all glasses',
       isComplete: 'no',
       answer: 'glass',
       name: 'tag',
@@ -18,6 +19,7 @@ export default function createLevels() {
     2:
     {
       level: 2,
+      task: 'empty glasses', 
       isComplete: 'no',
       answer: '.empty',
       name: 'class',
@@ -28,6 +30,7 @@ export default function createLevels() {
     3:
     {
       level: 3,
+      task: 'white and bubble vine',
       isComplete: 'no',
       answer: '.white.bubble',
       name: 'several classes',
@@ -38,6 +41,7 @@ export default function createLevels() {
     4:
     {
       level: 4,
+      task: '',
       isComplete: 'no',
       answer: '',
       name: 'tag',
@@ -48,6 +52,7 @@ export default function createLevels() {
     5:
     {
       level: 5,
+      task: '',
       isComplete: 'no',
       answer: '',
       name: 'tag',
@@ -58,6 +63,7 @@ export default function createLevels() {
     6:
     {
       level: 6,
+      task: '',
       isComplete: 'no',
       answer: '',
       name: 'tag',
@@ -68,6 +74,7 @@ export default function createLevels() {
     7:
     {
       level: 7,
+      task: '',
       isComplete: 'no',
       answer: '',
       name: 'tag',
@@ -78,6 +85,7 @@ export default function createLevels() {
     8:
     {
       level: 8,
+      task: '',
       isComplete: 'no',
       answer: '',
       name: 'tag',
@@ -88,6 +96,7 @@ export default function createLevels() {
     9:
     {
       level: 9,
+      task: '',
       isComplete: 'no',
       answer: '',
       name: 'tag',
@@ -98,6 +107,7 @@ export default function createLevels() {
     10:
     {
       level: 10,
+      task: '',
       isComplete: 'no',
       answer: '',
       name: 'tag',
@@ -108,6 +118,7 @@ export default function createLevels() {
     11:
     {
       level: 11,
+      task: '',
       isComplete: 'no',
       answer: '',
       name: 'tag',
@@ -118,6 +129,7 @@ export default function createLevels() {
     12:
     {
       level: 12,
+      task: '',
       isComplete: 'no',
       answer: '',
       name: 'tag',
@@ -128,6 +140,7 @@ export default function createLevels() {
     13:
     {
       level: 13,
+      task: '',
       isComplete: 'no',
       answer: '',
       name: 'tag',
@@ -138,6 +151,7 @@ export default function createLevels() {
     14:
     {
       level: 14,
+      task: '',
       isComplete: 'no',
       answer: '',
       name: 'tag',
@@ -148,6 +162,7 @@ export default function createLevels() {
     15:
     {
       level: 15,
+      task: '',
       isComplete: 'no',
       answer: '',
       name: 'tag',
@@ -158,6 +173,7 @@ export default function createLevels() {
     16:
     {
       level: 16,
+      task: '',
       isComplete: 'no',
       answer: '',
       name: 'tag',
@@ -168,6 +184,7 @@ export default function createLevels() {
     17:
     {
       level: 17,
+      task: '',
       isComplete: 'no',
       answer: '',
       name: 'tag',
@@ -178,6 +195,7 @@ export default function createLevels() {
     18:
     {
       level: 18,
+      task: '',
       isComplete: 'no',
       answer: '',
       name: 'tag',
@@ -188,6 +206,7 @@ export default function createLevels() {
     19:
     {
       level: 19,
+      task: '',
       isComplete: 'no',
       answer: '',
       name: 'tag',
@@ -198,6 +217,7 @@ export default function createLevels() {
     20:
     {
       level: 20,
+      task: '',
       isComplete: 'no',
       answer: '',
       name: 'tag',

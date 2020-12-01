@@ -228,7 +228,8 @@ main {
       background-repeat: no-repeat;
       background-position: center;
       transition: none;
-
+    }
+    *.correct {
       animation: dance 2s linear infinite;
     }
     *.hover {

@@ -248,6 +248,9 @@ main .wrapper {
   background-position: center;
   -webkit-transition: none;
   transition: none;
+}
+
+.show-box .table *.correct {
   -webkit-animation: dance 2s linear infinite;
           animation: dance 2s linear infinite;
 }
