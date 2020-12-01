@@ -1,5 +1,6 @@
 import createLevels from './task_template.js';
 import { hovered, unhovered } from './setHoveredElements.js';
+import typewriterEffect from './typewriter.js';
 
 const cssInput = document.querySelector('input');
 const enterBtn = document.querySelector('#enter');
@@ -44,6 +45,7 @@ function makeAGuess() {
 
 // добавить сброс состояния после win() / fail()
 function checkAnswer() {
+  makeAGuess();
   // достать из объекта текущего уровня селектор-ответ
   let correctSelector = levels[currentLevel]
   // console.log('answer: ' + correctSelector.answer);
@@ -62,7 +64,7 @@ function checkAnswer() {
       result = true;
     }
   }
-  
+
   if (result === true) {
     win()
   } else if (result === false) {
@@ -84,11 +86,26 @@ let currentLevel = 3;
 table.innerHTML = levels[currentLevel].divTemplate;
 markup.innerHTML = levels[currentLevel].markupTemplate;
 
+
+
+
 markup.addEventListener('mouseover', hovered)
 markup.addEventListener('mouseout', unhovered)
 table.addEventListener('mouseover', hovered)
 table.addEventListener('mouseout', unhovered)
 
 enterBtn.addEventListener('click', checkAnswer);
+
+
+// typewriterEffect('input', levels[currentLevel].answer, 0);
+// typewriterEffect(selector, text, i)
+
+
+function showMeAnswer() {
+  typewriterEffect('input', `${levels[currentLevel].answer}`, 0)
+}
+
+let helpBtn = document.querySelector('#help_btn');
+helpBtn.addEventListener('click', showMeAnswer);
 
 export { table, markup }
