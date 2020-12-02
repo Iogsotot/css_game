@@ -1,5 +1,5 @@
 export default function createLevels() {
-  // чтобы добавить всю эту херобору на страницу: 
+  // чтобы добавить всю эту херобору на страницу:
   // table.innerHTML = levels[1].divTemplate или markup.innerHTML = levels[1].markupTemplate
 
   const levels = {
@@ -17,7 +17,7 @@ export default function createLevels() {
     2:
     {
       level: 2,
-      task: 'empty glasses', 
+      task: 'empty glasses',
       isComplete: 'no',
       answer: '.empty',
       name: 'class',
@@ -223,8 +223,10 @@ export default function createLevels() {
       divTemplate: createHTML(20, 'real'),
       markupTemplate: createHTML(20, 'show'),
     },
-  }
+  };
 
+  // eslint запутался и не понимает, что функция мне и возвращает value
+  // eslint-disable-next-line consistent-return
   function createHTML(level, showOrReal) {
     let HTML;
     let markup;
@@ -240,7 +242,7 @@ export default function createLevels() {
         <glass>&lt;glass /&gt;</glass>
         <glass>&lt;glass /&gt;</glass>
       &lt;/div&gt;
-      `
+      `;
     }
     if (level === 2) {
       HTML = `
@@ -254,177 +256,166 @@ export default function createLevels() {
         <glass class="empty">&lt;glass class='empty' /&gt;</glass>
         <glass>&lt;glass /&gt;</glass>
       &lt;/div&gt;
-      `
+      `;
     }
     if (level === 3) {
       HTML = `
       <vine class="white" data-title="&lt;vine class='white' /&gt;"></vine>
       <vine class="red" data-title="&lt;vine class='red' /&gt;"></vine>
       <vine class="white bubble" data-title="&lt;vine class='white bubble' /&gt;"></vine>
-      `
+      `;
       markup = `
       &lt;div class='table'&gt;
         <vine class="white">&lt;vine class='white' /&gt;</vine>
         <vine class="red">&lt;vine class='red' /&gt;</vine>
         <vine class="white bubble">&lt;vine class='white bubble' /&gt;</vine>
       &lt;/div&gt;
-      `
+      `;
     }
     if (level === 4) {
       HTML = `
 
-      `
+      `;
       markup = `
       
-      `
+      `;
     }
     if (level === 5) {
       HTML = `
 
-      `
+      `;
       markup = `
       
-      `
+      `;
     }
     if (level === 6) {
       HTML = `
 
-      `
+      `;
       markup = `
       
-      `
+      `;
     }
     if (level === 7) {
       HTML = `
 
-      `
+      `;
       markup = `
       
-      `
+      `;
     }
     if (level === 8) {
       HTML = `
 
-      `
+      `;
       markup = `
       
-      `
+      `;
     }
     if (level === 9) {
       HTML = `
 
-      `
+      `;
       markup = `
       
-      `
+      `;
     }
     if (level === 10) {
       HTML = `
 
-      `
+      `;
       markup = `
       
-      `
+      `;
     }
     if (level === 11) {
       HTML = `
 
-      `
+      `;
       markup = `
       
-      `
+      `;
     }
     if (level === 12) {
       HTML = `
 
-      `
+      `;
       markup = `
       
-      `
+      `;
     }
     if (level === 13) {
       HTML = `
 
-      `
+      `;
       markup = `
       
-      `
+      `;
     }
     if (level === 14) {
       HTML = `
 
-      `
+      `;
       markup = `
       
-      `
+      `;
     }
     if (level === 15) {
       HTML = `
 
-      `
+      `;
       markup = `
       
-      `
+      `;
     }
     if (level === 16) {
       HTML = `
 
-      `
+      `;
       markup = `
       
-      `
+      `;
     }
     if (level === 17) {
       HTML = `
 
-      `
+      `;
       markup = `
       
-      `
+      `;
     }
     if (level === 18) {
       HTML = `
 
-      `
+      `;
       markup = `
       
-      `
+      `;
     }
     if (level === 19) {
       HTML = `
 
-      `
+      `;
       markup = `
       
-      `
+      `;
     }
     if (level === 20) {
       HTML = `
 
-      `
+      `;
       markup = `
       
-      `
+      `;
     } else {
-      // console.log('Хьюстон, у нас проблемы'); 
+      // console.log('Хьюстон, у нас проблемы');
     }
 
     if (showOrReal === 'show') {
       return markup;
-    } else if (showOrReal === 'real') {
+    } if (showOrReal === 'real') {
       return HTML;
     }
   }
-  // console.log(levels)
   return levels;
 }
-
-
-// const level = {
-//   level: 1,
-//   isComplete: 'no',
-//   name: 'tag',
-//   theory: 'some theory 1',
-//   divTemplate: createHTML(1, 'real'),
-//   markupTemplate: createHTML(1, 'show'),
-// }

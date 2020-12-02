@@ -1,6 +1,6 @@
 export default function cssColor(el) {
   console.log(el);
-  let elObj = (document.getElementById(el) || el);
+  const elObj = (document.getElementById(el) || el);
   console.log(elObj.value);
   console.log(elObj.value.length);
   // elObj.style.color = "red";

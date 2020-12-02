@@ -1,17 +1,31 @@
 // import hljs from 'highlight.js';
 // import 'highlight.js/styles/github.css';
 import '../styles/style.scss';
-import createLevels from './task_template.js';
-import { hovered, unhovered } from './setHoveredElements.js';
-import typewriterEffect from './typewriter.js';
-import codeColor from './codeColor.js';
+import createLevels from './task_template';
+import { hovered, unhovered } from './setHoveredElements';
+import typewriterEffect from './typewriter';
+import codeColor from './codeColor';
 // import cssColor from './cssColor.js';
 
 const cssInput = document.querySelector('.css-input');
 const enterBtn = document.querySelector('#enter');
 let guessEls;
-let fileWindowEl = document.querySelector('.css-editor > .file-window');
-let taskField = document.querySelector('#task');
+const fileWindowEl = document.querySelector('.css-editor > .file-window');
+const taskField = document.querySelector('#task');
+
+const table = document.querySelector('#table');
+const markup = document.querySelector('#markup');
+const colorMarkup = document.querySelector('#colorMarkup');
+// создаём объект с данными всех уровней и их состоянием
+const levels = createLevels();
+
+// переписать добавление HTML в динамический вид
+// (в зависимости от уровня, на котором сейчас страница)
+// уровень можно переключать мышью (щелкая по его представлению в меню уровней)
+// уровень автоматически увеличивается после успешного прохождения текущего уровня
+// состояние уровней( =прогресс) можно обнулить нажав на кнопку сброса прогресса
+// eslint-disable-next-line prefer-const
+let currentLevel = 2;
 
 function clearState() {
   fileWindowEl.classList.remove('wrong');
@@ -25,12 +39,13 @@ function fail() {
 
 function win() {
   fileWindowEl.classList.add('win');
+  // eslint-disable-next-line no-alert
   alert('вы выиграли!');
   setTimeout(clearState, 900);
 }
 
 function makeAGuess() {
-  let selector = cssInput.value;
+  const selector = cssInput.value;
   try {
     // наводится на все эл. внутри table и ищет там selector
     guessEls = table.querySelectorAll(selector); // array or null
@@ -45,28 +60,19 @@ function makeAGuess() {
   for (let i = 0; i < guessEls.length; i++) {
     guessEls[i].classList.add('selected');
   }
-  console.log('guess: ' + guessEls);
+  console.log(`guess: ${guessEls}`);
   return guessEls;
 }
 
-// добавить сброс состояния после win() / fail()
 function checkAnswer() {
   // метим классом selected элементы, которые выбрал юзер
   makeAGuess();
   let result = null;
 
-  // for (let i = 0; i < correctEls.length; i++) {
-  //   correctEls[i].classList.toggle('selected');
-  // }
-
   for (let j = 0; j < table.children.length; j++) {
     if (table.children[j].classList.contains('selected')) {
       // проверяем есть ли у детей с selected ещё и класс correct
       if (table.children[j].classList.contains('correct') && result == null) {
-        // если последний элемент проходит все проверки, то результат получается true,
-        // даже если другие эл. возвращали false - это баг, его надо пофиксить
-        // можно попробовать чекать каждый элемент на корректность и составить массив ответов,
-        // который потом проверять на наличие false
         result = true;
       } else {
         result = false;
@@ -79,40 +85,26 @@ function checkAnswer() {
   if (result === true) {
     win();
     // очищаем состояние (возможно, стоит это вынести в отдельную функцию - clearState)
-    table.querySelectorAll('*').forEach(el => el.classList.remove('selected'));
+    table.querySelectorAll('*').forEach((el) => el.classList.remove('selected'));
   } else if (result === false) {
     fail();
-    table.querySelectorAll('*').forEach(el => el.classList.remove('selected'));
+    table.querySelectorAll('*').forEach((el) => el.classList.remove('selected'));
   }
 }
 
 function addClassCorrect() {
-  let correctSelector = levels[currentLevel].answer;
-  let correctEls  = table.querySelectorAll(correctSelector);
+  const correctSelector = levels[currentLevel].answer;
+  const correctEls = table.querySelectorAll(correctSelector);
   for (let i = 0; i < correctEls.length; i++) {
     correctEls[i].classList.add('correct');
   }
 }
 
-
-let table = document.querySelector('#table');
-let markup = document.querySelector('#markup');
-let colorMarkup = document.querySelector('#colorMarkup');
-// создаём объект с данными всех уровней и их состоянием
-const levels = createLevels();
-
-// console.log(levels)
-// переписать добавление HTML в динамический вид (в зависимости от уровня, на котором сейчас страница)
-// уровень можно переключать мышью (щелкая по его представлению в меню уровней)
-// уровень автоматически увеличивается после успешного прохождения текущего уровня
-// состояние уровней( =прогресс) можно обнулить нажав на кнопку сброса прогресса
-let currentLevel = 2;
 // мб иннеры тоже все в одну функцию стоит засунуть?
 table.innerHTML = levels[currentLevel].divTemplate;
 markup.innerHTML = levels[currentLevel].markupTemplate;
 colorMarkup.innerHTML = levels[currentLevel].markupTemplate;
 taskField.innerHTML = levels[currentLevel].task;
-
 
 markup.addEventListener('mouseover', hovered);
 markup.addEventListener('mouseout', unhovered);
@@ -120,38 +112,32 @@ table.addEventListener('mouseover', hovered);
 table.addEventListener('mouseout', unhovered);
 enterBtn.addEventListener('click', checkAnswer);
 
-
 function showMeAnswer() {
-  cssInput.style.opacity = "1";
-  inputColor.innerHTML = '';
+  cssInput.style.opacity = '1';
+  // inputColor.innerHTML = '';
   typewriterEffect('#input', `${levels[currentLevel].answer}`, 0);
 }
 
 function colorInput() {
-  cssInput.style.opacity = "0";
-  inputColor.innerHTML = '';
-  inputColor.innerHTML = cssInput.value;
+  cssInput.style.opacity = '0';
+  // inputColor.innerHTML = '';
+  // inputColor.innerHTML = cssInput.value;
   // console.log(inputColor.innerHTML);
-  codeColor(document.getElementById("inputColor"), 'css');
+  codeColor(document.getElementById('inputColor'), 'css');
 }
 
 // возможно есть вариант переписать лисенер на перезапуск функции при каждом
 // нажатии клавиши и/или каждом изменении длины .value
 cssInput.addEventListener('change', colorInput);
 
-
-let helpBtn = document.querySelector('#help_btn');
+const helpBtn = document.querySelector('#help_btn');
 helpBtn.addEventListener('click', showMeAnswer);
-
 
 addClassCorrect();
 
-export { table, markup, colorInput }
+// экспортируем всякую фигню, которая потом нигде не работает
+export { table, markup, colorInput };
 
 // подсветка кода
-// как вариант - посчитать детей => получить таким образом все id для кода
-// (можно лапками вбить, можно функцию назначения сделать)
-// итерироваться по детям и назначать им функцию с динамически
-// подставляемым кодом (это вообще сработает?)
-codeColor(document.getElementById("colorMarkup"));
+codeColor(document.getElementById('colorMarkup'));
 // hljs.initHighlightingOnLoad();

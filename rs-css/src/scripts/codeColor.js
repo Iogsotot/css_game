@@ -1,37 +1,40 @@
+/* eslint-disable */
 // export from w3School and modified by me
 
+
 export default function codeColor(elmnt, mode) {
-  var lang = (mode || "html");
-  var elmntObj = (document.getElementById(elmnt) || elmnt);
-  var elmntTxt = elmntObj.innerHTML;
+  let lang = (mode || 'html');
+  const elmntObj = (document.getElementById(elmnt) || elmnt);
+  let elmntTxt = elmntObj.innerHTML;
   // < >
-  var tagcolor = "#ff2929";
-  var tagnamecolor = "#ffa7c4";
-  var attributecolor = "#34c450";
-  var attributevaluecolor = "#eca34f";
-  var commentcolor = "grey";
+  const tagcolor = 'purple';
+  const tagnamecolor = '#ffa7c4';
+  const attributecolor = '#34c450';
+  const attributevaluecolor = '#eca34f';
+  const commentcolor = 'grey';
 
-  var cssselectorcolor = "#228eb3";
-  var csspropertycolor = "red";
-  var csspropertyvaluecolor = "red";
+  const cssselectorcolor = '#228eb3';
+  const csspropertycolor = 'red';
+  const csspropertyvaluecolor = 'red';
   // { }
-  var cssdelimitercolor = "yellow";
-  var cssimportantcolor = "red";
+  const cssdelimitercolor = 'yellow';
+  const cssimportantcolor = 'red';
 
-  var jscolor = "red";
-  var jskeywordcolor = "red";
-  var jsstringcolor = "red";
-  var jsnumbercolor = "red";
-  var jspropertycolor = "red";
+  const jscolor = 'red';
+  const jskeywordcolor = 'red';
+  const jsstringcolor = 'red';
+  const jsnumbercolor = 'red';
+  const jspropertycolor = 'red';
   elmntObj.style.fontFamily = "Consolas,'Courier New', monospace";
-  if (!lang) { lang = "html"; }
-  if (lang == "html") { elmntTxt = htmlMode(elmntTxt); }
-  if (lang == "css") { elmntTxt = cssMode(elmntTxt); }
-  if (lang == "js") { elmntTxt = jsMode(elmntTxt); }
+  if (!lang) { lang = 'html'; }
+  if (lang === 'html') { elmntTxt = htmlMode(elmntTxt); }
+  if (lang === 'css') { elmntTxt = cssMode(elmntTxt); }
+  if (lang === 'js') { elmntTxt = jsMode(elmntTxt); }
   elmntObj.innerHTML = elmntTxt;
 
   function extract(str, start, end, func, repl) {
-    var s, e, d = "", a = [];
+    let s; let e; let d = ''; const
+      a = [];
     while (str.search(start) > -1) {
       s = str.search(start);
       e = str.indexOf(end, s);
@@ -49,28 +52,29 @@ export default function codeColor(elmnt, mode) {
     this.arr = a;
   }
   function htmlMode(txt) {
-    var rest = txt, done = "", php, comment, angular, startpos, endpos, note, i;
-    comment = new extract(rest, "&lt;!--", "--&gt;", commentMode, "W3HTMLCOMMENTPOS");
+    let rest = txt; let done = ''; let php; let comment; let angular; let startpos; let endpos; let note; let
+      i;
+    comment = new extract(rest, '&lt;!--', '--&gt;', commentMode, 'W3HTMLCOMMENTPOS');
     rest = comment.rest;
-    while (rest.indexOf("&lt;") > -1) {
-      note = "";
-      startpos = rest.indexOf("&lt;");
-      if (rest.substr(startpos, 9).toUpperCase() == "&LT;STYLE") { note = "css"; }
-      if (rest.substr(startpos, 10).toUpperCase() == "&LT;SCRIPT") { note = "javascript"; }
-      endpos = rest.indexOf("&gt;", startpos);
+    while (rest.indexOf('&lt;') > -1) {
+      note = '';
+      startpos = rest.indexOf('&lt;');
+      if (rest.substr(startpos, 9).toUpperCase() == '&LT;STYLE') { note = 'css'; }
+      if (rest.substr(startpos, 10).toUpperCase() == '&LT;SCRIPT') { note = 'javascript'; }
+      endpos = rest.indexOf('&gt;', startpos);
       if (endpos == -1) { endpos = rest.length; }
       done += rest.substring(0, startpos);
       done += tagMode(rest.substring(startpos, endpos + 4));
       rest = rest.substr(endpos + 4);
-      if (note == "css") {
-        endpos = rest.indexOf("&lt;/style&gt;");
+      if (note == 'css') {
+        endpos = rest.indexOf('&lt;/style&gt;');
         if (endpos > -1) {
           done += cssMode(rest.substring(0, endpos));
           rest = rest.substr(endpos);
         }
       }
-      if (note == "javascript") {
-        endpos = rest.indexOf("&lt;/script&gt;");
+      if (note == 'javascript') {
+        endpos = rest.indexOf('&lt;/script&gt;');
         if (endpos > -1) {
           done += jsMode(rest.substring(0, endpos));
           rest = rest.substr(endpos);
@@ -79,37 +83,39 @@ export default function codeColor(elmnt, mode) {
     }
     rest = done + rest;
     for (i = 0; i < comment.arr.length; i++) {
-      rest = rest.replace("W3HTMLCOMMENTPOS", comment.arr[i]);
+      rest = rest.replace('W3HTMLCOMMENTPOS', comment.arr[i]);
     }
     return rest;
   }
   function tagMode(txt) {
-    var rest = txt, done = "", startpos, endpos, result;
+    let rest = txt; let done = ''; let startpos; let endpos; let
+      result;
     while (rest.search(/(\s|<br>)/) > -1) {
       startpos = rest.search(/(\s|<br>)/);
-      endpos = rest.indexOf("&gt;");
+      endpos = rest.indexOf('&gt;');
       if (endpos == -1) { endpos = rest.length; }
       done += rest.substring(0, startpos);
       done += attributeMode(rest.substring(startpos, endpos));
       rest = rest.substr(endpos);
     }
     result = done + rest;
-    result = "<span style=color:" + tagcolor + ">&lt;</span>" + result.substring(4);
-    if (result.substr(result.length - 4, 4) == "&gt;") {
-      result = result.substring(0, result.length - 4) + "<span style=color:" + tagcolor + ">&gt;</span>";
+    result = `<span style=color:${tagcolor}>&lt;</span>${result.substring(4)}`;
+    if (result.substr(result.length - 4, 4) == '&gt;') {
+      result = `${result.substring(0, result.length - 4)}<span style=color:${tagcolor}>&gt;</span>`;
     }
-    return "<span style=color:" + tagnamecolor + ">" + result + "</span>";
+    return `<span style=color:${tagnamecolor}>${result}</span>`;
   }
   function attributeMode(txt) {
-    var rest = txt, done = "", startpos, endpos, singlefnuttpos, doublefnuttpos, spacepos;
-    while (rest.indexOf("=") > -1) {
+    let rest = txt; let done = ''; let startpos; let endpos; let singlefnuttpos; let doublefnuttpos; let
+      spacepos;
+    while (rest.indexOf('=') > -1) {
       endpos = -1;
-      startpos = rest.indexOf("=");
+      startpos = rest.indexOf('=');
       singlefnuttpos = rest.indexOf("'", startpos);
       doublefnuttpos = rest.indexOf('"', startpos);
-      spacepos = rest.indexOf(" ", startpos + 2);
+      spacepos = rest.indexOf(' ', startpos + 2);
       if (spacepos > -1 && (spacepos < singlefnuttpos || singlefnuttpos == -1) && (spacepos < doublefnuttpos || doublefnuttpos == -1)) {
-        endpos = rest.indexOf(" ", startpos);
+        endpos = rest.indexOf(' ', startpos);
       } else if (doublefnuttpos > -1 && (doublefnuttpos < singlefnuttpos || singlefnuttpos == -1) && (doublefnuttpos < spacepos || spacepos == -1)) {
         endpos = rest.indexOf('"', rest.indexOf('"', startpos) + 1);
       } else if (singlefnuttpos > -1 && (singlefnuttpos < doublefnuttpos || doublefnuttpos == -1) && (singlefnuttpos < spacepos || spacepos == -1)) {
@@ -120,32 +126,33 @@ export default function codeColor(elmnt, mode) {
       done += attributeValueMode(rest.substring(startpos, endpos + 1));
       rest = rest.substr(endpos + 1);
     }
-    return "<span style=color:" + attributecolor + ">" + done + rest + "</span>";
+    return `<span style=color:${attributecolor}>${done}${rest}</span>`;
   }
   function attributeValueMode(txt) {
-    return "<span style=color:" + attributevaluecolor + ">" + txt + "</span>";
+    return `<span style=color:${attributevaluecolor}>${txt}</span>`;
   }
   function commentMode(txt) {
-    return "<span style=color:" + commentcolor + ">" + txt + "</span>";
+    return `<span style=color:${commentcolor}>${txt}</span>`;
   }
   function cssMode(txt) {
-    var rest = txt, done = "", s, e, comment, i, midz, c, cc;
-    comment = new extract(rest, /\/\*/, "*/", commentMode, "W3CSSCOMMENTPOS");
+    let rest = txt; let done = ''; let s; let e; let comment; let i; let midz; let c; let
+      cc;
+    comment = new extract(rest, /\/\*/, '*/', commentMode, 'W3CSSCOMMENTPOS');
     rest = comment.rest;
-    while (rest.search("{") > -1) {
-      s = rest.search("{");
+    while (rest.search('{') > -1) {
+      s = rest.search('{');
       midz = rest.substr(s + 1);
       cc = 1;
       c = 0;
       for (i = 0; i < midz.length; i++) {
-        if (midz.substr(i, 1) == "{") { cc++; c++ }
-        if (midz.substr(i, 1) == "}") { cc--; }
+        if (midz.substr(i, 1) == '{') { cc++; c++; }
+        if (midz.substr(i, 1) == '}') { cc--; }
         if (cc == 0) { break; }
       }
       if (cc != 0) { c = 0; }
       e = s;
       for (i = 0; i <= c; i++) {
-        e = rest.indexOf("}", e + 1);
+        e = rest.indexOf('}', e + 1);
       }
       if (e == -1) { e = rest.length; }
       done += rest.substring(0, s + 1);
@@ -153,24 +160,25 @@ export default function codeColor(elmnt, mode) {
       rest = rest.substr(e);
     }
     rest = done + rest;
-    rest = rest.replace(/{/g, "<span style=color:" + cssdelimitercolor + ">{</span>");
-    rest = rest.replace(/}/g, "<span style=color:" + cssdelimitercolor + ">}</span>");
+    rest = rest.replace(/{/g, `<span style=color:${cssdelimitercolor}>{</span>`);
+    rest = rest.replace(/}/g, `<span style=color:${cssdelimitercolor}>}</span>`);
     for (i = 0; i < comment.arr.length; i++) {
-      rest = rest.replace("W3CSSCOMMENTPOS", comment.arr[i]);
+      rest = rest.replace('W3CSSCOMMENTPOS', comment.arr[i]);
     }
-    return "<span style=color:" + cssselectorcolor + ">" + rest + "</span>";
+    return `<span style=color:${cssselectorcolor}>${rest}</span>`;
   }
   function cssPropertyMode(txt) {
-    var rest = txt, done = "", s, e, n, loop;
-    if (rest.indexOf("{") > -1) { return cssMode(rest); }
-    while (rest.search(":") > -1) {
-      s = rest.search(":");
+    let rest = txt; let done = ''; let s; let e; let n; let
+      loop;
+    if (rest.indexOf('{') > -1) { return cssMode(rest); }
+    while (rest.search(':') > -1) {
+      s = rest.search(':');
       loop = true;
       n = s;
       while (loop == true) {
         loop = false;
-        e = rest.indexOf(";", n);
-        if (rest.substring(e - 5, e + 1) == "&nbsp;") {
+        e = rest.indexOf(';', n);
+        if (rest.substring(e - 5, e + 1) == '&nbsp;') {
           loop = true;
           n = e + 1;
         }
@@ -180,11 +188,12 @@ export default function codeColor(elmnt, mode) {
       done += cssPropertyValueMode(rest.substring(s, e + 1));
       rest = rest.substr(e + 1);
     }
-    return "<span style=color:" + csspropertycolor + ">" + done + rest + "</span>";
+    return `<span style=color:${csspropertycolor}>${done}${rest}</span>`;
   }
   function cssPropertyValueMode(txt) {
-    var rest = txt, done = "", s;
-    rest = "<span style=color:" + cssdelimitercolor + ">:</span>" + rest.substring(1);
+    let rest = txt; let done = ''; let
+      s;
+    rest = `<span style=color:${cssdelimitercolor}>:</span>${rest.substring(1)}`;
     while (rest.search(/!important/i) > -1) {
       s = rest.search(/!important/i);
       done += rest.substring(0, s);
@@ -192,21 +201,22 @@ export default function codeColor(elmnt, mode) {
       rest = rest.substr(s + 10);
     }
     result = done + rest;
-    if (result.substr(result.length - 1, 1) == ";" && result.substr(result.length - 6, 6) != "&nbsp;" && result.substr(result.length - 4, 4) != "&lt;" && result.substr(result.length - 4, 4) != "&gt;" && result.substr(result.length - 5, 5) != "&amp;") {
-      result = result.substring(0, result.length - 1) + "<span style=color:" + cssdelimitercolor + ">;</span>";
+    if (result.substr(result.length - 1, 1) == ';' && result.substr(result.length - 6, 6) != '&nbsp;' && result.substr(result.length - 4, 4) != '&lt;' && result.substr(result.length - 4, 4) != '&gt;' && result.substr(result.length - 5, 5) != '&amp;') {
+      result = `${result.substring(0, result.length - 1)}<span style=color:${cssdelimitercolor}>;</span>`;
     }
-    return "<span style=color:" + csspropertyvaluecolor + ">" + result + "</span>";
+    return `<span style=color:${csspropertyvaluecolor}>${result}</span>`;
   }
   function cssImportantMode(txt) {
-    return "<span style=color:" + cssimportantcolor + ";font-weight:bold;>" + txt + "</span>";
+    return `<span style=color:${cssimportantcolor};font-weight:bold;>${txt}</span>`;
   }
   function jsMode(txt) {
-    var rest = txt, done = "", esc = [], i, cc, tt = "", sfnuttpos, dfnuttpos, compos, comlinepos, keywordpos, numpos, mypos, dotpos, y;
+    let rest = txt; let done = ''; const esc = []; let i; let cc; let tt = ''; let sfnuttpos; let dfnuttpos; let compos; let comlinepos; let keywordpos; let numpos; let mypos; let dotpos; let
+      y;
     for (i = 0; i < rest.length; i++) {
       cc = rest.substr(i, 1);
-      if (cc == "\\") {
+      if (cc == '\\') {
         esc.push(rest.substr(i, 2));
-        cc = "W3JSESCAPE";
+        cc = 'W3JSESCAPE';
         i++;
       }
       tt += cc;
@@ -216,10 +226,10 @@ export default function codeColor(elmnt, mode) {
     while (y == 1) {
       sfnuttpos = getPos(rest, "'", "'", jsStringMode);
       dfnuttpos = getPos(rest, '"', '"', jsStringMode);
-      compos = getPos(rest, /\/\*/, "*/", commentMode);
-      comlinepos = getPos(rest, /\/\//, "<br>", commentMode);
+      compos = getPos(rest, /\/\*/, '*/', commentMode);
+      comlinepos = getPos(rest, /\/\//, '<br>', commentMode);
       numpos = getNumPos(rest, jsNumberMode);
-      keywordpos = getKeywordPos("js", rest, jsKeywordMode);
+      keywordpos = getKeywordPos('js', rest, jsKeywordMode);
       dotpos = getDotPos(rest, jsPropertyMode);
       if (Math.max(numpos[0], sfnuttpos[0], dfnuttpos[0], compos[0], comlinepos[0], keywordpos[0], dotpos[0]) == -1) { break; }
       mypos = getMinPos(numpos, sfnuttpos, dfnuttpos, compos, comlinepos, keywordpos, dotpos);
@@ -232,25 +242,26 @@ export default function codeColor(elmnt, mode) {
     }
     rest = done + rest;
     for (i = 0; i < esc.length; i++) {
-      rest = rest.replace("W3JSESCAPE", esc[i]);
+      rest = rest.replace('W3JSESCAPE', esc[i]);
     }
-    return "<span style=color:" + jscolor + ">" + rest + "</span>";
+    return `<span style=color:${jscolor}>${rest}</span>`;
   }
   function jsStringMode(txt) {
-    return "<span style=color:" + jsstringcolor + ">" + txt + "</span>";
+    return `<span style=color:${jsstringcolor}>${txt}</span>`;
   }
   function jsKeywordMode(txt) {
-    return "<span style=color:" + jskeywordcolor + ">" + txt + "</span>";
+    return `<span style=color:${jskeywordcolor}>${txt}</span>`;
   }
   function jsNumberMode(txt) {
-    return "<span style=color:" + jsnumbercolor + ">" + txt + "</span>";
+    return `<span style=color:${jsnumbercolor}>${txt}</span>`;
   }
   function jsPropertyMode(txt) {
-    return "<span style=color:" + jspropertycolor + ">" + txt + "</span>";
+    return `<span style=color:${jspropertycolor}>${txt}</span>`;
   }
   function getDotPos(txt, func) {
-    var x, i, j, s, e, arr = [".", "<", " ", ";", "(", "+", ")", "[", "]", ",", "&", ":", "{", "}", "/", "-", "*", "|", "%"];
-    s = txt.indexOf(".");
+    let x; let i; let j; let s; let e; const
+      arr = ['.', '<', ' ', ';', '(', '+', ')', '[', ']', ',', '&', ':', '{', '}', '/', '-', '*', '|', '%'];
+    s = txt.indexOf('.');
     if (s > -1) {
       x = txt.substr(s + 1);
       for (j = 0; j < x.length; j++) {
@@ -266,7 +277,8 @@ export default function codeColor(elmnt, mode) {
     return [-1, -1, func];
   }
   function getMinPos() {
-    var i, arr = [];
+    let i; let
+      arr = [];
     for (i = 0; i < arguments.length; i++) {
       if (arguments[i][0] > -1) {
         if (arr.length == 0 || arguments[i][0] < arr[0]) { arr = arguments[i]; }
@@ -276,12 +288,13 @@ export default function codeColor(elmnt, mode) {
     return arr;
   }
   function getKeywordPos(typ, txt, func) {
-    var words, i, pos, rpos = -1, rpos2 = -1, patt;
-    if (typ == "js") {
-      words = ["abstract", "arguments", "boolean", "break", "byte", "case", "catch", "char", "class", "const", "continue", "debugger", "default", "delete",
-        "do", "double", "else", "enum", "eval", "export", "extends", "false", "final", "finally", "float", "for", "function", "goto", "if", "implements", "import",
-        "in", "instanceof", "int", "interface", "let", "long", "NaN", "native", "new", "null", "package", "private", "protected", "public", "return", "short", "static",
-        "super", "switch", "synchronized", "this", "throw", "throws", "transient", "true", "try", "typeof", "var", "void", "volatile", "while", "with", "yield"];
+    let words; let i; let pos; let rpos = -1; let rpos2 = -1; let
+      patt;
+    if (typ == 'js') {
+      words = ['abstract', 'arguments', 'boolean', 'break', 'byte', 'case', 'catch', 'char', 'class', 'const', 'continue', 'debugger', 'default', 'delete',
+        'do', 'double', 'else', 'enum', 'eval', 'export', 'extends', 'false', 'final', 'finally', 'float', 'for', 'function', 'goto', 'if', 'implements', 'import',
+        'in', 'instanceof', 'int', 'interface', 'let', 'long', 'NaN', 'native', 'new', 'null', 'package', 'private', 'protected', 'public', 'return', 'short', 'static',
+        'super', 'switch', 'synchronized', 'this', 'throw', 'throws', 'transient', 'true', 'try', 'typeof', 'var', 'void', 'volatile', 'while', 'with', 'yield'];
     }
     for (i = 0; i < words.length; i++) {
       pos = txt.indexOf(words[i]);
@@ -298,19 +311,21 @@ export default function codeColor(elmnt, mode) {
     return [rpos, rpos2, func];
   }
   function getPos(txt, start, end, func) {
-    var s, e;
+    let s; let
+      e;
     s = txt.search(start);
     e = txt.indexOf(end, s + (end.length));
     if (e == -1) { e = txt.length; }
     return [s, e + (end.length), func];
   }
   function getNumPos(txt, func) {
-    var arr = ["<br>", " ", ";", "(", "+", ")", "[", "]", ",", "&", ":", "{", "}", "/", "-", "*", "|", "%", "="], i, j, c, startpos = 0, endpos, word;
+    const arr = ['<br>', ' ', ';', '(', '+', ')', '[', ']', ',', '&', ':', '{', '}', '/', '-', '*', '|', '%', '=']; let i; let j; let c; let startpos = 0; let endpos; let
+      word;
     for (i = 0; i < txt.length; i++) {
       for (j = 0; j < arr.length; j++) {
         c = txt.substr(i, arr[j].length);
         if (c == arr[j]) {
-          if (c == "-" && (txt.substr(i - 1, 1) == "e" || txt.substr(i - 1, 1) == "E")) {
+          if (c == '-' && (txt.substr(i - 1, 1) == 'e' || txt.substr(i - 1, 1) == 'E')) {
             continue;
           }
           endpos = i;
