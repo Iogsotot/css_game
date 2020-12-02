@@ -88,6 +88,7 @@ const config = {
           options: {
             outputPath: 'assets/imgs',
             name: '[name].[ext]',
+            esModule: false,
           },
         },
         {

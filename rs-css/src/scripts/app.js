@@ -1,4 +1,6 @@
 // import hljs from 'highlight.js';
+// import 'highlight.js/styles/github.css';
+import '../styles/style.scss';
 import createLevels from './task_template.js';
 import { hovered, unhovered } from './setHoveredElements.js';
 import typewriterEffect from './typewriter.js';
@@ -152,4 +154,4 @@ export { table, markup, colorInput }
 // итерироваться по детям и назначать им функцию с динамически
 // подставляемым кодом (это вообще сработает?)
 codeColor(document.getElementById("colorMarkup"));
-hljs.initHighlightingOnLoad();
+// hljs.initHighlightingOnLoad();
