@@ -3,7 +3,7 @@ import { hovered, unhovered } from './setHoveredElements.js';
 import typewriterEffect from './typewriter.js';
 import codeColor from './codeColor.js';
 // import cssColor from './cssColor.js';
-// import hljs from '../../node_modules/highlight.js/lib/highlight.js';
+import hljs from '../../node_modules/highlight.js/lib/highlight.js';
 
 const cssInput = document.querySelector('.css-input');
 const enterBtn = document.querySelector('#enter');
