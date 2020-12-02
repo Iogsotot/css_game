@@ -7,9 +7,10 @@
 
 // text
 $lightest-color: rgba(255, 255, 255, 0.8);
-$light-color: #777777;
-$medium-color: #999999;
+$light-color: #999999;
+$medium-color: #777777;
 $medium-color-disabled: #aaaaaa;
+$dark-color: #666;
 
 // bg, border
 $main-darkest: rgba(34, 30, 24, 0.8);
@@ -27,6 +28,7 @@ html {
   color: $lightest-color;
 }
 body {
+  position: relative;
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: auto auto auto;
@@ -159,6 +161,103 @@ header {
 // .levels-list {
 // }
 // Header End
+
+// Aside levels Start
+
+aside.levels {
+  display: flex;
+  flex-direction: column;
+  // justify-content: stretch;
+  // justify-items: start;
+  align-items: flex-start;
+  align-content: center;
+
+  position: absolute;
+  right: 0;
+  top: 0;
+  min-width: 37rem;
+  
+  border: 0px solid transparent;
+  border-radius: 0 0 0 2rem;
+  background-color: rgba(34, 30, 24, 1);
+  z-index: 20;
+
+  .levels__block {
+    // display: none;
+    font-size: 2.2rem;
+    padding: 1rem 1rem 1rem 2rem;
+  }
+
+  .levels__list {
+    width: 100%;
+    list-style: none;
+    color: $medium-color;
+
+    * {
+      transition: all 200ms ease;
+    }
+    
+  }
+  .progress-bar {
+    height: 3px;
+    background-color: green;
+    width: 0%;
+  }
+  .level__item {
+    width: 100%;
+    padding: 0.7rem 1.2rem 0.5rem 1.5rem;
+    
+    font-size: 1.6rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $main-dark;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    &:hover .check-mark--mini {
+      opacity: 0.6;
+    } 
+  }
+  .check-mark--mini {
+    height: 1.5rem;
+    width: 0.7rem;
+
+    margin-right: 1rem;
+    opacity: 0.2;
+  }
+  .level__number {
+    display: inline-block;
+    width: 1.7rem;
+    opacity: 0.6;
+  }
+  .level__name {
+    margin-left: 1rem;
+  }
+
+  .reset-progress {
+    align-self: center;
+
+    margin: 3rem 0 4rem 0;
+
+    border: 2px solid $medium-color;
+    background-color: $main-light;
+
+    &:hover {
+      background-color: darkred;
+      border-color: rgb(189, 39, 39);
+    }
+  }
+
+
+}
+
+
+.anyClass.anyClass.anyClass {}
+// Aside levels End
+
+
+
 
 // Main Start
 main {
@@ -419,12 +518,12 @@ main {
 .html-viewer {
   .line-numbers {
     background-color: #201d18;
-    color: $light-color;
+    color: $medium-color;
   }
   .file-window {
     // position: relative;
     background-color: #201d18;
-    color: $light-color;
+    color: $medium-color;
 
     #colorMarkup {
       position: absolute;

@@ -14,6 +14,7 @@ html {
 }
 
 body {
+  position: relative;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: auto;
@@ -161,6 +162,98 @@ header .wrapper {
   font-size: 2rem;
   line-height: 2rem;
   border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+aside.levels {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  min-width: 37rem;
+  border: 0px solid transparent;
+  border-radius: 0 0 0 2rem;
+  background-color: #221e18;
+  z-index: 20;
+}
+
+aside.levels .levels__block {
+  font-size: 2.2rem;
+  padding: 1rem 1rem 1rem 2rem;
+}
+
+aside.levels .levels__list {
+  width: 100%;
+  list-style: none;
+  color: #777777;
+}
+
+aside.levels .levels__list * {
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+
+aside.levels .progress-bar {
+  height: 3px;
+  background-color: green;
+  width: 0%;
+}
+
+aside.levels .level__item {
+  width: 100%;
+  padding: 0.7rem 1.2rem 0.5rem 1.5rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+aside.levels .level__item:hover {
+  background-color: #2e2a23;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+aside.levels .level__item:hover .check-mark--mini {
+  opacity: 0.6;
+}
+
+aside.levels .check-mark--mini {
+  height: 1.5rem;
+  width: 0.7rem;
+  margin-right: 1rem;
+  opacity: 0.2;
+}
+
+aside.levels .level__number {
+  display: inline-block;
+  width: 1.7rem;
+  opacity: 0.6;
+}
+
+aside.levels .level__name {
+  margin-left: 1rem;
+}
+
+aside.levels .reset-progress {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin: 3rem 0 4rem 0;
+  border: 2px solid #777777;
+  background-color: #27241e;
+}
+
+aside.levels .reset-progress:hover {
+  background-color: darkred;
+  border-color: #bd2727;
 }
 
 main {
