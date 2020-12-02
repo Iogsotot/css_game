@@ -1,9 +1,9 @@
+// import hljs from 'highlight.js';
 import createLevels from './task_template.js';
 import { hovered, unhovered } from './setHoveredElements.js';
 import typewriterEffect from './typewriter.js';
 import codeColor from './codeColor.js';
 // import cssColor from './cssColor.js';
-import hljs from '../../node_modules/highlight.js/lib/highlight.js';
 
 const cssInput = document.querySelector('.css-input');
 const enterBtn = document.querySelector('#enter');
@@ -31,7 +31,7 @@ function makeAGuess() {
   let selector = cssInput.value;
   try {
     // наводится на все эл. внутри table и ищет там selector
-    guessEls = table.querySelectorAll(selector);  // array or null
+    guessEls = table.querySelectorAll(selector); // array or null
   } catch (error) {
     console.log('invalid property in input');
     fail();
@@ -43,7 +43,7 @@ function makeAGuess() {
   for (let i = 0; i < guessEls.length; i++) {
     guessEls[i].classList.add('selected');
   }
-  console.log('guess: ' + guessEls)
+  console.log('guess: ' + guessEls);
   return guessEls;
 }
 
@@ -61,9 +61,9 @@ function checkAnswer() {
     if (table.children[j].classList.contains('selected')) {
       // проверяем есть ли у детей с selected ещё и класс correct
       if (table.children[j].classList.contains('correct') && result == null) {
-        // если последний элемент проходит все проверки, то результат получается true, 
+        // если последний элемент проходит все проверки, то результат получается true,
         // даже если другие эл. возвращали false - это баг, его надо пофиксить
-        // можно попробовать чекать каждый элемент на корректность и составить массив ответов, 
+        // можно попробовать чекать каждый элемент на корректность и составить массив ответов,
         // который потом проверять на наличие false
         result = true;
       } else {
@@ -71,7 +71,7 @@ function checkAnswer() {
       }
     } else if (table.children[j].classList.contains('correct')) {
       result = false;
-     }
+    }
   }
 
   if (result === true) {
@@ -133,7 +133,7 @@ function colorInput() {
   codeColor(document.getElementById("inputColor"), 'css');
 }
 
-// возможно есть вариант переписать лисенер на перезапуск функции при каждом 
+// возможно есть вариант переписать лисенер на перезапуск функции при каждом
 // нажатии клавиши и/или каждом изменении длины .value
 cssInput.addEventListener('change', colorInput);
 
@@ -146,9 +146,10 @@ addClassCorrect();
 
 export { table, markup, colorInput }
 
-// подсветка кода 
-// как вариант - посчитать детей => получить таким образом все id для кода 
+// подсветка кода
+// как вариант - посчитать детей => получить таким образом все id для кода
 // (можно лапками вбить, можно функцию назначения сделать)
-// итерироваться по детям и назначать им функцию с динамически 
+// итерироваться по детям и назначать им функцию с динамически
 // подставляемым кодом (это вообще сработает?)
 codeColor(document.getElementById("colorMarkup"));
+hljs.initHighlightingOnLoad();

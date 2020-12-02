@@ -1,24 +1,15 @@
 {
-  "name": "gem-puzzle",
+  "name": "rs-css",
   "version": "1.0.0",
-  "description": "* Vanilla js\r   * SCSS\r   * Canvas\r   * Webpack\r   * Eslint",
+  "description": "* Vanilla js\r   * SCSS\r    * Webpack\r   * Eslint",
   "private": true,
-  "scripts": {
-    "dev": "webpack-dev-server --history-api-fallback --inline --open",
-    "build": "npm run clear -s && webpack --progress",
-    "lint": "eslint src",
-    "clear": "del-cli dist"
+  "dependencies": {
+    "highlight.js": "^10.4.0",
+    "@babel/polyfill": "^7.8.3",
+    "normalize.css": "^8.0.1",
+    "core-js": "^3.4.7",
+    "regenerator-runtime": "^0.13.3"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Iogsotot/gem-puzzle.git"
-  },
-  "author": "Anna Justus (anna.justus.js@gmail.com)",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Iogsotot/gem-puzzle/issues"
-  },
-  "homepage": "https://github.com/Iogsotot/gem-puzzle#readme",
   "devDependencies": {
     "@babel/core": "^7.8.3",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
@@ -61,10 +52,25 @@
     "webpack-dev-server": "^3.11.0",
     "xml-loader": "^1.2.1"
   },
-  "dependencies": {
-    "@babel/polyfill": "^7.8.3",
-    "normalize.css": "^8.0.1",
-    "core-js": "^3.4.7",
-    "regenerator-runtime": "^0.13.3"
-  }
+  "scripts": {
+    "dev": "webpack-dev-server --history-api-fallback --inline --open",
+    "build": "npm run clear -s && webpack --progress",
+    "lint": "eslint src",
+    "clear": "del-cli dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Iogsotot/css_game.git"
+  },
+  "keywords": [
+    "css",
+    "game",
+    "scss"
+  ],
+  "author": "Anna Justus (anna.justus.js@gmail.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Iogsotot/css_game/issues"
+  },
+  "homepage": "https://github.com/Iogsotot/css_game#readme"
 }
