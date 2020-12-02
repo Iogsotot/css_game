@@ -6,6 +6,7 @@ import { hovered, unhovered } from './setHoveredElements';
 import typewriterEffect from './typewriter';
 import codeColor from './codeColor';
 // import cssColor from './cssColor.js';
+import { levelsMenuClose, levelsMenuOpen } from './levelsMenu';
 
 const cssInput = document.querySelector('.css-input');
 const inputColor = document.querySelector('#inputColor');
@@ -17,6 +18,13 @@ const taskField = document.querySelector('#task');
 const table = document.querySelector('#table');
 const markup = document.querySelector('#markup');
 const colorMarkup = document.querySelector('#colorMarkup');
+
+const iconClose = document.querySelector('.icon--close');
+const burgerOpen = document.querySelector('#burgerOpen');
+
+iconClose.addEventListener('click', levelsMenuClose);
+burgerOpen.addEventListener('click', levelsMenuOpen);
+
 // создаём объект с данными всех уровней и их состоянием
 const levels = createLevels();
 
