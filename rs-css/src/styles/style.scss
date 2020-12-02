@@ -144,6 +144,10 @@ header {
 
   border-top: 2px solid $lightest-color;
   border-left: 2px solid $lightest-color;
+
+  &:hover {
+    opacity: 0.5;
+  }
 }
 .arrow-left {
   transform: rotate(-45deg);
