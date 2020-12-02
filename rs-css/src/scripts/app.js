@@ -8,6 +8,7 @@ import codeColor from './codeColor';
 // import cssColor from './cssColor.js';
 
 const cssInput = document.querySelector('.css-input');
+const inputColor = document.querySelector('#inputColor');
 const enterBtn = document.querySelector('#enter');
 let guessEls;
 const fileWindowEl = document.querySelector('.css-editor > .file-window');
@@ -114,14 +115,14 @@ enterBtn.addEventListener('click', checkAnswer);
 
 function showMeAnswer() {
   cssInput.style.opacity = '1';
-  // inputColor.innerHTML = '';
+  inputColor.innerHTML = '';
   typewriterEffect('#input', `${levels[currentLevel].answer}`, 0);
 }
 
 function colorInput() {
   cssInput.style.opacity = '0';
-  // inputColor.innerHTML = '';
-  // inputColor.innerHTML = cssInput.value;
+  inputColor.innerHTML = '';
+  inputColor.innerHTML = cssInput.value;
   // console.log(inputColor.innerHTML);
   codeColor(document.getElementById('inputColor'), 'css');
 }
