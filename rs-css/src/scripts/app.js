@@ -117,14 +117,25 @@ table.addEventListener('mouseover', hovered);
 table.addEventListener('mouseout', unhovered);
 enterBtn.addEventListener('click', checkAnswer);
 
-// typewriterEffect(selector, text, i)
-// let inputColor = document.getElementById("inputColor");
+
 function showMeAnswer() {
+  cssInput.style.opacity = "1";
+  inputColor.innerHTML = '';
   typewriterEffect('#input', `${levels[currentLevel].answer}`, 0);
-  // cssInput.value = levels[currentLevel].answer;
-  // inputColor.innerHTML = levels[currentLevel].answer;
-  cssColor(document.getElementById("input"));
 }
+
+function colorInput() {
+  cssInput.style.opacity = "0";
+  inputColor.innerHTML = '';
+  inputColor.innerHTML = cssInput.value;
+  console.log(inputColor.innerHTML)
+  codeColor(document.getElementById("inputColor"), 'css');
+}
+
+// возможно есть вариант переписать лисенер на перезапуск функции при каждом 
+// нажатии клавиши и/или каждом изменении длины .value
+cssInput.addEventListener('change', colorInput);
+
 
 let helpBtn = document.querySelector('#help_btn');
 helpBtn.addEventListener('click', showMeAnswer);
@@ -132,7 +143,7 @@ helpBtn.addEventListener('click', showMeAnswer);
 
 addClassCorrect();
 
-export { table, markup }
+export { table, markup, colorInput }
 
 // подсветка кода 
 // как вариант - посчитать детей => получить таким образом все id для кода 
@@ -140,6 +151,3 @@ export { table, markup }
 // итерироваться по детям и назначать им функцию с динамически 
 // подставляемым кодом (это вообще сработает?)
 codeColor(document.getElementById("colorMarkup"));
-// codeColor(document.getElementById("inputColor"));
-// codeColor(document.getElementById("code2"));
-// codeColor(document.getElementById("code3"));

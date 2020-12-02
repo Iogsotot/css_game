@@ -347,7 +347,8 @@ main {
 }
 .css-input {
   grid-row: 1/2;
-  background-color: $editor-lightest;
+  // background-color: $editor-lightest;
+  background-color:  #efefef6e;
   margin-left: 1rem;
   margin-top: 0.5rem;
 
@@ -355,7 +356,10 @@ main {
   
   font-family: Consolas, "Courier New", monospace;
   font-size: 1.4rem;
+  z-index: 10;
   // color: transparent;
+  // opacity: 0.2;
+  color:  #585858c2;
 
   // animation: strobe 850ms linear infinite;
 }
@@ -371,12 +375,15 @@ main {
 
   font-family: Consolas, "Courier New", monospace;
   font-size: 1.4rem;
+  // font-weight: bolder;
+  z-index: 1;
 }
 
 .css-input:active, .css-input:focus {
   outline: none;
   background-color: $editor-lightest;
   animation: none;
+  opacity: 1 !important;
 }
 
 .btn--enter {
@@ -610,3 +617,15 @@ footer {
     outline: 3px solid rgba(255, 0, 0, 0.719);
   }
 }
+
+div
+.class
+#id
+div:hover {
+  color: blue;
+  color: #228eb3;
+}
+div > div {
+}
+div.div
+&div

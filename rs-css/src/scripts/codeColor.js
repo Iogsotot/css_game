@@ -9,12 +9,15 @@ export default function codeColor(elmnt, mode) {
   var tagnamecolor = "#ffa7c4";
   var attributecolor = "#34c450";
   var attributevaluecolor = "#eca34f";
-  var commentcolor = "red";
-  var cssselectorcolor = "red";
+  var commentcolor = "grey";
+
+  var cssselectorcolor = "#228eb3";
   var csspropertycolor = "red";
   var csspropertyvaluecolor = "red";
-  var cssdelimitercolor = "red";
+  // { }
+  var cssdelimitercolor = "yellow";
   var cssimportantcolor = "red";
+
   var jscolor = "red";
   var jskeywordcolor = "red";
   var jsstringcolor = "red";

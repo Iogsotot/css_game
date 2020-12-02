@@ -373,12 +373,14 @@ main .wrapper {
   -ms-grid-row: 1;
   -ms-grid-row-span: 1;
   grid-row: 1/2;
-  background-color: #efefef;
+  background-color: #efefef6e;
   margin-left: 1rem;
   margin-top: 0.5rem;
   border: none;
   font-family: Consolas, "Courier New", monospace;
   font-size: 1.4rem;
+  z-index: 10;
+  color: #585858c2;
 }
 
 #inputColor {
@@ -389,6 +391,7 @@ main .wrapper {
   height: 2.1rem;
   font-family: Consolas, "Courier New", monospace;
   font-size: 1.4rem;
+  z-index: 1;
 }
 
 .css-input:active, .css-input:focus {
@@ -396,6 +399,7 @@ main .wrapper {
   background-color: #efefef;
   -webkit-animation: none;
           animation: none;
+  opacity: 1 !important;
 }
 
 .btn--enter {
