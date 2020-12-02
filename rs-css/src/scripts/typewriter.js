@@ -6,7 +6,7 @@ let inputColor = document.querySelector('#inputColor');
 
 function colorInput() {
   inputColor.innerHTML = cssInput.value;
-  console.log(inputColor.innerHTML)
+  // console.log(inputColor.innerHTML)
   codeColor(document.getElementById("inputColor"), 'css');
   input.style.opacity = "0";
 }

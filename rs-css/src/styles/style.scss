@@ -535,12 +535,17 @@ footer {
   footer {
     flex-direction: row;
     justify-content: space-between;
+    // margin: auto;
   }
 }
 
 @media (min-width: 1268px) {
-  .wrapper {
+  .wrapper{
     max-width: 1260px;
+  }
+  footer {
+    width: 1260px;
+    margin: 0 auto;
   }
 }
 
@@ -617,15 +622,3 @@ footer {
     outline: 3px solid rgba(255, 0, 0, 0.719);
   }
 }
-
-div
-.class
-#id
-div:hover {
-  color: blue;
-  color: #228eb3;
-}
-div > div {
-}
-div.div
-&div

@@ -2,7 +2,8 @@ import createLevels from './task_template.js';
 import { hovered, unhovered } from './setHoveredElements.js';
 import typewriterEffect from './typewriter.js';
 import codeColor from './codeColor.js';
-import cssColor from './cssColor.js';
+// import cssColor from './cssColor.js';
+// import hljs from '../../node_modules/highlight.js/lib/highlight.js';
 
 const cssInput = document.querySelector('.css-input');
 const enterBtn = document.querySelector('#enter');
@@ -128,7 +129,7 @@ function colorInput() {
   cssInput.style.opacity = "0";
   inputColor.innerHTML = '';
   inputColor.innerHTML = cssInput.value;
-  console.log(inputColor.innerHTML)
+  // console.log(inputColor.innerHTML);
   codeColor(document.getElementById("inputColor"), 'css');
 }
 
