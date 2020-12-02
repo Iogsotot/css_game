@@ -316,6 +316,7 @@ main {
   font-weight: 300;
 }
 .file-window {
+  position: relative;
   display: grid;
   grid-template-columns: 3.6rem 11fr 3fr;
   grid-template-rows: 3.2rem repeat(19, 2.1rem);
@@ -347,11 +348,29 @@ main {
 .css-input {
   grid-row: 1/2;
   background-color: $editor-lightest;
-  border: none;
   margin-left: 1rem;
   margin-top: 0.5rem;
-  // padding-top: 0.5rem;
-  animation: strobe 850ms linear infinite;
+
+  border: none;
+  
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 1.4rem;
+  // color: transparent;
+
+  // animation: strobe 850ms linear infinite;
+}
+#inputColor {
+  position: absolute;
+  // grid-row: 1/2;
+  top: 1rem;
+  left: 4.6rem;
+  // margin-left: 4.7rem;
+  // margin-top: 0.5rem;
+  width: 15rem;
+  height: 2.1rem;
+
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 1.4rem;
 }
 
 .css-input:active, .css-input:focus {
@@ -396,7 +415,7 @@ main {
     color: $light-color;
   }
   .file-window {
-    position: relative;
+    // position: relative;
     background-color: #201d18;
     color: $light-color;
 

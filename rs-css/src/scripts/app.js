@@ -2,8 +2,9 @@ import createLevels from './task_template.js';
 import { hovered, unhovered } from './setHoveredElements.js';
 import typewriterEffect from './typewriter.js';
 import codeColor from './codeColor.js';
+import cssColor from './cssColor.js';
 
-const cssInput = document.querySelector('input');
+const cssInput = document.querySelector('.css-input');
 const enterBtn = document.querySelector('#enter');
 let guessEls;
 let fileWindowEl = document.querySelector('.css-editor > .file-window');
@@ -117,8 +118,12 @@ table.addEventListener('mouseout', unhovered);
 enterBtn.addEventListener('click', checkAnswer);
 
 // typewriterEffect(selector, text, i)
+// let inputColor = document.getElementById("inputColor");
 function showMeAnswer() {
-  typewriterEffect('input', `${levels[currentLevel].answer}`, 0)
+  typewriterEffect('#input', `${levels[currentLevel].answer}`, 0);
+  // cssInput.value = levels[currentLevel].answer;
+  // inputColor.innerHTML = levels[currentLevel].answer;
+  cssColor(document.getElementById("input"));
 }
 
 let helpBtn = document.querySelector('#help_btn');
@@ -135,5 +140,6 @@ export { table, markup }
 // итерироваться по детям и назначать им функцию с динамически 
 // подставляемым кодом (это вообще сработает?)
 codeColor(document.getElementById("colorMarkup"));
+// codeColor(document.getElementById("inputColor"));
 // codeColor(document.getElementById("code2"));
 // codeColor(document.getElementById("code3"));

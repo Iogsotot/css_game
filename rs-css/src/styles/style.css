@@ -337,6 +337,7 @@ main .wrapper {
 }
 
 .file-window {
+  position: relative;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 3.6rem 11fr 3fr;
@@ -373,11 +374,21 @@ main .wrapper {
   -ms-grid-row-span: 1;
   grid-row: 1/2;
   background-color: #efefef;
-  border: none;
   margin-left: 1rem;
   margin-top: 0.5rem;
-  -webkit-animation: strobe 850ms linear infinite;
-          animation: strobe 850ms linear infinite;
+  border: none;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 1.4rem;
+}
+
+#inputColor {
+  position: absolute;
+  top: 1rem;
+  left: 4.6rem;
+  width: 15rem;
+  height: 2.1rem;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 1.4rem;
 }
 
 .css-input:active, .css-input:focus {
@@ -428,7 +439,6 @@ main .wrapper {
 }
 
 .html-viewer .file-window {
-  position: relative;
   background-color: #201d18;
   color: #777777;
 }
