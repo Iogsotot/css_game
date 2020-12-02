@@ -6,8 +6,10 @@ import { hovered, unhovered } from './setHoveredElements';
 import typewriterEffect from './typewriter';
 import codeColor from './codeColor';
 // import cssColor from './cssColor.js';
+import { levelsMenuClose, levelsMenuOpen } from './levelsMenu';
 
 const cssInput = document.querySelector('.css-input');
+const inputColor = document.querySelector('#inputColor');
 const enterBtn = document.querySelector('#enter');
 let guessEls;
 const fileWindowEl = document.querySelector('.css-editor > .file-window');
@@ -16,6 +18,13 @@ const taskField = document.querySelector('#task');
 const table = document.querySelector('#table');
 const markup = document.querySelector('#markup');
 const colorMarkup = document.querySelector('#colorMarkup');
+
+const iconClose = document.querySelector('.icon--close');
+const burgerOpen = document.querySelector('#burgerOpen');
+
+iconClose.addEventListener('click', levelsMenuClose);
+burgerOpen.addEventListener('click', levelsMenuOpen);
+
 // создаём объект с данными всех уровней и их состоянием
 const levels = createLevels();
 
@@ -25,7 +34,39 @@ const levels = createLevels();
 // уровень автоматически увеличивается после успешного прохождения текущего уровня
 // состояние уровней( =прогресс) можно обнулить нажав на кнопку сброса прогресса
 // eslint-disable-next-line prefer-const
-let currentLevel = 2;
+let currentLevel = 1;
+const maxLevel = 20;
+const levelPrevBtn = document.querySelector('#levelPrev');
+const levelNextBtn = document.querySelector('#levelNext');
+const levelCurrentEls = document.querySelectorAll('.level--current');
+const maxLevelEls = document.querySelectorAll('.level--total');
+
+function getCurrentLevel(direction) {
+  if (direction === 'next') {
+    if (currentLevel === maxLevel) {
+      currentLevel = maxLevel;
+    } else {
+      currentLevel += 1;
+    }
+  } else if (direction === 'prev') {
+    if (currentLevel === 1) {
+      currentLevel = 1;
+    } else {
+      currentLevel -= 1;
+    }
+  }
+  console.log(currentLevel);
+  return currentLevel;
+}
+
+levelNextBtn.addEventListener('click', () => {
+  getCurrentLevel('next');
+  setContent();
+});
+levelPrevBtn.addEventListener('click', () => {
+  getCurrentLevel('prev');
+  setContent();
+});
 
 function clearState() {
   fileWindowEl.classList.remove('wrong');
@@ -100,11 +141,19 @@ function addClassCorrect() {
   }
 }
 
-// мб иннеры тоже все в одну функцию стоит засунуть?
-table.innerHTML = levels[currentLevel].divTemplate;
-markup.innerHTML = levels[currentLevel].markupTemplate;
-colorMarkup.innerHTML = levels[currentLevel].markupTemplate;
-taskField.innerHTML = levels[currentLevel].task;
+function setContent() {
+  table.innerHTML = levels[currentLevel].divTemplate;
+  markup.innerHTML = levels[currentLevel].markupTemplate;
+  colorMarkup.innerHTML = levels[currentLevel].markupTemplate;
+  taskField.innerHTML = levels[currentLevel].task;
+  levelCurrentEls[0].innerHTML = currentLevel;
+  maxLevelEls[0].innerHTML = maxLevel;
+  levelCurrentEls[1].innerHTML = currentLevel;
+  maxLevelEls[1].innerHTML = maxLevel;
+  addClassCorrect();
+  // подсветка кода
+  codeColor(document.getElementById('colorMarkup'));
+}
 
 markup.addEventListener('mouseover', hovered);
 markup.addEventListener('mouseout', unhovered);
@@ -114,14 +163,14 @@ enterBtn.addEventListener('click', checkAnswer);
 
 function showMeAnswer() {
   cssInput.style.opacity = '1';
-  // inputColor.innerHTML = '';
+  inputColor.innerHTML = '';
   typewriterEffect('#input', `${levels[currentLevel].answer}`, 0);
 }
 
 function colorInput() {
   cssInput.style.opacity = '0';
-  // inputColor.innerHTML = '';
-  // inputColor.innerHTML = cssInput.value;
+  inputColor.innerHTML = '';
+  inputColor.innerHTML = cssInput.value;
   // console.log(inputColor.innerHTML);
   codeColor(document.getElementById('inputColor'), 'css');
 }
@@ -133,11 +182,9 @@ cssInput.addEventListener('change', colorInput);
 const helpBtn = document.querySelector('#help_btn');
 helpBtn.addEventListener('click', showMeAnswer);
 
-addClassCorrect();
+setContent();
 
 // экспортируем всякую фигню, которая потом нигде не работает
 export { table, markup, colorInput };
 
-// подсветка кода
-codeColor(document.getElementById('colorMarkup'));
 // hljs.initHighlightingOnLoad();
