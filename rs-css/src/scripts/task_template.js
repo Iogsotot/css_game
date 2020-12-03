@@ -1,5 +1,5 @@
 export default function createLevels() {
-  // чтобы добавить всю эту херобору на страницу:
+  // чтобы добавить на страницу:
   // table.innerHTML = levels[1].divTemplate или markup.innerHTML = levels[1].markupTemplate
 
   const levels = {
@@ -274,138 +274,304 @@ export default function createLevels() {
     }
     if (level === 4) {
       HTML = `
-
+      <vine id="1905-year" class="red"></vine>
+      <vine id="2020-year" class="red"></vine>
       `;
       markup = `
-      
+      &lt;div class="table"&gt;
+        <vine id="1905-year" class="red"></vine>
+        <vine id="2020-year" class="red"></vine>
+      &lt;/div&gt;
       `;
     }
     if (level === 5) {
       HTML = `
-
+      <coffee class="black"></coffee>
+      <juice></juice>
+      <juice class="fresh"></juice>
+      <beer></beer>
       `;
       markup = `
-      
+      &lt;div class="table"&gt;
+        <coffee class="black"></coffee>
+        <juice></juice>
+        <juice class="fresh"></juice>
+        <beer></beer>
+       &lt;/div&gt;
       `;
     }
     if (level === 6) {
       HTML = `
-
+      <coffee class="black"></coffee>
+      <juice class="fresh"></juice>
+      <beer></beer>
+      <juice class="fresh"></juice>
       `;
       markup = `
-      
+      &lt;div class="table"&gt;
+        <coffee class="black"></coffee>
+        <juice class="fresh"></juice>
+        <beer></beer>
+        <juice class="fresh"></juice>
+      &lt;/div&gt;
       `;
     }
     if (level === 7) {
       HTML = `
-
+      <beer class="light"></beer>
+      <beer class="dark"></beer>
+      <beer class="light"></beer>
+      <beer class="dark"></beer>
       `;
       markup = `
-      
+      &lt;div class="table"&gt;
+        <beer class="light"></beer>
+        <beer class="dark"></beer>
+        <beer class="light"></beer>
+        <beer class="dark"></beer>
+      &lt;/div&gt;
       `;
     }
     if (level === 8) {
       HTML = `
-
+      <glass class="empty"></glass>
+      <glass class="ice-tea"></glass>
+      <glass class="empty"></glass>
+      <glass class="ice-tea"></glass>
       `;
       markup = `
-      
+      &lt;div class="table"&gt;
+        <glass class="empty"></glass>
+        <glass class="ice-tea"></glass>
+        <glass class="empty"></glass>
+        <glass class="ice-tea"></glass>
+      &lt;/div&gt;
       `;
     }
     if (level === 9) {
       HTML = `
-
+      <napkin class="white">
+        <espresso></espresso>
+      </napkin>
+      <napkin class="white">
+        <espresso></espresso>
+        <espresso></espresso>
+      </napkin>
       `;
       markup = `
-      
+      &lt;div class="table"&gt;
+        <napkin class="white">
+          <espresso></espresso>
+        </napkin>
+        <napkin class="white">
+          <espresso></espresso>
+          <espresso></espresso>
+        </napkin>
+      &lt;/div&gt;
       `;
     }
     if (level === 10) {
       HTML = `
-
+      <tray>
+        <shot class="b-52"></shot>
+        <shot class="got-milk"></shot>
+        <shot class="lime"></shot>
+      </tray>
       `;
       markup = `
-      
+      &lt;div class="table"&gt;
+        <tray>
+          <shot class="b-52"></shot>
+          <shot class="got-milk"></shot>
+          <shot class="lime"></shot>
+        </tray>
+      &lt;/div&gt;
       `;
     }
     if (level === 11) {
       HTML = `
-
+      <cocktail class="yesterday"></cocktail>
+      <cocktail class="today"></cocktail>
+      <cocktail class="tomorrow"></cocktail>
       `;
       markup = `
-      
+      &lt;div class="table"&gt;
+        <cocktail class="yesterday"></cocktail>
+        <cocktail class="today"></cocktail>
+        <cocktail class="tomorrow"></cocktail>
+      &lt;/div&gt;
       `;
     }
     if (level === 12) {
       HTML = `
-
+      <tray>
+        <glass class="empty"></glass>
+        <glass class="ice-tea"></glass>
+        <cocktail class="dream"></cocktail>
+        <napkin>
+          <shot class="b-52"></shot>
+          <espresso></espresso>
+          <espresso></espresso>
+        </napkin>
+      </tray>
       `;
       markup = `
-      
+      &lt;div class="table"&gt;
+        <tray>
+          <glass class="empty"></glass>
+          <glass class="ice-tea"></glass>
+          <cocktail class="dream"></cocktail>
+          <napkin>
+            <shot class="b-52"></shot>
+            <espresso></espresso>
+            <espresso></espresso>
+          </napkin>
+        </tray>
+      &lt;/div&gt;
       `;
     }
     if (level === 13) {
       HTML = `
-
+      <cake for='me'></cake>
+      <cake for='you'></cake>
       `;
       markup = `
-      
+      &lt;div class="table"&gt;
+        <cake for='me'></cake>
+        <cake for='you'></cake>
+      &lt;/div&gt;
       `;
     }
     if (level === 14) {
       HTML = `
-
+      <glass class="pure-water"></glass>
+      <glass class="water_with_lemon"></glass>
+      <glass class="dirty"></glass>
       `;
       markup = `
-      
+      &lt;div class="table"&gt;
+        <glass class="pure-water"></glass>
+        <glass class="water_with_lemon"></glass>
+        <glass class="dirty"></glass>
+      &lt;/div&gt;
       `;
     }
     if (level === 15) {
       HTML = `
-
+      <vine class="top-10"></vine>
+      <vine class="toppest"></vine>
+      <vine class="not-in-any-top"></vine>
+      <vine class="top-50"></vine>
       `;
       markup = `
-      
+      &lt;div class="table"&gt;
+        <vine class="top-10"></vine>
+        <vine class="toppest"></vine>
+        <vine class="not-in-any-top"></vine>
+        <vine class="top-50"></vine>
+      &lt;/div&gt;
       `;
     }
     if (level === 16) {
       HTML = `
-
+      <beer></beer>
+      <napkin>
+        <beer></beer>
+      </napkin>
       `;
       markup = `
-      
+      &lt;div class="table"&gt;
+        <beer></beer>
+        <napkin>
+          <beer></beer>
+        </napkin>
+      &lt;/div&gt;
       `;
     }
     if (level === 17) {
       HTML = `
-
+      <tray>
+        <juice class="orange"></juice>
+        <coffee></coffee>
+      </tray>
+      <napkin>
+        <glass class="milk"></glass>
+      </napkin>
       `;
       markup = `
-      
+      &lt;div class="table"&gt;
+        <tray>
+          <juice class="orange"></juice>
+          <coffee></coffee>
+        </tray>
+        <napkin>
+          <glass class="milk"></glass>
+        </napkin>
+      &lt;/div&gt;
       `;
     }
     if (level === 18) {
       HTML = `
-
+      <tray id="you">
+        <beer></beer>
+        <garlic></garlic>
+        <peanut></peanut>
+      </tray>
+      <tray id="me">
+        <coffee></coffee>
+        <cake></cake>
+        <bug></bug>
+      </tray>
       `;
       markup = `
-      
+      &lt;div class="table"&gt;
+        <tray id="you">
+          <beer></beer>
+          <garlic></garlic>
+          <peanut></peanut>
+        </tray>
+        <tray id="me">
+          <coffee></coffee>
+          <cake></cake>
+          <bug></bug>
+        </tray>
+      &lt;/div&gt;
       `;
     }
     if (level === 19) {
       HTML = `
-
+      <glass class="empty"></glass>
+      <glass class="dirty"></glass>
+      <glass></glass>
+      <glass class="broken"></glass>
       `;
       markup = `
-      
+      &lt;div class="table"&gt;
+        <glass class="empty"></glass>
+        <glass class="dirty"></glass>
+        <glass></glass>
+        <glass class="broken"></glass>
+      &lt;/div&gt;
       `;
     }
     if (level === 20) {
       HTML = `
-
+      <shot class="white"></shot>
+      <chocolate class="dark"></chocolate>
+      <shot class="brain-blowing"></shot>
+      <beer class="dark"></beer>
+      <beer class="light"></beer>
+      <coffee class="dark"></coffee>
       `;
       markup = `
-      
+      &lt;div class="table"&gt;
+        <shot class="white"></shot>
+        <chocolate class="dark"></chocolate>
+        <shot class="brain-blowing"></shot>
+        <beer class="dark"></beer>
+        <beer class="light"></beer>
+        <coffee class="dark"></coffee>
+      &lt;/div&gt;
       `;
     } else {
       // console.log('Хьюстон, у нас проблемы');
