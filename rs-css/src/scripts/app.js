@@ -170,6 +170,7 @@ function checkAnswer() {
 
 function addClassCorrect() {
   const correctSelector = levels[currentLevel].answer;
+  console.log(table);
   const correctEls = table.querySelectorAll(correctSelector);
   for (let i = 0; i < correctEls.length; i++) {
     correctEls[i].classList.add('correct');
@@ -231,8 +232,9 @@ setContent(levelsList);
 
 const progressBar = document.querySelector('#progressBar');
 function updateProgressBar() {
-  const progress = Object.keys(getCompleteStats()).length || 0;
-  progressBar.style.width = `${progress * 5}%`;
+  const completeStats = getCompleteStats();
+  const progress = completeStats ? Object.keys(completeStats).length : 0;
+  progressBar.style.width = `${progress * (100 / maxLevel)}%`;
 }
 
 updateProgressBar();

@@ -120,6 +120,7 @@ header {
 // }
 .level {
   font-size: 2rem;
+  // width: 2.1rem;
 }
 // .level--total {
 // }
@@ -189,7 +190,7 @@ aside.levels {
   right: 0;
   top: 0;
   transform: translateX(101%);
-  min-width: 37rem;
+  width: 39rem;
   height: 100vh;
   
   border: 0px solid transparent;
