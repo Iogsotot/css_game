@@ -4,7 +4,7 @@ const levelsBlock = document.querySelector('#levels');
 
 function levelsMenuClose() {
   iconClose.classList.toggle('rotate');
-  setTimeout(() => { 
+  setTimeout(() => {
     levelsBlock.classList.remove('open');
     burgerOpen.style.opacity = '1';
   }, 150);

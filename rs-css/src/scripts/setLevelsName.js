@@ -16,7 +16,7 @@ export default function setLevelsName(maxLevel, levels) {
     `;
     return levelItemTemplate.outerHTML;
   }
-
+  // по идее тут i = maxLevel, но у меня код сломался от этого, тч пока что так будет
   for (let i = 1; i < maxLevel + 1; i++) {
     levelsList.innerHTML += createLevelItemTemplate(i);
   }

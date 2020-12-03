@@ -76,6 +76,7 @@ function clearState() {
 
 function fail() {
   fileWindowEl.classList.add('wrong');
+  alert('error');
   setTimeout(clearState, 900);
 }
 
@@ -95,8 +96,8 @@ function makeAGuess() {
     console.log('invalid property in input');
     fail();
   }
-  // console.log(selector);
-  // console.log(guessEls); // возвращает NodeList с совпадениями
+  console.log(selector);
+  console.log(guessEls); // возвращает NodeList с совпадениями
   // учесть, что может придти одна нода или их array
   // учесть ситуацию, когда по предположенному селектору нет Node
   for (let i = 0; i < guessEls.length; i++) {
@@ -114,7 +115,7 @@ function checkAnswer() {
   for (let j = 0; j < table.children.length; j++) {
     if (table.children[j].classList.contains('selected')) {
       // проверяем есть ли у детей с selected ещё и класс correct
-      if (table.children[j].classList.contains('correct') && result == null) {
+      if (table.children[j].classList.contains('correct') && (result == null || result === true)) {
         result = true;
       } else {
         result = false;
