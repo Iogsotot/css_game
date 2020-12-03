@@ -259,6 +259,10 @@ aside.levels {
     &:hover .check-mark--mini {
       opacity: 0.6;
     } 
+    &.hover {
+      background: rgb(17,47,9);
+      background: linear-gradient(90deg, rgba(17,47,9,0) 20%, rgba(11,64,13,1) 100%);
+    }
   }
   .check-mark--mini {
     height: 1.5rem;

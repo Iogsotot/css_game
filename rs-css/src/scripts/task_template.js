@@ -7,7 +7,7 @@ export default function createLevels() {
     {
       level: 1,
       task: 'all glasses',
-      isComplete: 'no',
+      isComplete: false,
       answer: 'glass',
       name: 'tag',
       theory: 'some theory 1',
@@ -18,7 +18,7 @@ export default function createLevels() {
     {
       level: 2,
       task: 'empty glasses',
-      isComplete: 'no',
+      isComplete: false,
       answer: '.empty',
       name: 'class',
       theory: 'some theory 2',
@@ -29,7 +29,7 @@ export default function createLevels() {
     {
       level: 3,
       task: 'white and bubble vine',
-      isComplete: 'no',
+      isComplete: false,
       answer: '.white.bubble',
       name: 'several classes',
       theory: 'some theory 3',
@@ -40,7 +40,7 @@ export default function createLevels() {
     {
       level: 4,
       task: '',
-      isComplete: 'no',
+      isComplete: false,
       answer: '',
       name: 'tag',
       theory: 'some theory 4',
@@ -51,7 +51,7 @@ export default function createLevels() {
     {
       level: 5,
       task: '',
-      isComplete: 'no',
+      isComplete: false,
       answer: '',
       name: 'tag',
       theory: 'some theory 5',
@@ -62,7 +62,7 @@ export default function createLevels() {
     {
       level: 6,
       task: '',
-      isComplete: 'no',
+      isComplete: false,
       answer: '',
       name: 'tag',
       theory: 'some theory 6',
@@ -73,7 +73,7 @@ export default function createLevels() {
     {
       level: 7,
       task: '',
-      isComplete: 'no',
+      isComplete: false,
       answer: '',
       name: 'tag',
       theory: 'some theory 7',
@@ -84,7 +84,7 @@ export default function createLevels() {
     {
       level: 8,
       task: '',
-      isComplete: 'no',
+      isComplete: false,
       answer: '',
       name: 'tag',
       theory: 'some theory 8',
@@ -95,7 +95,7 @@ export default function createLevels() {
     {
       level: 9,
       task: '',
-      isComplete: 'no',
+      isComplete: false,
       answer: '',
       name: 'tag',
       theory: 'some theory 9',
@@ -106,7 +106,7 @@ export default function createLevels() {
     {
       level: 10,
       task: '',
-      isComplete: 'no',
+      isComplete: false,
       answer: '',
       name: 'tag',
       theory: 'some theory 10',
@@ -117,7 +117,7 @@ export default function createLevels() {
     {
       level: 11,
       task: '',
-      isComplete: 'no',
+      isComplete: false,
       answer: '',
       name: 'tag',
       theory: 'some theory 11',
@@ -128,7 +128,7 @@ export default function createLevels() {
     {
       level: 12,
       task: '',
-      isComplete: 'no',
+      isComplete: false,
       answer: '',
       name: 'tag',
       theory: 'some theory 12',
@@ -139,7 +139,7 @@ export default function createLevels() {
     {
       level: 13,
       task: '',
-      isComplete: 'no',
+      isComplete: false,
       answer: '',
       name: 'tag',
       theory: 'some theory 13',
@@ -150,7 +150,7 @@ export default function createLevels() {
     {
       level: 14,
       task: '',
-      isComplete: 'no',
+      isComplete: false,
       answer: '',
       name: 'tag',
       theory: 'some theory 14',
@@ -161,7 +161,7 @@ export default function createLevels() {
     {
       level: 15,
       task: '',
-      isComplete: 'no',
+      isComplete: false,
       answer: '',
       name: 'tag',
       theory: 'some theory 15',
@@ -172,7 +172,7 @@ export default function createLevels() {
     {
       level: 16,
       task: '',
-      isComplete: 'no',
+      isComplete: false,
       answer: '',
       name: 'tag',
       theory: 'some theory 16',
@@ -183,7 +183,7 @@ export default function createLevels() {
     {
       level: 17,
       task: '',
-      isComplete: 'no',
+      isComplete: false,
       answer: '',
       name: 'tag',
       theory: 'some theory 17',
@@ -194,7 +194,7 @@ export default function createLevels() {
     {
       level: 18,
       task: '',
-      isComplete: 'no',
+      isComplete: false,
       answer: '',
       name: 'tag',
       theory: 'some theory 18',
@@ -205,7 +205,7 @@ export default function createLevels() {
     {
       level: 19,
       task: '',
-      isComplete: 'no',
+      isComplete: false,
       answer: '',
       name: 'tag',
       theory: 'some theory 19',
@@ -216,7 +216,7 @@ export default function createLevels() {
     {
       level: 20,
       task: '',
-      isComplete: 'no',
+      isComplete: false,
       answer: '',
       name: 'tag',
       theory: 'some theory 20',

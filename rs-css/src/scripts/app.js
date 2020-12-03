@@ -1,5 +1,6 @@
 // import hljs from 'highlight.js';
 // import 'highlight.js/styles/github.css';
+// import { levelsList } from './variables';
 import '../styles/style.scss';
 import createLevels from './task_template';
 import { hovered, unhovered } from './setHoveredElements';
@@ -8,6 +9,7 @@ import codeColor from './codeColor';
 // import cssColor from './cssColor.js';
 import { levelsMenuClose, levelsMenuOpen } from './levelsMenu';
 import setLevelsName from './setLevelsName';
+// import { levelsList } from './variables';
 
 const cssInput = document.querySelector('.css-input');
 const inputColor = document.querySelector('#inputColor');
@@ -15,6 +17,7 @@ const enterBtn = document.querySelector('#enter');
 let guessEls;
 const fileWindowEl = document.querySelector('.css-editor > .file-window');
 const taskField = document.querySelector('#task');
+const resetBtn = document.querySelector('#resetBtn');
 
 const table = document.querySelector('#table');
 const markup = document.querySelector('#markup');
@@ -35,14 +38,14 @@ const levels = createLevels();
 // уровень автоматически увеличивается после успешного прохождения текущего уровня
 // состояние уровней( =прогресс) можно обнулить нажав на кнопку сброса прогресса
 // eslint-disable-next-line prefer-const
-let currentLevel = 1;
+let currentLevel = getCurrentLevel();
 const maxLevel = 20;
 const levelPrevBtn = document.querySelector('#levelPrev');
 const levelNextBtn = document.querySelector('#levelNext');
 const levelCurrentEls = document.querySelectorAll('.level--current');
 const maxLevelEls = document.querySelectorAll('.level--total');
 
-const LevelsList = document.querySelector('#levelsList');
+const levelsList = document.querySelector('#levelsList');
 
 // всё, что связано с переключением уровня (ну кроме контента, он отдельно)
 function getCurrentLevelByBtn(direction) {
@@ -59,8 +62,9 @@ function getCurrentLevelByBtn(direction) {
       currentLevel -= 1;
     }
   }
+  localStorage.setItem('currentLevel', currentLevel);
   console.log(currentLevel);
-  return currentLevel;
+  // return currentLevel;
 }
 
 function getCurrentLevelByClick(e) {
@@ -69,11 +73,12 @@ function getCurrentLevelByClick(e) {
   currentLevel = levelItem.id.replace(/^\D+/g, '');
   // console.log('current: ', levelItem.id.replace(/^\D+/g, ''));
   console.log(currentLevel);
+  localStorage.setItem('currentLevel', currentLevel);
   setContent();
-  return currentLevel;
+  // return currentLevel;
 }
 
-// LevelsList.addEventListener('click', getCurrentLevelByClick);
+// levelsList.addEventListener('click', getCurrentLevelByClick);
 
 function clearState() {
   fileWindowEl.classList.remove('wrong');
@@ -86,10 +91,32 @@ function fail() {
   setTimeout(clearState, 900);
 }
 
+function getCurrentLevel() {
+  const currentLevelFromStorage = localStorage.getItem('currentLevel');
+  return currentLevelFromStorage ? parseInt(currentLevelFromStorage, 10) : 1;
+}
+
+function getCompleteStats() {
+  const completeStats = localStorage.getItem('completeStats');
+  return JSON.parse(completeStats);
+}
+
 function win() {
   fileWindowEl.classList.add('win');
   // eslint-disable-next-line no-alert
   alert('вы выиграли!');
+  levels[currentLevel].isComplete = true;
+  let completeStats = getCompleteStats();
+  // non inverted boolean so true boolean representation
+  // eslint-disable-next-line no-extra-boolean-cast
+  if (!!completeStats) {
+    completeStats = { ...completeStats, [currentLevel]: levels[currentLevel].isComplete };
+  } else {
+    completeStats = { [currentLevel]: levels[currentLevel].isComplete };
+    // console.log(completeStats);
+  }
+  localStorage.setItem('completeStats', JSON.stringify(completeStats));
+  updateProgressBar();
   setTimeout(clearState, 900);
 }
 
@@ -158,6 +185,7 @@ function setContent() {
   maxLevelEls[0].innerHTML = maxLevel;
   levelCurrentEls[1].innerHTML = currentLevel;
   maxLevelEls[1].innerHTML = maxLevel;
+  highlightSelectedLevel(levelsList, currentLevel);
   addClassCorrect();
   // подсветка кода
   codeColor(document.getElementById('colorMarkup'));
@@ -184,6 +212,13 @@ function colorInput() {
   codeColor(document.getElementById('inputColor'), 'css');
 }
 
+function highlightSelectedLevel() {
+  Array.from(levelsList.children).forEach((element) => {
+    element.classList.remove('hover');
+  });
+  levelsList.children[currentLevel].classList.add('hover');
+}
+
 // возможно есть вариант переписать лисенер на перезапуск функции при каждом
 // нажатии клавиши и/или каждом изменении длины .value
 cssInput.addEventListener('change', colorInput);
@@ -191,10 +226,18 @@ cssInput.addEventListener('change', colorInput);
 const helpBtn = document.querySelector('#help_btn');
 helpBtn.addEventListener('click', showMeAnswer);
 
-setContent();
 setLevelsName(maxLevel, levels);
+setContent(levelsList);
 
-LevelsList.querySelectorAll('.level__item').forEach((li) => {
+const progressBar = document.querySelector('#progressBar');
+function updateProgressBar() {
+  const progress = Object.keys(getCompleteStats()).length || 0;
+  progressBar.style.width = `${progress * 5}%`;
+}
+
+updateProgressBar();
+
+levelsList.querySelectorAll('li').forEach((li) => {
   li.addEventListener('click', getCurrentLevelByClick);
 });
 
@@ -206,6 +249,8 @@ levelPrevBtn.addEventListener('click', () => {
   getCurrentLevelByBtn('prev');
   setContent();
 });
+
+resetBtn.addEventListener('click', () => { localStorage.removeItem('completeStats'); });
 
 // экспортируем всякую фигню, которая потом нигде не работает
 export { table, markup, colorInput };
