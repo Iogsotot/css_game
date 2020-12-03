@@ -116,11 +116,27 @@ header {
 }
 // .levels__block {
 // }
-// .level--current {
-// }
+.level--current {
+  // background: linear-gradient(135deg, #12BCB0 20%, #FABE0E 70%);
+  // -webkit-background-clip: text;
+  // -webkit-text-fill-color: transparent;
+  display: inline-block;
+  font-weight: 700;
+
+  background: gold;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  // box-shadow: 0 -200px 100px -120px crimson inset;
+  // animation: background 3s infinite alternate;
+
+  animation: gradient 4s linear infinite;
+}
 .level {
+  display: inline-block;
+  width: 2.5rem;
+
   font-size: 2rem;
-  // width: 2.1rem;
+  text-align: center;
 }
 // .level--total {
 // }
@@ -190,7 +206,7 @@ aside.levels {
   right: 0;
   top: 0;
   transform: translateX(101%);
-  width: 39rem;
+  width: 37rem;
   height: 100vh;
   
   border: 0px solid transparent;
@@ -206,15 +222,21 @@ aside.levels {
   }
 
   .levels__block {
-    // display: none;
-    font-size: 2.2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    width: 100%;
     padding: 1rem 1rem 1rem 2rem;
+
+    font-size: 2.2rem;
 
     .icon--close {
       height: 2.5rem;
       width: 2.5rem;
+      // margin-left: 10rem;
+
       fill:rgba(255, 255, 255, 0.8);
-      margin-left: 10rem;
       cursor: pointer;
       transition: all 300ms linear;
 
@@ -372,7 +394,7 @@ main {
       transition: none;
     }
     *.correct {
-      animation: dance 2s linear infinite;
+      animation: dance 1400ms linear infinite;
     }
     *.hover {
       outline: 3px dashed rgba(255, 0, 0, 0.651);
@@ -762,5 +784,37 @@ footer {
     transform: skew(0deg);
     background-color: #efefef;
     outline: 3px solid rgba(255, 0, 0, 0.719);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background: rgb(255, 115, 0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  25% {
+    background: rgb(132, 248, 78);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  50% {
+    background: rgba(135, 207, 235, 1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  75% {
+    background: rgb(253, 123, 242);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  100% {
+    background: rgb(255, 115, 0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }

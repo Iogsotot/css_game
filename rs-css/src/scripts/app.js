@@ -49,21 +49,24 @@ const levelsList = document.querySelector('#levelsList');
 
 // всё, что связано с переключением уровня (ну кроме контента, он отдельно)
 function getCurrentLevelByBtn(direction) {
+  let integerLever = parseInt(currentLevel, 10);
   if (direction === 'next') {
-    if (currentLevel === maxLevel) {
+    if (parseInt(currentLevel, 10) === maxLevel) {
       currentLevel = maxLevel;
     } else {
-      currentLevel += 1;
+      integerLever += 1;
+      currentLevel = integerLever;
     }
   } else if (direction === 'prev') {
     if (currentLevel === 1) {
       currentLevel = 1;
     } else {
-      currentLevel -= 1;
+      integerLever -= 1;
+      currentLevel = integerLever;
     }
   }
   localStorage.setItem('currentLevel', currentLevel);
-  console.log(currentLevel);
+  console.log(currentLevel, typeof currentLevel);
   // return currentLevel;
 }
 
