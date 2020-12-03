@@ -7,6 +7,7 @@ import typewriterEffect from './typewriter';
 import codeColor from './codeColor';
 // import cssColor from './cssColor.js';
 import { levelsMenuClose, levelsMenuOpen } from './levelsMenu';
+import setLevelsName from './setLevelsName';
 
 const cssInput = document.querySelector('.css-input');
 const inputColor = document.querySelector('#inputColor');
@@ -183,6 +184,7 @@ const helpBtn = document.querySelector('#help_btn');
 helpBtn.addEventListener('click', showMeAnswer);
 
 setContent();
+setLevelsName(maxLevel, levels);
 
 // экспортируем всякую фигню, которая потом нигде не работает
 export { table, markup, colorInput };
