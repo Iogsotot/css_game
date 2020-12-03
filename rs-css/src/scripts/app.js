@@ -42,7 +42,10 @@ const levelNextBtn = document.querySelector('#levelNext');
 const levelCurrentEls = document.querySelectorAll('.level--current');
 const maxLevelEls = document.querySelectorAll('.level--total');
 
-function getCurrentLevel(direction) {
+const LevelsList = document.querySelector('#levelsList');
+
+// всё, что связано с переключением уровня (ну кроме контента, он отдельно)
+function getCurrentLevelByBtn(direction) {
   if (direction === 'next') {
     if (currentLevel === maxLevel) {
       currentLevel = maxLevel;
@@ -60,14 +63,17 @@ function getCurrentLevel(direction) {
   return currentLevel;
 }
 
-levelNextBtn.addEventListener('click', () => {
-  getCurrentLevel('next');
+function getCurrentLevelByClick(e) {
+  // console.log(e.target);
+  const levelItem = e.currentTarget;
+  currentLevel = levelItem.id.replace(/^\D+/g, '');
+  // console.log('current: ', levelItem.id.replace(/^\D+/g, ''));
+  console.log(currentLevel);
   setContent();
-});
-levelPrevBtn.addEventListener('click', () => {
-  getCurrentLevel('prev');
-  setContent();
-});
+  return currentLevel;
+}
+
+// LevelsList.addEventListener('click', getCurrentLevelByClick);
 
 function clearState() {
   fileWindowEl.classList.remove('wrong');
@@ -76,7 +82,7 @@ function clearState() {
 
 function fail() {
   fileWindowEl.classList.add('wrong');
-  alert('error');
+  alert('ты дурачок');
   setTimeout(clearState, 900);
 }
 
@@ -169,6 +175,7 @@ function showMeAnswer() {
   typewriterEffect('#input', `${levels[currentLevel].answer}`, 0);
 }
 
+// моя самописная обертка вокруг codeColor функции
 function colorInput() {
   cssInput.style.opacity = '0';
   inputColor.innerHTML = '';
@@ -186,6 +193,19 @@ helpBtn.addEventListener('click', showMeAnswer);
 
 setContent();
 setLevelsName(maxLevel, levels);
+
+LevelsList.querySelectorAll('.level__item').forEach((li) => {
+  li.addEventListener('click', getCurrentLevelByClick);
+});
+
+levelNextBtn.addEventListener('click', () => {
+  getCurrentLevelByBtn('next');
+  setContent();
+});
+levelPrevBtn.addEventListener('click', () => {
+  getCurrentLevelByBtn('prev');
+  setContent();
+});
 
 // экспортируем всякую фигню, которая потом нигде не работает
 export { table, markup, colorInput };
