@@ -279,8 +279,8 @@ export default function createLevels() {
       `;
       markup = `
       &lt;div class="table"&gt;
-        <vine id="y-1905" class="red"></vine>
-        <vine id="y-2020" class="red"></vine>
+        <vine id="y-1905" class="red">&lt; /&gt;</vine>
+        <vine id="y-2020" class="red">&lt; /&gt;</vine>
       &lt;/div&gt;
       `;
     }
@@ -293,10 +293,10 @@ export default function createLevels() {
       `;
       markup = `
       &lt;div class="table"&gt;
-        <coffee class="black"></coffee>
-        <juice></juice>
-        <juice class="fresh"></juice>
-        <beer></beer>
+        <coffee class="black">&lt; /&gt;</coffee>
+        <juice>&lt; /&gt;</juice>
+        <juice class="fresh">&lt; /&gt;</juice>
+        <beer>&lt; /&gt;</beer>
        &lt;/div&gt;
       `;
     }
@@ -309,10 +309,10 @@ export default function createLevels() {
       `;
       markup = `
       &lt;div class="table"&gt;
-        <coffee class="black"></coffee>
-        <juice class="fresh"></juice>
-        <beer></beer>
-        <juice class="fresh"></juice>
+        <coffee class="black">&lt; /&gt;</coffee>
+        <juice class="fresh">&lt; /&gt;</juice>
+        <beer>&lt; /&gt;</beer>
+        <juice class="fresh">&lt; /&gt;</juice>
       &lt;/div&gt;
       `;
     }
@@ -325,10 +325,10 @@ export default function createLevels() {
       `;
       markup = `
       &lt;div class="table"&gt;
-        <beer class="light"></beer>
-        <beer class="dark"></beer>
-        <beer class="light"></beer>
-        <beer class="dark"></beer>
+        <beer class="light">&lt; /&gt;</beer>
+        <beer class="dark">&lt; /&gt;</beer>
+        <beer class="light">&lt; /&gt;</beer>
+        <beer class="dark">&lt; /&gt;&lt; /&gt;</beer>
       &lt;/div&gt;
       `;
     }
@@ -341,10 +341,10 @@ export default function createLevels() {
       `;
       markup = `
       &lt;div class="table"&gt;
-        <glass class="empty"></glass>
-        <glass class="ice-tea"></glass>
-        <glass class="empty"></glass>
-        <glass class="ice-tea"></glass>
+        <glass class="empty">&lt; /&gt;</glass>
+        <glass class="ice-tea">&lt; /&gt;</glass>
+        <glass class="empty">&lt; /&gt;</glass>
+        <glass class="ice-tea">&lt; /&gt;</glass>
       &lt;/div&gt;
       `;
     }
@@ -360,19 +360,21 @@ export default function createLevels() {
       `;
       markup = `
       &lt;div class="table"&gt;
-        <napkin class="white">
-          <espresso></espresso>
+        <napkin class="white">&lt; 
+          <espresso>&lt; /&gt;</espresso>
+          /&gt;
         </napkin>
-        <napkin class="white">
-          <espresso></espresso>
-          <espresso></espresso>
+        <napkin class="white"> &lt;
+          <espresso>&lt; /&gt;</espresso>
+          <espresso>&lt; /&gt;</espresso>
+          /&gt;
         </napkin>
       &lt;/div&gt;
       `;
     }
     if (level === 10) {
       HTML = `
-      <tray>
+      <tray> 
         <shot class="b-52"></shot>
         <shot class="got-milk"></shot>
         <shot class="lime"></shot>
@@ -381,9 +383,9 @@ export default function createLevels() {
       markup = `
       &lt;div class="table"&gt;
         <tray>
-          <shot class="b-52"></shot>
-          <shot class="got-milk"></shot>
-          <shot class="lime"></shot>
+          <shot class="b-52">&lt; /&gt;</shot>
+          <shot class="got-milk">&lt; /&gt;</shot>
+          <shot class="lime">&lt; /&gt;</shot>
         </tray>
       &lt;/div&gt;
       `;
@@ -396,9 +398,9 @@ export default function createLevels() {
       `;
       markup = `
       &lt;div class="table"&gt;
-        <cocktail class="yesterday"></cocktail>
-        <cocktail class="today"></cocktail>
-        <cocktail class="tomorrow"></cocktail>
+        <cocktail class="yesterday">&lt; /&gt;</cocktail>
+        <cocktail class="today">&lt; /&gt;</cocktail>
+        <cocktail class="tomorrow">&lt; /&gt;</cocktail>
       &lt;/div&gt;
       `;
     }
@@ -417,15 +419,17 @@ export default function createLevels() {
       `;
       markup = `
       &lt;div class="table"&gt;
-        <tray>
-          <glass class="empty"></glass>
-          <glass class="ice-tea"></glass>
-          <cocktail class="dream"></cocktail>
-          <napkin>
-            <shot class="b-52"></shot>
-            <espresso></espresso>
-            <espresso></espresso>
+        <tray>&lt;
+          <glass class="empty">&lt; /&gt;</glass>
+          <glass class="ice-tea">&lt; /&gt;</glass>
+          <cocktail class="dream">&lt; /&gt;</cocktail>
+          <napkin> &lt; 
+            <shot class="b-52">&lt; /&gt;</shot>
+            <espresso>&lt; /&gt;</espresso>
+            <espresso>&lt; /&gt;</espresso>
+            /&gt;
           </napkin>
+          /&gt;
         </tray>
       &lt;/div&gt;
       `;
@@ -437,8 +441,8 @@ export default function createLevels() {
       `;
       markup = `
       &lt;div class="table"&gt;
-        <cake for='me'></cake>
-        <cake for='you'></cake>
+        <cake for='me'>&lt; /&gt;</cake>
+        <cake for='you'>&lt; /&gt;</cake>
       &lt;/div&gt;
       `;
     }
@@ -450,9 +454,9 @@ export default function createLevels() {
       `;
       markup = `
       &lt;div class="table"&gt;
-        <glass class="pure-water"></glass>
-        <glass class="water_with_lemon"></glass>
-        <glass class="dirty"></glass>
+        <glass class="pure-water">&lt; /&gt;</glass>
+        <glass class="water_with_lemon">&lt; /&gt;</glass>
+        <glass class="dirty">&lt; /&gt;</glass>
       &lt;/div&gt;
       `;
     }
@@ -465,10 +469,10 @@ export default function createLevels() {
       `;
       markup = `
       &lt;div class="table"&gt;
-        <vine class="top-10"></vine>
-        <vine class="toppest"></vine>
-        <vine class="not-in-any-top"></vine>
-        <vine class="top-50"></vine>
+        <vine class="top-10">&lt; /&gt;</vine>
+        <vine class="toppest">&lt; /&gt;</vine>
+        <vine class="not-in-any-top">&lt; /&gt;</vine>
+        <vine class="top-50">&lt; /&gt;</vine>
       &lt;/div&gt;
       `;
     }
@@ -481,9 +485,10 @@ export default function createLevels() {
       `;
       markup = `
       &lt;div class="table"&gt;
-        <beer></beer>
-        <napkin>
-          <beer></beer>
+        <beer>&lt; /&gt;</beer>
+        <napkin>&lt;
+          <beer>&lt; /&gt;</beer>
+          /&gt;
         </napkin>
       &lt;/div&gt;
       `;
@@ -500,12 +505,14 @@ export default function createLevels() {
       `;
       markup = `
       &lt;div class="table"&gt;
-        <tray>
-          <juice class="orange"></juice>
-          <coffee></coffee>
+        <tray>&lt;
+          <juice class="orange">&lt; /&gt;</juice>
+          <coffee>&lt; /&gt;</coffee>
+          /&gt;
         </tray>
-        <napkin>
-          <glass class="milk"></glass>
+        <napkin>&lt; 
+          <glass class="milk">&lt; /&gt;</glass>
+          /&gt;
         </napkin>
       &lt;/div&gt;
       `;
@@ -525,15 +532,17 @@ export default function createLevels() {
       `;
       markup = `
       &lt;div class="table"&gt;
-        <tray id="you">
-          <beer></beer>
-          <garlic></garlic>
-          <peanut></peanut>
+        <tray id="you">&lt;
+          <beer>&lt; /&gt;</beer>
+          <garlic>&lt; /&gt;</garlic>
+          <peanut>&lt; /&gt;</peanut>
+          /&gt;
         </tray>
-        <tray id="me">
-          <coffee></coffee>
-          <cake></cake>
-          <bug></bug>
+        <tray id="me">&lt;
+          <coffee>&lt; /&gt;</coffee>
+          <cake>&lt; /&gt;</cake>
+          <bug>&lt; /&gt;</bug>
+          /&gt;
         </tray>
       &lt;/div&gt;
       `;
@@ -547,10 +556,10 @@ export default function createLevels() {
       `;
       markup = `
       &lt;div class="table"&gt;
-        <glass class="empty"></glass>
-        <glass class="dirty"></glass>
-        <glass></glass>
-        <glass class="broken"></glass>
+        <glass class="empty">&lt; /&gt;</glass>
+        <glass class="dirty">&lt; /&gt;</glass>
+        <glass>&lt; /&gt;</glass>
+        <glass class="broken">&lt; /&gt;</glass>
       &lt;/div&gt;
       `;
     }
@@ -565,12 +574,12 @@ export default function createLevels() {
       `;
       markup = `
       &lt;div class="table"&gt;
-        <shot class="white"></shot>
-        <chocolate class="dark"></chocolate>
-        <shot class="brain-blowing"></shot>
-        <beer class="dark"></beer>
-        <beer class="light"></beer>
-        <coffee class="dark"></coffee>
+        <shot class="white">&lt;shot class="white" /&gt;</shot>
+        <chocolate class="dark">&lt;chocolate class="dark" /&gt;</chocolate>
+        <shot class="brain-blowing">&lt;hot class="brain-blowing" /&gt;</shot>
+        <beer class="dark">&lt;beer class="dark" /&gt;</beer>
+        <beer class="light">&lt;beer class="light" /&gt;</beer>
+        <coffee class="dark">&lt;coffee class="dark" /&gt;</coffee>
       &lt;/div&gt;
       `;
     } else {
