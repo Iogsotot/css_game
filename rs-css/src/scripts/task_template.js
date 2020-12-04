@@ -274,312 +274,313 @@ export default function createLevels() {
     }
     if (level === 4) {
       HTML = `
-      <vine id='y-1905' class="red"></vine>
-      <vine id='y-2020' class="red"></vine>
+      <vine id='y-1905' class='red'  data-title="&lt;vine id='y-1905' class='red' /&gt;"></vine>
+      <vine id='y-2020' class='red'  data-title="&lt;vine id='y-2020' class='red' /&gt;"></vine>
       `;
       markup = `
-      &lt;div class="table"&gt;
-        <vine id="y-1905" class="red">&lt; /&gt;</vine>
-        <vine id="y-2020" class="red">&lt; /&gt;</vine>
+      &lt;div class='table'&gt;
+        <vine id='y-1905' class='red'>&lt;vine id='y-1905' class='red' /&gt;</vine>
+        <vine id='y-2020' class='red'>&lt;vine id='y-2020' class='red' /&gt;</vine>
       &lt;/div&gt;
       `;
     }
     if (level === 5) {
       HTML = `
-      <coffee class="black"></coffee>
-      <juice></juice>
-      <juice class="fresh"></juice>
-      <beer></beer>
+      <coffee class='black'  data-title="&lt; coffee class='black'/&gt;"></coffee>
+      <juice  data-title="&lt; /&gt;">juice</juice>
+      <juice class='fresh'  data-title="&lt;juice class='fresh' /&gt;"></juice>
+      <beer  data-title="&lt;beer /&gt;"></beer>
       `;
       markup = `
-      &lt;div class="table"&gt;
-        <coffee class="black">&lt; /&gt;</coffee>
-        <juice>&lt; /&gt;</juice>
-        <juice class="fresh">&lt; /&gt;</juice>
-        <beer>&lt; /&gt;</beer>
+      &lt;div class='table'&gt;
+        <coffee class='black'>&lt;coffee class='black' /&gt;</coffee>
+        <juice>&lt;juice /&gt;</juice>
+        <juice class='fresh'>&lt;juice class='fresh' /&gt;</juice>
+        <beer>&lt;beer /&gt;</beer>
        &lt;/div&gt;
       `;
     }
     if (level === 6) {
       HTML = `
-      <coffee class="black"></coffee>
-      <juice class="fresh"></juice>
-      <beer></beer>
-      <juice class="fresh"></juice>
+      <coffee class='black'  data-title="&lt;coffee class='black' /&gt;"></coffee>
+      <juice class='fresh'  data-title="&lt;juice class='fresh' /&gt;"></juice>
+      <beer  data-title="&lt;beer /&gt;"></beer>
+      <juice class='fresh'  data-title="&lt;juice class='fresh' /&gt;"></juice>
       `;
       markup = `
-      &lt;div class="table"&gt;
-        <coffee class="black">&lt; /&gt;</coffee>
-        <juice class="fresh">&lt; /&gt;</juice>
-        <beer>&lt; /&gt;</beer>
-        <juice class="fresh">&lt; /&gt;</juice>
+      &lt;div class='table'&gt;
+        <coffee class='black'>&lt;coffee class='black' /&gt;</coffee>
+        <juice class='fresh'>&lt;juice class='fresh' /&gt;</juice>
+        <beer>&lt;beer /&gt;</beer>
+        <juice class='fresh'>&lt;juice class='fresh' /&gt;</juice>
       &lt;/div&gt;
       `;
     }
     if (level === 7) {
       HTML = `
-      <beer class="light"></beer>
-      <beer class="dark"></beer>
-      <beer class="light"></beer>
-      <beer class="dark"></beer>
+      <beer class='light'  data-title="&lt;beer class='light' /&gt;"></beer>
+      <beer class='dark'  data-title="&lt;beer class='dark' /&gt;"></beer>
+      <beer class='light'  data-title="&lt;beer class='light' /&gt;"></beer>
+      <beer class='dark'  data-title="&lt;beer class='dark' /&gt;"></beer>
       `;
       markup = `
-      &lt;div class="table"&gt;
-        <beer class="light">&lt; /&gt;</beer>
-        <beer class="dark">&lt; /&gt;</beer>
-        <beer class="light">&lt; /&gt;</beer>
-        <beer class="dark">&lt; /&gt;&lt; /&gt;</beer>
+      &lt;div class='table'&gt;
+        <beer class='light'>&lt;beer class='light' /&gt;</beer>
+        <beer class='dark'>&lt;beer class='dark' /&gt;</beer>
+        <beer class='light'>&lt;beer class='light' /&gt;</beer>
+        <beer class='dark'>&lt;beer class='dark' /&gt;</beer>
       &lt;/div&gt;
       `;
     }
     if (level === 8) {
       HTML = `
-      <glass class="empty"></glass>
-      <glass class="ice-tea"></glass>
-      <glass class="empty"></glass>
-      <glass class="ice-tea"></glass>
+      <glass class='empty'  data-title="&lt;glass class='empty' /&gt;"></glass>
+      <glass class='ice-tea'  data-title="&lt;glass class='ice-tea' /&gt;"></glass>
+      <glass class='empty'  data-title="&lt;glass class='empty' /&gt;"></glass>
+      <glass class='ice-tea'  data-title="&lt;glass class='ice-tea' /&gt;"></glass>
       `;
       markup = `
-      &lt;div class="table"&gt;
-        <glass class="empty">&lt; /&gt;</glass>
-        <glass class="ice-tea">&lt; /&gt;</glass>
-        <glass class="empty">&lt; /&gt;</glass>
-        <glass class="ice-tea">&lt; /&gt;</glass>
+      &lt;div class='table'&gt;
+        <glass class='empty'>&lt;glass class='empty' /&gt;</glass>
+        <glass class='ice-tea'>&lt;glass class='ice-tea' /&gt;</glass>
+        <glass class='empty'>&lt;glass class='empty' /&gt;</glass>
+        <glass class='ice-tea'>&lt;glass class='ice-tea' /&gt;</glass>
       &lt;/div&gt;
       `;
     }
     if (level === 9) {
       HTML = `
-      <napkin class="white">
-        <espresso></espresso>
+      <napkin class='white' data-title="&lt;napkin &gt;&lt;napkin /&gt;">
+        <espresso  data-title="&lt;espresso /&gt;"></espresso>
       </napkin>
-      <napkin class="white">
-        <espresso></espresso>
-        <espresso></espresso>
+      <napkin class='white' data-title="&lt;napkin /&gt;">
+        <espresso  data-title="&lt;espresso /&gt;"></espresso>
+        <espresso  data-title="&lt;espresso /&gt;"></espresso>
       </napkin>
       `;
       markup = `
-      &lt;div class="table"&gt;
-        <napkin class="white">&lt; 
-          <espresso>&lt; /&gt;</espresso>
-          /&gt;
+      &lt;div class='table'&gt;
+        <napkin class='white'>&lt;napkin&gt;
+          <espresso>&lt;espresso /&gt;</espresso>
+          &lt;/napkin&gt;
         </napkin>
-        <napkin class="white"> &lt;
-          <espresso>&lt; /&gt;</espresso>
-          <espresso>&lt; /&gt;</espresso>
-          /&gt;
+        <napkin class='white'> &lt;napkin&gt;
+          <espresso>&lt;espresso /&gt;</espresso>
+          <espresso>&lt;espresso /&gt;</espresso>
+          &lt;/napkin&gt;
         </napkin>
       &lt;/div&gt;
       `;
     }
     if (level === 10) {
       HTML = `
-      <tray> 
-        <shot class="b-52"></shot>
-        <shot class="got-milk"></shot>
-        <shot class="lime"></shot>
+      <tray data-title="&lt;tray&gt; &lt;tray /&gt;"> 
+        <shot class='b-52'  data-title="&lt;shot class='b-52' /&gt;"></shot>
+        <shot class='got-milk'  data-title="&lt;shot class='got-milk' /&gt;"></shot>
+        <shot class='lime'  data-title="&lt;shot class='lime' /&gt;"></shot>
       </tray>
       `;
       markup = `
-      &lt;div class="table"&gt;
-        <tray>
-          <shot class="b-52">&lt; /&gt;</shot>
-          <shot class="got-milk">&lt; /&gt;</shot>
-          <shot class="lime">&lt; /&gt;</shot>
+      &lt;div class='table'&gt;
+        <tray>&lt;tray&gt;
+          <shot class='b-52'>&lt;shot class='b-52' /&gt;</shot>
+          <shot class='got-milk'>&lt;shot class='got-milk' /&gt;</shot>
+          <shot class='lime'>&lt;shot class='lime' /&gt;</shot>
+          &lt;/tray&gt;
         </tray>
       &lt;/div&gt;
       `;
     }
     if (level === 11) {
       HTML = `
-      <cocktail class="yesterday"></cocktail>
-      <cocktail class="today"></cocktail>
-      <cocktail class="tomorrow"></cocktail>
+      <cocktail class='yesterday'  data-title="&lt;cocktail class='yesterday' /&gt;"></cocktail>
+      <cocktail class='today'  data-title="&lt;cocktail class='today' /&gt;"></cocktail>
+      <cocktail class='tomorrow'  data-title="&lt;cocktail class='tomorrow' /&gt;"></cocktail>
       `;
       markup = `
-      &lt;div class="table"&gt;
-        <cocktail class="yesterday">&lt; /&gt;</cocktail>
-        <cocktail class="today">&lt; /&gt;</cocktail>
-        <cocktail class="tomorrow">&lt; /&gt;</cocktail>
+      &lt;div class='table'&gt;
+        <cocktail class='yesterday'>&lt;cocktail class='yesterday' /&gt;</cocktail>
+        <cocktail class='today'>&lt;cocktail class='today' /&gt;</cocktail>
+        <cocktail class='tomorrow'>&lt;cocktail class='tomorrow' /&gt;</cocktail>
       &lt;/div&gt;
       `;
     }
     if (level === 12) {
       HTML = `
-      <tray>
-        <glass class="empty"></glass>
-        <glass class="ice-tea"></glass>
-        <cocktail class="dream"></cocktail>
-        <napkin>
-          <shot class="b-52"></shot>
-          <espresso></espresso>
-          <espresso></espresso>
+      <tray data-title="&lt;tray&gt; &lt;tray /&gt;">
+        <glass class='empty'  data-title="&lt;glass class='empty' /&gt;"></glass>
+        <glass class='ice-tea'  data-title="&lt;glass class='ice-tea' /&gt;"></glass>
+        <cocktail class='dream'  data-title="&lt;cocktail class='dream' /&gt;"></cocktail>
+        <napkin data-title="&lt;napkin &gt; &lt;napkin /&gt;">
+          <shot class='b-52'  data-title="&lt;shot class='b-52' /&gt;"></shot>
+          <espresso  data-title="&lt;espresso /&gt;"></espresso>
+          <espresso  data-title="&lt;espresso /&gt;"></espresso>
         </napkin>
       </tray>
       `;
       markup = `
-      &lt;div class="table"&gt;
-        <tray>&lt;
-          <glass class="empty">&lt; /&gt;</glass>
-          <glass class="ice-tea">&lt; /&gt;</glass>
-          <cocktail class="dream">&lt; /&gt;</cocktail>
-          <napkin> &lt; 
-            <shot class="b-52">&lt; /&gt;</shot>
-            <espresso>&lt; /&gt;</espresso>
-            <espresso>&lt; /&gt;</espresso>
-            /&gt;
+      &lt;div class='table'&gt;
+        <tray>&lt;tray&gt;
+          <glass class='empty'>&lt;glass class='empty' /&gt;</glass>
+          <glass class='ice-tea'>&lt;glass class='ice-tea' /&gt;</glass>
+          <cocktail class='dream'>&lt;cocktail class='dream' /&gt;</cocktail>
+          <napkin> &lt;napkin&gt;
+            <shot class='b-52'>&lt;shot class='b-52' /&gt;</shot>
+            <espresso>&lt;espresso /&gt;</espresso>
+            <espresso>&lt;espresso /&gt;</espresso>
+            &lt;napkin /&gt;
           </napkin>
-          /&gt;
+          &lt;tray /&gt;
         </tray>
       &lt;/div&gt;
       `;
     }
     if (level === 13) {
       HTML = `
-      <cake for='me'></cake>
-      <cake for='you'></cake>
+      <cake for='me'  data-title="&lt;cake for='me' /&gt;"></cake>
+      <cake for='you'  data-title="&lt;cake for='you' /&gt;"></cake>
       `;
       markup = `
-      &lt;div class="table"&gt;
-        <cake for='me'>&lt; /&gt;</cake>
-        <cake for='you'>&lt; /&gt;</cake>
+      &lt;div class='table'&gt;
+        <cake for='me'>&lt;cake for='me' /&gt;</cake>
+        <cake for='you'>&lt;cake for='you' /&gt;</cake>
       &lt;/div&gt;
       `;
     }
     if (level === 14) {
       HTML = `
-      <glass class="pure-water"></glass>
-      <glass class="water_with_lemon"></glass>
-      <glass class="dirty"></glass>
+      <glass class='pure-water'  data-title="&lt;glass class='pure-water' /&gt;"></glass>
+      <glass class='water_with_lemon'  data-title="&lt;glass class='water_with_lemon' /&gt;"></glass>
+      <glass class='dirty'  data-title="&lt;glass class='dirty' /&gt;"></glass>
       `;
       markup = `
-      &lt;div class="table"&gt;
-        <glass class="pure-water">&lt; /&gt;</glass>
-        <glass class="water_with_lemon">&lt; /&gt;</glass>
-        <glass class="dirty">&lt; /&gt;</glass>
+      &lt;div class='table'&gt;
+        <glass class='pure-water'>&lt;glass class='pure-water' /&gt;</glass>
+        <glass class='water_with_lemon'>&lt;glass class='water_with_lemon'  /&gt;</glass>
+        <glass class='dirty'>&lt;glass class='dirty' /&gt;</glass>
       &lt;/div&gt;
       `;
     }
     if (level === 15) {
       HTML = `
-      <vine class="top-10"></vine>
-      <vine class="toppest"></vine>
-      <vine class="not-in-any-top"></vine>
-      <vine class="top-50"></vine>
+      <vine class='top-10'  data-title="&lt;vine class='top-10' /&gt;"></vine>
+      <vine class='toppest'  data-title="&lt;vine class='toppest' /&gt;"></vine>
+      <vine class='not-in-any-top'  data-title="&lt;vine class='not-in-any-top' /&gt;"></vine>
+      <vine class='top-50'  data-title="&lt;vine class='top-50' /&gt;"></vine>
       `;
       markup = `
-      &lt;div class="table"&gt;
-        <vine class="top-10">&lt; /&gt;</vine>
-        <vine class="toppest">&lt; /&gt;</vine>
-        <vine class="not-in-any-top">&lt; /&gt;</vine>
-        <vine class="top-50">&lt; /&gt;</vine>
+      &lt;div class='table'&gt;
+        <vine class='top-10'>&lt;vine class='top-10' /&gt;</vine>
+        <vine class='toppest'>&lt;vine class='toppest' /&gt;</vine>
+        <vine class='not-in-any-top'>&lt;vine class='not-in-any-top' /&gt;</vine>
+        <vine class='top-50'>&lt;vine class='top-50' /&gt;</vine>
       &lt;/div&gt;
       `;
     }
     if (level === 16) {
       HTML = `
-      <beer></beer>
-      <napkin>
-        <beer></beer>
+      <beer  data-title="&lt;beer /&gt;"></beer>
+      <napkin data-title="&lt;napkin&gt; &lt;/napkin&gt;">
+        <beer  data-title="&lt;beer /&gt;"></beer>
       </napkin>
       `;
       markup = `
-      &lt;div class="table"&gt;
-        <beer>&lt; /&gt;</beer>
-        <napkin>&lt;
-          <beer>&lt; /&gt;</beer>
-          /&gt;
+      &lt;div class='table'&gt;
+        <beer>&lt;beer /&gt;</beer>
+        <napkin>&lt;napkin&gt;
+          <beer>&lt;beer /&gt;</beer>
+          &lt;/napkin&gt;
         </napkin>
       &lt;/div&gt;
       `;
     }
     if (level === 17) {
       HTML = `
-      <tray>
-        <juice class="orange"></juice>
-        <coffee></coffee>
+      <tray data-title="&lt;tray&gt; &lt;/tray&gt;">
+        <juice class='orange'  data-title="&lt;juice class='orange' /&gt;"></juice>
+        <coffee  data-title="&lt;coffee /&gt;"></coffee>
       </tray>
-      <napkin>
-        <glass class="milk"></glass>
+      <napkin data-title="&lt;napkin&gt; &lt;/napkin&gt;">
+        <glass class='milk'  data-title="&lt;glass class='milk' /&gt;"></glass>
       </napkin>
       `;
       markup = `
-      &lt;div class="table"&gt;
-        <tray>&lt;
-          <juice class="orange">&lt; /&gt;</juice>
-          <coffee>&lt; /&gt;</coffee>
-          /&gt;
+      &lt;div class='table'&gt;
+        <tray>&lt;tray&gt;
+          <juice class='orange'>&lt;juice class='orange' /&gt;</juice>
+          <coffee>&lt;coffee /&gt;</coffee>
+          &lt;/tray&gt;
         </tray>
-        <napkin>&lt; 
-          <glass class="milk">&lt; /&gt;</glass>
-          /&gt;
+        <napkin >&lt;napkin&gt;
+          <glass class='milk'>&lt;glass class='milk' /&gt;</glass>
+          &lt;/napkin&gt;
         </napkin>
       &lt;/div&gt;
       `;
     }
     if (level === 18) {
       HTML = `
-      <tray id="yours">
-        <beer></beer>
-        <garlic></garlic>
-        <peanut></peanut>
+      <tray id='yours' data-title="&lt;tray id='yours'&gt; &lt;/tray&gt;">
+        <beer  data-title="&lt;beer /&gt;"></beer>
+        <garlic  data-title="&lt;garlic /&gt;"></garlic>
+        <peanut  data-title="&lt;peanut /&gt;"></peanut>
       </tray>
-      <tray id="mine">
-        <coffee></coffee>
-        <cake></cake>
-        <bug></bug>
+      <tray id='mine' data-title="&lt;tray id='mine'&gt; &lt;/tray&gt;">
+        <coffee  data-title="&lt;coffee /&gt;"></coffee>
+        <cake  data-title="&lt;cake /&gt;"></cake>
+        <bug  data-title="&lt;bug /&gt;"></bug>
       </tray>
       `;
       markup = `
-      &lt;div class="table"&gt;
-        <tray id="you">&lt;
-          <beer>&lt; /&gt;</beer>
-          <garlic>&lt; /&gt;</garlic>
-          <peanut>&lt; /&gt;</peanut>
-          /&gt;
+      &lt;div class='table'&gt;
+        <tray id='you'>&lt;tray id='yours'&gt;
+          <beer>&lt;beer /&gt;</beer>
+          <garlic>&lt;garlic /&gt;</garlic>
+          <peanut>&lt;peanut /&gt;</peanut>
+          &lt;/tray&gt;
         </tray>
-        <tray id="me">&lt;
-          <coffee>&lt; /&gt;</coffee>
-          <cake>&lt; /&gt;</cake>
-          <bug>&lt; /&gt;</bug>
-          /&gt;
+        <tray id='me'>&lt;tray id='mine'&gt;
+          <coffee>&lt;coffee /&gt;</coffee>
+          <cake>&lt;cake /&gt;</cake>
+          <bug>&lt;bug /&gt;</bug>
+          &lt;/tray&gt;
         </tray>
       &lt;/div&gt;
       `;
     }
     if (level === 19) {
       HTML = `
-      <glass class="empty"></glass>
-      <glass class="dirty"></glass>
-      <glass></glass>
-      <glass class="broken"></glass>
+      <glass class='empty'  data-title="&lt;glass class='empty' /&gt;"></glass>
+      <glass class='dirty'  data-title="&lt;glass class='dirty' /&gt;"></glass>
+      <glass  data-title="&lt;glass /&gt;"></glass>
+      <glass class='broken'  data-title="&lt;glass class='broken' /&gt;"></glass>
       `;
       markup = `
-      &lt;div class="table"&gt;
-        <glass class="empty">&lt; /&gt;</glass>
-        <glass class="dirty">&lt; /&gt;</glass>
-        <glass>&lt; /&gt;</glass>
-        <glass class="broken">&lt; /&gt;</glass>
+      &lt;div class='table'&gt;
+        <glass class='empty'>&lt;glass class='empty' /&gt;</glass>
+        <glass class='dirty'>&lt;glass class='dirty' /&gt;</glass>
+        <glass>&lt;glass /&gt;</glass>
+        <glass class='broken'>&lt;glass class='broken' /&gt;</glass>
       &lt;/div&gt;
       `;
     }
     if (level === 20) {
       HTML = `
-      <shot class="white"></shot>
-      <chocolate class="dark"></chocolate>
-      <shot class="brain-blowing"></shot>
-      <beer class="dark"></beer>
-      <beer class="light"></beer>
-      <coffee class="dark"></coffee>
+      <shot class='white'  data-title="&lt;shot class='white' /&gt;"></shot>
+      <chocolate class='dark'  data-title="&lt;chocolate class='dark' /&gt;"></chocolate>
+      <shot class='brain-blowing'  data-title="&lt;shot class='brain-blowing' /&gt;"></shot>
+      <beer class='dark'  data-title="&lt;beer class='dark' /&gt;"></beer>
+      <beer class='light'  data-title="&lt;beer class='light' /&gt;"></beer>
+      <coffee class='dark'  data-title="&lt;coffee class='dark' /&gt;"></coffee>
       `;
       markup = `
-      &lt;div class="table"&gt;
-        <shot class="white">&lt;shot class="white" /&gt;</shot>
-        <chocolate class="dark">&lt;chocolate class="dark" /&gt;</chocolate>
-        <shot class="brain-blowing">&lt;hot class="brain-blowing" /&gt;</shot>
-        <beer class="dark">&lt;beer class="dark" /&gt;</beer>
-        <beer class="light">&lt;beer class="light" /&gt;</beer>
-        <coffee class="dark">&lt;coffee class="dark" /&gt;</coffee>
+      &lt;div class='table'&gt;
+        <shot class='white'>&lt;shot class='white' /&gt;</shot>
+        <chocolate class='dark'>&lt;chocolate class='dark' /&gt;</chocolate>
+        <shot class='brain-blowing'>&lt;hot class='brain-blowing' /&gt;</shot>
+        <beer class='dark'>&lt;beer class='dark' /&gt;</beer>
+        <beer class='light'>&lt;beer class='light' /&gt;</beer>
+        <coffee class='dark'>&lt;coffee class='dark' /&gt;</coffee>
       &lt;/div&gt;
       `;
     } else {

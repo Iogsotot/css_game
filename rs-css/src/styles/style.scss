@@ -677,8 +677,14 @@ footer {
 // Footer End
 
 // styles for js-element 
-napkin, tray {
+.table > napkin, tray {
   display: flex !important;
+}
+
+.markup > napkin, tray {
+  display: flex !important;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 // .white {
