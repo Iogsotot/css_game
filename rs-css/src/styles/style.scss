@@ -676,6 +676,20 @@ footer {
 
 // Footer End
 
+// styles for js-element 
+napkin, tray {
+  display: flex !important;
+}
+
+// .white {
+//   display: flex;
+// }
+
+// #yours * {}
+
+
+
+
 @media (min-width: 550px) {
   .wrapper {
     max-width: unset;

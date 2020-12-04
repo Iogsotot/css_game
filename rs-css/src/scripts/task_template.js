@@ -39,10 +39,10 @@ export default function createLevels() {
     4:
     {
       level: 4,
-      task: '',
+      task: 'oldest vine by id',
       isComplete: false,
-      answer: '',
-      name: 'tag',
+      answer: '#y-1905',
+      name: 'id',
       theory: 'some theory 4',
       divTemplate: createHTML(4, 'real'),
       markupTemplate: createHTML(4, 'show'),
@@ -50,10 +50,10 @@ export default function createLevels() {
     5:
     {
       level: 5,
-      task: '',
+      task: 'just a first juice',
       isComplete: false,
-      answer: '',
-      name: 'tag',
+      answer: 'juice:first-of-type',
+      name: ':first-of-type',
       theory: 'some theory 5',
       divTemplate: createHTML(5, 'real'),
       markupTemplate: createHTML(5, 'show'),
@@ -61,10 +61,10 @@ export default function createLevels() {
     6:
     {
       level: 6,
-      task: '',
+      task: 'right juice',
       isComplete: false,
-      answer: '',
-      name: 'tag',
+      answer: 'juice:last-of-type',
+      name: ':last-of-type',
       theory: 'some theory 6',
       divTemplate: createHTML(6, 'real'),
       markupTemplate: createHTML(6, 'show'),
@@ -72,10 +72,10 @@ export default function createLevels() {
     7:
     {
       level: 7,
-      task: '',
+      task: 'dark beer',
       isComplete: false,
-      answer: '',
-      name: 'tag',
+      answer: 'beer:nth-of-type(even)',
+      name: ':nth-of-type',
       theory: 'some theory 7',
       divTemplate: createHTML(7, 'real'),
       markupTemplate: createHTML(7, 'show'),
@@ -83,10 +83,10 @@ export default function createLevels() {
     8:
     {
       level: 8,
-      task: '',
+      task: 'all glasses without tea',
       isComplete: false,
-      answer: '',
-      name: 'tag',
+      answer: 'glass:nth-of-type(odd)',
+      name: ':nth-of-type again',
       theory: 'some theory 8',
       divTemplate: createHTML(8, 'real'),
       markupTemplate: createHTML(8, 'show'),
@@ -94,10 +94,10 @@ export default function createLevels() {
     9:
     {
       level: 9,
-      task: '',
+      task: 'single espresso on napkin',
       isComplete: false,
-      answer: '',
-      name: 'tag',
+      answer: 'espresso:only-child',
+      name: ':only-child',
       theory: 'some theory 9',
       divTemplate: createHTML(9, 'real'),
       markupTemplate: createHTML(9, 'show'),
@@ -105,10 +105,10 @@ export default function createLevels() {
     10:
     {
       level: 10,
-      task: '',
+      task: 'lime shot',
       isComplete: false,
-      answer: '',
-      name: 'tag',
+      answer: 'tray:last-child',
+      name: ':last-child',
       theory: 'some theory 10',
       divTemplate: createHTML(10, 'real'),
       markupTemplate: createHTML(10, 'show'),
@@ -116,10 +116,10 @@ export default function createLevels() {
     11:
     {
       level: 11,
-      task: '',
+      task: 'all cocktails, but :not today ',
       isComplete: false,
-      answer: '',
-      name: 'tag',
+      answer: 'cocktail:not(.today)',
+      name: ':not',
       theory: 'some theory 11',
       divTemplate: createHTML(11, 'real'),
       markupTemplate: createHTML(11, 'show'),
@@ -127,10 +127,10 @@ export default function createLevels() {
     12:
     {
       level: 12,
-      task: '',
+      task: 'alcohol',
       isComplete: false,
-      answer: '',
-      name: 'tag',
+      answer: 'tray:only-of-type',
+      name: ':only-of-type',
       theory: 'some theory 12',
       divTemplate: createHTML(12, 'real'),
       markupTemplate: createHTML(12, 'show'),
@@ -138,10 +138,10 @@ export default function createLevels() {
     13:
     {
       level: 13,
-      task: '',
+      task: 'yours cake',
       isComplete: false,
-      answer: '',
-      name: 'tag',
+      answer: '[for = "you"]',
+      name: '[attr = value]',
       theory: 'some theory 13',
       divTemplate: createHTML(13, 'real'),
       markupTemplate: createHTML(13, 'show'),
@@ -149,10 +149,10 @@ export default function createLevels() {
     14:
     {
       level: 14,
-      task: '',
+      task: 'water',
       isComplete: false,
-      answer: '',
-      name: 'tag',
+      answer: '[class *= "water"]',
+      name: '[attr *= value]',
       theory: 'some theory 14',
       divTemplate: createHTML(14, 'real'),
       markupTemplate: createHTML(14, 'show'),
@@ -160,10 +160,10 @@ export default function createLevels() {
     15:
     {
       level: 15,
-      task: '',
+      task: 'vine from "top"',
       isComplete: false,
-      answer: '',
-      name: 'tag',
+      answer: '[class |= "top"]',
+      name: '[attr |= value]',
       theory: 'some theory 15',
       divTemplate: createHTML(15, 'real'),
       markupTemplate: createHTML(15, 'show'),
@@ -171,10 +171,10 @@ export default function createLevels() {
     16:
     {
       level: 16,
-      task: '',
+      task: 'beer on napkin',
       isComplete: false,
-      answer: '',
-      name: 'tag',
+      answer: 'napkin > beer',
+      name: 'selector > selector',
       theory: 'some theory 16',
       divTemplate: createHTML(16, 'real'),
       markupTemplate: createHTML(16, 'show'),
@@ -182,10 +182,10 @@ export default function createLevels() {
     17:
     {
       level: 17,
-      task: '',
+      task: 'coffee',
       isComplete: false,
-      answer: '',
-      name: 'tag',
+      answer: 'tray coffee',
+      name: 'selector selector',
       theory: 'some theory 17',
       divTemplate: createHTML(17, 'real'),
       markupTemplate: createHTML(17, 'show'),
@@ -193,10 +193,10 @@ export default function createLevels() {
     18:
     {
       level: 18,
-      task: '',
+      task: 'all yours staff',
       isComplete: false,
-      answer: '',
-      name: 'tag',
+      answer: '#yours *',
+      name: '#id *',
       theory: 'some theory 18',
       divTemplate: createHTML(18, 'real'),
       markupTemplate: createHTML(18, 'show'),
@@ -204,10 +204,10 @@ export default function createLevels() {
     19:
     {
       level: 19,
-      task: '',
+      task: 'normal glass',
       isComplete: false,
-      answer: '',
-      name: 'tag',
+      answer: '.dirty + glass',
+      name: 'selector + selector',
       theory: 'some theory 19',
       divTemplate: createHTML(19, 'real'),
       markupTemplate: createHTML(19, 'show'),
@@ -215,10 +215,10 @@ export default function createLevels() {
     20:
     {
       level: 20,
-      task: '',
+      task: 'dark beer and coffee',
       isComplete: false,
-      answer: '',
-      name: 'tag',
+      answer: '.brain-blowing ~ .dark',
+      name: 'selector ~ selector',
       theory: 'some theory 20',
       divTemplate: createHTML(20, 'real'),
       markupTemplate: createHTML(20, 'show'),
@@ -274,13 +274,13 @@ export default function createLevels() {
     }
     if (level === 4) {
       HTML = `
-      <vine id="1905-year" class="red"></vine>
-      <vine id="2020-year" class="red"></vine>
+      <vine id='y-1905' class="red"></vine>
+      <vine id='y-2020' class="red"></vine>
       `;
       markup = `
       &lt;div class="table"&gt;
-        <vine id="1905-year" class="red"></vine>
-        <vine id="2020-year" class="red"></vine>
+        <vine id="y-1905" class="red"></vine>
+        <vine id="y-2020" class="red"></vine>
       &lt;/div&gt;
       `;
     }
@@ -512,12 +512,12 @@ export default function createLevels() {
     }
     if (level === 18) {
       HTML = `
-      <tray id="you">
+      <tray id="yours">
         <beer></beer>
         <garlic></garlic>
         <peanut></peanut>
       </tray>
-      <tray id="me">
+      <tray id="mine">
         <coffee></coffee>
         <cake></cake>
         <bug></bug>
