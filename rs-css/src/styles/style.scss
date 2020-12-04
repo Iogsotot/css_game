@@ -311,6 +311,8 @@ aside.levels {
     border: 2px solid $medium-color;
     background-color: $main-light;
 
+    cursor: pointer;
+
     &:hover {
       background-color: darkred;
       border-color: rgb(189, 39, 39);
@@ -681,10 +683,24 @@ footer {
   display: flex !important;
 }
 
-.markup > napkin, tray {
+.markup > napkin, tray, #colorMarkup {
   display: flex !important;
   flex-direction: column;
   flex-wrap: wrap;
+
+  width: 100%;
+}
+
+espresso, shot, beer, glass {
+  display: block;
+}
+
+napkin > *, tray > * {
+  margin-left: 1rem;
+}
+
+napkin > span, tray > span {
+  margin-left: 0;
 }
 
 // .white {

@@ -32,6 +32,7 @@ function setHoveredElements(parent, needUnhover) {
 function unhovered(e) {
   if (e.target.id === 'table' || e.target.id === 'markup') { return; }
   if (e.target.parentNode.id === 'table') {
+    console.log('unh: ' + e.target);
     e.target.classList.remove('hover');
     setHoveredElements(table, 'yes');
   } else if (e.target.parentNode.id === 'markup') {

@@ -66,7 +66,7 @@ function getCurrentLevelByBtn(direction) {
     }
   }
   localStorage.setItem('currentLevel', currentLevel);
-  console.log(currentLevel, typeof currentLevel);
+  // console.log(currentLevel, typeof currentLevel);
   // return currentLevel;
 }
 
@@ -75,7 +75,7 @@ function getCurrentLevelByClick(e) {
   const levelItem = e.currentTarget;
   currentLevel = levelItem.id.replace(/^\D+/g, '');
   // console.log('current: ', levelItem.id.replace(/^\D+/g, ''));
-  console.log(currentLevel);
+  // console.log(currentLevel);
   localStorage.setItem('currentLevel', currentLevel);
   setContent();
   // return currentLevel;
@@ -132,14 +132,14 @@ function makeAGuess() {
     console.log('invalid property in input');
     fail();
   }
-  console.log(selector);
-  console.log(guessEls); // возвращает NodeList с совпадениями
+  // console.log(selector);
+  // console.log(guessEls); // возвращает NodeList с совпадениями
   // учесть, что может придти одна нода или их array
   // учесть ситуацию, когда по предположенному селектору нет Node
   for (let i = 0; i < guessEls.length; i++) {
     guessEls[i].classList.add('selected');
   }
-  console.log(`guess: ${guessEls}`);
+  // console.log(`guess: ${guessEls}`);
   return guessEls;
 }
 
@@ -173,7 +173,7 @@ function checkAnswer() {
 
 function addClassCorrect() {
   const correctSelector = levels[currentLevel].answer;
-  console.log(table);
+  // console.log(table);
   const correctEls = table.querySelectorAll(correctSelector);
   for (let i = 0; i < correctEls.length; i++) {
     correctEls[i].classList.add('correct');
@@ -238,6 +238,7 @@ function updateProgressBar() {
   const completeStats = getCompleteStats();
   const progress = completeStats ? Object.keys(completeStats).length : 0;
   progressBar.style.width = `${progress * (100 / maxLevel)}%`;
+  // console.log(progress, progressBar.style.width);
 }
 
 updateProgressBar();
@@ -255,7 +256,10 @@ levelPrevBtn.addEventListener('click', () => {
   setContent();
 });
 
-resetBtn.addEventListener('click', () => { localStorage.removeItem('completeStats'); });
+resetBtn.addEventListener('click', () => { 
+  localStorage.removeItem('completeStats');
+  updateProgressBar();
+});
 
 // экспортируем всякую фигню, которая потом нигде не работает
 export { table, markup, colorInput };
