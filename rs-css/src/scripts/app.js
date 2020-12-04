@@ -256,10 +256,20 @@ levelPrevBtn.addEventListener('click', () => {
   setContent();
 });
 
-resetBtn.addEventListener('click', () => { 
+resetBtn.addEventListener('click', () => {
   localStorage.removeItem('completeStats');
   updateProgressBar();
 });
+
+function showMeTarget(e) {
+  if (e.target.id === 'table' || e.target.id === 'markup') { return; }
+  // console.log(target);
+  console.log(e.target);
+  // console.log(currentTarget);
+  console.log(e.currentTarget);
+}
+
+table.addEventListener('click', showMeTarget);
 
 // экспортируем всякую фигню, которая потом нигде не работает
 export { table, markup, colorInput };

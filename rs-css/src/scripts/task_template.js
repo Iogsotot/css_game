@@ -107,7 +107,7 @@ export default function createLevels() {
       level: 10,
       task: 'lime shot',
       isComplete: false,
-      answer: 'tray:last-child',
+      answer: 'shot:last-child',
       name: ':last-child',
       theory: 'some theory 10',
       divTemplate: createHTML(10, 'real'),
@@ -127,9 +127,9 @@ export default function createLevels() {
     12:
     {
       level: 12,
-      task: 'alcohol',
+      task: 'single espresso on table',
       isComplete: false,
-      answer: 'tray:only-of-type',
+      answer: 'espresso:only-of-type',
       name: ':only-of-type',
       theory: 'some theory 12',
       divTemplate: createHTML(12, 'real'),
@@ -407,23 +407,23 @@ export default function createLevels() {
     }
     if (level === 12) {
       HTML = `
-      <tray data-title="&lt;tray&gt; &lt;tray /&gt;">
+
         <glass class='empty'  data-title="&lt;glass class='empty' /&gt;"></glass>
         <glass class='ice-tea'  data-title="&lt;glass class='ice-tea' /&gt;"></glass>
-        <cocktail class='dream'  data-title="&lt;cocktail class='dream' /&gt;"></cocktail>
+        <espresso  data-title="&lt;espresso /&gt;"></espresso>
         <napkin data-title="&lt;napkin &gt; &lt;napkin /&gt;">
           <shot class='b-52'  data-title="&lt;shot class='b-52' /&gt;"></shot>
           <espresso  data-title="&lt;espresso /&gt;"></espresso>
           <espresso  data-title="&lt;espresso /&gt;"></espresso>
         </napkin>
-      </tray>
+
       `;
       markup = `
       &lt;div class='table'&gt;
-        <tray>&lt;tray&gt;
+
           <glass class='empty'>&lt;glass class='empty' /&gt;</glass>
           <glass class='ice-tea'>&lt;glass class='ice-tea' /&gt;</glass>
-          <cocktail class='dream'>&lt;cocktail class='dream' /&gt;</cocktail>
+          <espresso>&lt;espresso /&gt;</espresso>
           <napkin> &lt;napkin&gt;
             <shot class='b-52'>&lt;shot class='b-52' /&gt;</shot>
             <espresso>&lt;espresso /&gt;</espresso>
@@ -431,7 +431,7 @@ export default function createLevels() {
             &lt;napkin /&gt;
           </napkin>
           &lt;tray /&gt;
-        </tray>
+
       &lt;/div&gt;
       `;
     }
