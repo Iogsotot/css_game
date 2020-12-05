@@ -90,6 +90,7 @@ function clearState() {
 
 function fail() {
   fileWindowEl.classList.add('wrong');
+  // eslint-disable-next-line no-alert
   alert('ты дурачок');
   setTimeout(clearState, 900);
 }
@@ -147,16 +148,17 @@ function checkAnswer() {
   // метим классом selected элементы, которые выбрал юзер
   makeAGuess();
   let result = null;
+  const tableProgeny = table.querySelectorAll('*');
 
-  for (let j = 0; j < table.children.length; j++) {
-    if (table.children[j].classList.contains('selected')) {
+  for (let j = 0; j < tableProgeny.length; j++) {
+    if (tableProgeny[j].classList.contains('selected')) {
       // проверяем есть ли у детей с selected ещё и класс correct
-      if (table.children[j].classList.contains('correct') && (result == null || result === true)) {
+      if (tableProgeny[j].classList.contains('correct') && (result == null || result === true)) {
         result = true;
       } else {
         result = false;
       }
-    } else if (table.children[j].classList.contains('correct')) {
+    } else if (tableProgeny[j].classList.contains('correct')) {
       result = false;
     }
   }
@@ -261,15 +263,13 @@ resetBtn.addEventListener('click', () => {
   updateProgressBar();
 });
 
-function showMeTarget(e) {
-  if (e.target.id === 'table' || e.target.id === 'markup') { return; }
-  // console.log(target);
-  console.log(e.target);
-  // console.log(currentTarget);
-  console.log(e.currentTarget);
-}
+// function showMeTarget(e) {
+//   if (e.target.id === 'table' || e.target.id === 'markup') { return; }
+//   // console.log(e.target);
+//   // console.log(e.currentTarget);
+// }
 
-table.addEventListener('click', showMeTarget);
+// table.addEventListener('click', showMeTarget);
 
 // экспортируем всякую фигню, которая потом нигде не работает
 export { table, markup, colorInput };

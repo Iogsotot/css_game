@@ -34,7 +34,7 @@ function setHoveredElements(parent, parentPosition, needUnhover) {
     }
     // console.log("~~~~~~~~~~~~~~~~~~");
     // console.log(parent);
-    console.log(parentPosition);
+    // console.log(parentPosition);
     // console.log(mirrorChildren);
     // console.log("++++++++++++++++++++++++++++");
     if (needUnhover === 'yes') {
@@ -74,7 +74,7 @@ function hovered(e) {
   e.target.classList.add('hover');
   let parentPosition = 0;
   let parent = e.target.parentNode;
-  console.log(parent.previousSibling);
+  // console.log(parent.previousSibling);
   while ((parent.previousSibling) != null) {
     parent = parent.previousSibling;
     if (parent.nodeType !== 3) {

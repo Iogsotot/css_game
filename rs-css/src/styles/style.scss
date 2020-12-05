@@ -633,7 +633,7 @@ main {
   padding-left: 1rem;
 }
 
-.markup > *.hover {
+.markup  *.hover {
   // color: rgb(255, 255, 255);
   // opacity: 0.6;
   color: black;
@@ -701,6 +701,49 @@ napkin > *, tray > * {
 
 napkin > span, tray > span {
   margin-left: 0;
+}
+
+.show-box .table napkin {
+  background-image: url('../assets/napkin.png');
+  background-position: bottom;
+  width: 25rem;
+  height: 10rem;
+
+  text-align: center;
+
+  espresso {
+    height: 5rem;
+    width: 4rem;
+    background-position: top;
+  }
+  shot {
+    height: 5rem;
+    width: 4rem;
+  }
+}
+
+.show-box .table tray { 
+  display: flex;
+  width: inherit;
+  text-align: center;
+
+  background: chocolate;
+
+
+  espresso {
+    height: 5rem;
+    width: 4rem;
+    background-position: top;
+  }
+  shot {
+    height: 5rem;
+    width: 4rem;
+  }
+}
+
+
+.show-box .table napkin > * {
+  background-position: top;
 }
 
 // .white {
