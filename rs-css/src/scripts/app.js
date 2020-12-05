@@ -1,5 +1,5 @@
-// import hljs from 'highlight.js';
-// import 'highlight.js/styles/github.css';
+import hljs from 'highlight.js';
+import 'highlight.js/styles/github.css';
 // import { levelsList } from './variables';
 import '../styles/style.scss';
 import createLevels from './task_template';
@@ -38,12 +38,6 @@ burgerOpen.addEventListener('click', levelsMenuOpen);
 // создаём объект с данными всех уровней и их состоянием
 const levels = createLevels();
 
-// переписать добавление HTML в динамический вид
-// (в зависимости от уровня, на котором сейчас страница)
-// уровень можно переключать мышью (щелкая по его представлению в меню уровней)
-// уровень автоматически увеличивается после успешного прохождения текущего уровня
-// состояние уровней( =прогресс) можно обнулить нажав на кнопку сброса прогресса
-// eslint-disable-next-line prefer-const
 let currentLevel = getCurrentLevel();
 const maxLevel = 20;
 const levelPrevBtn = document.querySelector('#levelPrev');
@@ -107,38 +101,20 @@ function getCompleteStats() {
 }
 
 function setCompleteStats() {
-  // let mark = levelsList.children[currentLevel].children[0].children[0];
   let completeStats = getCompleteStats();
   if (cheatUsed) {
     levels[currentLevel].isComplete = statusEnum.cheat;
-    // красим галку
-    // mark.style.borderColor = 'yellow';
-    // mark.style.opacity = '1';
-    // console.log(mark);
   } else {
     levels[currentLevel].isComplete = statusEnum.solved;
-    // mark.style.borderColor = 'green';
-    // mark.style.opacity = '1';
   }
   if (completeStats) {
     if (!(currentLevel in completeStats)) {
-      // console.log(completeStats[currentLevel]);
       completeStats = { ...completeStats, [currentLevel]: levels[currentLevel].isComplete };
     }
   } else {
     completeStats = { [currentLevel]: levels[currentLevel].isComplete };
   }
-  // console.log(completeStats);
   localStorage.setItem('completeStats', JSON.stringify(completeStats));
-  // console.log(levels[currentLevel].isComplete);
-  // if (levels[currentLevel].isComplete === 0) {
-  //   mark.style.borderColor = 'yellow';
-  //   mark.style.opacity = '1';
-  //   console.log(mark);
-  // } else if (levels[currentLevel].isComplete === 1) {
-  //   mark.style.borderColor = 'green';
-  //   mark.style.opacity = '1';
-  // }
 }
 
 function win() {
@@ -147,7 +123,6 @@ function win() {
   alert('вы выиграли!');
 
   setCompleteStats();
-  // console.log(levels[currentLevel].isComplete);
   updateProgressBar();
   updateMarkColor();
   setTimeout(clearState, 900);
@@ -163,7 +138,6 @@ function makeAGuess() {
   } catch (error) {
     console.log('invalid property in input');
   }
-  // console.log(`guess: ${guessEls}`);
   return guessEls;
 }
 
@@ -268,11 +242,12 @@ function updateProgressBar() {
 function updateMarkColor() {
   const completeStats = getCompleteStats();
   if (completeStats) {
-    for (let [key, value] of Object.entries(completeStats)) {
-      let mark = levelsList.children[key].children[0].children[0];
-      if (value == 0) {
+    // eslint-disable-next-line no-restricted-syntax
+    for (const [key, value] of Object.entries(completeStats)) {
+      const mark = levelsList.children[key].children[0].children[0];
+      if (value === 0) {
         mark.classList.add('cheat');
-      } else if (value == 1) {
+      } else if (value === 1) {
         mark.classList.add('solved');
       }
     }
@@ -293,7 +268,6 @@ levelNextBtn.addEventListener('click', () => {
 });
 levelPrevBtn.addEventListener('click', () => {
   getCurrentLevelByBtn('prev');
-  // setContent();
 });
 
 resetBtn.addEventListener('click', () => {
@@ -303,6 +277,4 @@ resetBtn.addEventListener('click', () => {
 });
 
 // экспортируем всякую фигню, которая потом нигде не работает
-export { table, markup, colorInput };
-
-// hljs.initHighlightingOnLoad();
+// export { table, markup, colorInput };

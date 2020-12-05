@@ -20,17 +20,3 @@ export default function typewriterEffect(selector, text, i) {
   }
   setTimeout(typewriterEffect, 200, selector, text, i);
 }
-
-// may be I can use it in future...
-// export default function typewriterEffect(selector, text, i) {
-//   return new Promise((resolve) => {
-//     let input = document.querySelector(`${selector}`);
-//     input.innerHTML = text.substring(0, i);
-//     i += 1;
-//     if (i > text.length) {
-//       resolve();
-//       return;
-//     }
-//     setTimeout(typewriterEffect, 200, selector,text,i);
-//   })
-// }
