@@ -10,6 +10,8 @@ import codeColor from './codeColor';
 import { levelsMenuClose, levelsMenuOpen } from './levelsMenu';
 import setLevelsName from './setLevelsName';
 // import { levelsList } from './variables';
+// import getCompleteStats from './getCompleteStats';
+// import updateProgressBar from './updateProgressBar';
 
 const cssInput = document.querySelector('.css-input');
 const inputColor = document.querySelector('#inputColor');
@@ -25,6 +27,10 @@ const colorMarkup = document.querySelector('#colorMarkup');
 
 const iconClose = document.querySelector('.icon--close');
 const burgerOpen = document.querySelector('#burgerOpen');
+
+// level's complete constance
+const statusEnum = { cheat: 0, solved: 1 };
+let cheatUsed = false;
 
 iconClose.addEventListener('click', levelsMenuClose);
 burgerOpen.addEventListener('click', levelsMenuOpen);
@@ -65,23 +71,18 @@ function getCurrentLevelByBtn(direction) {
       currentLevel = integerLever;
     }
   }
+  cheatUsed = false;
   localStorage.setItem('currentLevel', currentLevel);
-  // console.log(currentLevel, typeof currentLevel);
-  // return currentLevel;
+  setContent();
 }
 
 function getCurrentLevelByClick(e) {
-  // console.log(e.target);
   const levelItem = e.currentTarget;
   currentLevel = levelItem.id.replace(/^\D+/g, '');
-  // console.log('current: ', levelItem.id.replace(/^\D+/g, ''));
-  // console.log(currentLevel);
+  cheatUsed = false;
   localStorage.setItem('currentLevel', currentLevel);
   setContent();
-  // return currentLevel;
 }
-
-// levelsList.addEventListener('click', getCurrentLevelByClick);
 
 function clearState() {
   fileWindowEl.classList.remove('wrong');
@@ -91,7 +92,7 @@ function clearState() {
 function fail() {
   fileWindowEl.classList.add('wrong');
   // eslint-disable-next-line no-alert
-  alert('ты дурачок');
+  // alert('ты дурачок');
   setTimeout(clearState, 900);
 }
 
@@ -105,40 +106,62 @@ function getCompleteStats() {
   return JSON.parse(completeStats);
 }
 
+function setCompleteStats() {
+  // let mark = levelsList.children[currentLevel].children[0].children[0];
+  let completeStats = getCompleteStats();
+  if (cheatUsed) {
+    levels[currentLevel].isComplete = statusEnum.cheat;
+    // красим галку
+    // mark.style.borderColor = 'yellow';
+    // mark.style.opacity = '1';
+    // console.log(mark);
+  } else {
+    levels[currentLevel].isComplete = statusEnum.solved;
+    // mark.style.borderColor = 'green';
+    // mark.style.opacity = '1';
+  }
+  if (completeStats) {
+    if (!(currentLevel in completeStats)) {
+      // console.log(completeStats[currentLevel]);
+      completeStats = { ...completeStats, [currentLevel]: levels[currentLevel].isComplete };
+    }
+  } else {
+    completeStats = { [currentLevel]: levels[currentLevel].isComplete };
+  }
+  // console.log(completeStats);
+  localStorage.setItem('completeStats', JSON.stringify(completeStats));
+  // console.log(levels[currentLevel].isComplete);
+  // if (levels[currentLevel].isComplete === 0) {
+  //   mark.style.borderColor = 'yellow';
+  //   mark.style.opacity = '1';
+  //   console.log(mark);
+  // } else if (levels[currentLevel].isComplete === 1) {
+  //   mark.style.borderColor = 'green';
+  //   mark.style.opacity = '1';
+  // }
+}
+
 function win() {
   fileWindowEl.classList.add('win');
   // eslint-disable-next-line no-alert
   alert('вы выиграли!');
-  levels[currentLevel].isComplete = true;
-  let completeStats = getCompleteStats();
-  // non inverted boolean so true boolean representation
-  // eslint-disable-next-line no-extra-boolean-cast
-  if (!!completeStats) {
-    completeStats = { ...completeStats, [currentLevel]: levels[currentLevel].isComplete };
-  } else {
-    completeStats = { [currentLevel]: levels[currentLevel].isComplete };
-    // console.log(completeStats);
-  }
-  localStorage.setItem('completeStats', JSON.stringify(completeStats));
+
+  setCompleteStats();
+  // console.log(levels[currentLevel].isComplete);
   updateProgressBar();
+  updateMarkColor();
   setTimeout(clearState, 900);
 }
 
 function makeAGuess() {
   const selector = cssInput.value;
   try {
-    // наводится на все эл. внутри table и ищет там selector
     guessEls = table.querySelectorAll(selector); // array or null
+    for (let i = 0; i < guessEls.length; i++) {
+      guessEls[i].classList.add('selected');
+    }
   } catch (error) {
     console.log('invalid property in input');
-    fail();
-  }
-  // console.log(selector);
-  // console.log(guessEls); // возвращает NodeList с совпадениями
-  // учесть, что может придти одна нода или их array
-  // учесть ситуацию, когда по предположенному селектору нет Node
-  for (let i = 0; i < guessEls.length; i++) {
-    guessEls[i].classList.add('selected');
   }
   // console.log(`guess: ${guessEls}`);
   return guessEls;
@@ -175,7 +198,6 @@ function checkAnswer() {
 
 function addClassCorrect() {
   const correctSelector = levels[currentLevel].answer;
-  // console.log(table);
   const correctEls = table.querySelectorAll(correctSelector);
   for (let i = 0; i < correctEls.length; i++) {
     correctEls[i].classList.add('correct');
@@ -204,6 +226,7 @@ table.addEventListener('mouseout', unhovered);
 enterBtn.addEventListener('click', checkAnswer);
 
 function showMeAnswer() {
+  cheatUsed = true;
   cssInput.style.opacity = '1';
   inputColor.innerHTML = '';
   typewriterEffect('#input', `${levels[currentLevel].answer}`, 0);
@@ -240,10 +263,25 @@ function updateProgressBar() {
   const completeStats = getCompleteStats();
   const progress = completeStats ? Object.keys(completeStats).length : 0;
   progressBar.style.width = `${progress * (100 / maxLevel)}%`;
-  // console.log(progress, progressBar.style.width);
 }
 
-updateProgressBar();
+function updateMarkColor() {
+  const completeStats = getCompleteStats();
+  if (completeStats) {
+    for (let [key, value] of Object.entries(completeStats)) {
+      let mark = levelsList.children[key].children[0].children[0];
+      if (value == 0) {
+        mark.classList.add('cheat');
+      } else if (value == 1) {
+        mark.classList.add('solved');
+      }
+    }
+  }
+}
+
+updateMarkColor();
+
+updateProgressBar(maxLevel);
 
 levelsList.querySelectorAll('li').forEach((li) => {
   li.addEventListener('click', getCurrentLevelByClick);
@@ -255,21 +293,14 @@ levelNextBtn.addEventListener('click', () => {
 });
 levelPrevBtn.addEventListener('click', () => {
   getCurrentLevelByBtn('prev');
-  setContent();
+  // setContent();
 });
 
 resetBtn.addEventListener('click', () => {
   localStorage.removeItem('completeStats');
   updateProgressBar();
+  updateMarkColor();
 });
-
-// function showMeTarget(e) {
-//   if (e.target.id === 'table' || e.target.id === 'markup') { return; }
-//   // console.log(e.target);
-//   // console.log(e.currentTarget);
-// }
-
-// table.addEventListener('click', showMeTarget);
 
 // экспортируем всякую фигню, которая потом нигде не работает
 export { table, markup, colorInput };

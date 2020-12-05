@@ -293,6 +293,15 @@ aside.levels {
 
     margin-right: 1rem;
     opacity: 0.2;
+
+    &.cheat {
+      border-color: yellow;
+      opacity: 1;
+    }
+    &.solved {
+      border-color: greenyellow;
+      opacity: 1;
+    }
   }
   .level__number {
     display: inline-block;
