@@ -17,9 +17,9 @@ export default function createLevels() {
     2:
     {
       level: 2,
-      task: 'empty glasses',
+      task: 'glass with milk',
       isComplete: false,
-      answer: '.empty',
+      answer: '.milk',
       name: 'class',
       theory: 'some theory 2',
       divTemplate: createHTML(2, 'real'),
@@ -247,13 +247,13 @@ export default function createLevels() {
     if (level === 2) {
       HTML = `
       <glass data-title="&lt;glass /&gt;"></glass>
-      <glass class="empty" data-title="&lt;glass class='empty' /&gt;"></glass>
+      <glass class="milk" data-title="&lt;glass class='milk' /&gt;"></glass>
       <glass data-title="&lt;glass /&gt;"></glass>
       `;
       markup = `
       &lt;div class='table'&gt;
         <glass>&lt;glass /&gt;</glass>
-        <glass class="empty">&lt;glass class='empty' /&gt;</glass>
+        <glass class="milk">&lt;glass class='milk' /&gt;</glass>
         <glass>&lt;glass /&gt;</glass>
       &lt;/div&gt;
       `;
@@ -287,7 +287,7 @@ export default function createLevels() {
     if (level === 5) {
       HTML = `
       <coffee class='black'  data-title="&lt; coffee class='black'/&gt;"></coffee>
-      <juice  data-title="&lt; /&gt;">juice</juice>
+      <juice  data-title="&lt;juice /&gt;"></juice>
       <juice class='fresh'  data-title="&lt;juice class='fresh' /&gt;"></juice>
       <beer  data-title="&lt;beer /&gt;"></beer>
       `;
@@ -550,14 +550,14 @@ export default function createLevels() {
     }
     if (level === 19) {
       HTML = `
-      <glass class='empty'  data-title="&lt;glass class='empty' /&gt;"></glass>
+      <glass class='nasty'  data-title="&lt;glass class='nasty' /&gt;"></glass>
       <glass class='dirty'  data-title="&lt;glass class='dirty' /&gt;"></glass>
       <glass  data-title="&lt;glass /&gt;"></glass>
       <glass class='broken'  data-title="&lt;glass class='broken' /&gt;"></glass>
       `;
       markup = `
       &lt;div class='table'&gt;
-        <glass class='empty'>&lt;glass class='empty' /&gt;</glass>
+        <glass class='nasty'>&lt;glass class='nasty' /&gt;</glass>
         <glass class='dirty'>&lt;glass class='dirty' /&gt;</glass>
         <glass>&lt;glass /&gt;</glass>
         <glass class='broken'>&lt;glass class='broken' /&gt;</glass>
@@ -577,7 +577,7 @@ export default function createLevels() {
       &lt;div class='table'&gt;
         <shot class='white'>&lt;shot class='white' /&gt;</shot>
         <chocolate class='dark'>&lt;chocolate class='dark' /&gt;</chocolate>
-        <shot class='brain-blowing'>&lt;hot class='brain-blowing' /&gt;</shot>
+        <shot class='brain-blowing'>&lt;shot class='brain-blowing' /&gt;</shot>
         <beer class='dark'>&lt;beer class='dark' /&gt;</beer>
         <beer class='light'>&lt;beer class='light' /&gt;</beer>
         <coffee class='dark'>&lt;coffee class='dark' /&gt;</coffee>

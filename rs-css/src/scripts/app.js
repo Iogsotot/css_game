@@ -1,5 +1,5 @@
-import hljs from 'highlight.js';
-import 'highlight.js/styles/github.css';
+// import hljs from 'highlight.js';
+// import 'highlight.js/styles/github.css';
 // import { levelsList } from './variables';
 import '../styles/style.scss';
 import createLevels from './task_template';
@@ -254,6 +254,13 @@ function updateMarkColor() {
   }
 }
 
+function resetMark() {
+  const marks = levelsList.querySelectorAll('.check-mark--mini');
+  marks.forEach((mark) => {
+    mark.classList.remove('cheat', 'solved');
+  });
+}
+
 updateMarkColor();
 
 updateProgressBar(maxLevel);
@@ -273,7 +280,7 @@ levelPrevBtn.addEventListener('click', () => {
 resetBtn.addEventListener('click', () => {
   localStorage.removeItem('completeStats');
   updateProgressBar();
-  updateMarkColor();
+  resetMark();
 });
 
 // экспортируем всякую фигню, которая потом нигде не работает

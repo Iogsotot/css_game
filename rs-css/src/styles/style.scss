@@ -208,12 +208,12 @@ aside.levels {
   transform: translateX(101%);
   width: 37rem;
   height: 100vh;
-  
+
   border: 0px solid transparent;
   // border-radius: 0 0 0 2rem;
   background-color: rgb(22, 20, 16);
   // box-shadow: 1px 0 10px 3px rgba(255, 255, 255, 0.4);
-  box-shadow: 0px 1px 5px rgba(0, 0, 0, .5);
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.5);
 
   z-index: 20;
 
@@ -225,7 +225,7 @@ aside.levels {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    
+
     width: 100%;
     padding: 1rem 1rem 1rem 2rem;
 
@@ -236,7 +236,7 @@ aside.levels {
       width: 2.5rem;
       // margin-left: 10rem;
 
-      fill:rgba(255, 255, 255, 0.8);
+      fill: rgba(255, 255, 255, 0.8);
       cursor: pointer;
       transition: all 300ms linear;
 
@@ -258,9 +258,6 @@ aside.levels {
     width: 100%;
     list-style: none;
     color: $medium-color;
-
-   
-    
   }
   .progress-bar {
     height: 3px;
@@ -270,7 +267,7 @@ aside.levels {
   .level__item {
     width: 100%;
     padding: 0.7rem 1.2rem 0.5rem 1.5rem;
-    
+
     font-size: 1.6rem;
     cursor: pointer;
 
@@ -281,10 +278,10 @@ aside.levels {
 
     &:hover .check-mark--mini {
       opacity: 0.6;
-    } 
+    }
     &.hover {
-      background: rgb(17,47,9);
-      background: linear-gradient(90deg, rgba(17,47,9,0) 20%, rgba(11,64,13,1) 100%);
+      background: rgb(17, 47, 9);
+      background: linear-gradient(90deg, rgba(17, 47, 9, 0) 20%, rgba(11, 64, 13, 1) 100%);
     }
   }
   .check-mark--mini {
@@ -327,13 +324,8 @@ aside.levels {
       border-color: rgb(189, 39, 39);
     }
   }
-
-
 }
 // Aside levels End
-
-
-
 
 // Main Start
 main {
@@ -414,18 +406,18 @@ main {
 
     *.hover::after {
       content: attr(data-title);
-      position: absolute; 
-      left: -6rem; 
-      right: 0; 
-      bottom: -4.5rem; 
-      z-index: 1; 
+      position: absolute;
+      left: -6rem;
+      right: 0;
+      bottom: -4.5rem;
+      z-index: 1;
       width: 20rem;
-      padding: 1rem;      
+      padding: 1rem;
 
-      background: lightgoldenrodyellow; 
+      background: lightgoldenrodyellow;
       color: $main-dark;
       text-align: center;
-      font-family: 'Courier New', Courier, monospace;
+      font-family: "Courier New", Courier, monospace;
       font-size: 14px; /* Размер текста подсказки */
     }
   }
@@ -523,20 +515,20 @@ main {
 .css-input {
   grid-row: 1/2;
   // background-color: $editor-lightest;
-  background-color:  #efefef6e;
+  background-color: #efefef6e;
   margin-left: 1rem;
   margin-top: 0.5rem;
 
   border: none;
-  
+
   font-family: Consolas, "Courier New", monospace;
   font-size: 1.4rem;
   z-index: 10;
   // color: transparent;
   // opacity: 0.2;
-  color:  #585858c2;
+  color: #585858c2;
 
-  animation: strobe 850ms linear infinite;
+  // animation: strobe 850ms linear infinite;
 }
 #inputColor {
   position: absolute;
@@ -545,7 +537,7 @@ main {
   left: 4.6rem;
   // margin-left: 4.7rem;
   // margin-top: 0.5rem;
-  width: 15rem;
+  // width: 15rem;
   height: 2.1rem;
 
   font-family: Consolas, "Courier New", monospace;
@@ -554,7 +546,8 @@ main {
   z-index: 1;
 }
 
-.css-input:active, .css-input:focus {
+.css-input:active,
+.css-input:focus {
   outline: none;
   background-color: $editor-lightest;
   animation: none;
@@ -566,7 +559,7 @@ main {
   grid-column: 3/4;
   padding: 0 1rem 0;
   margin-top: 0.5rem;
-  
+
   background: #ddd;
   padding: 2px 7px 2px 7px;
   font-size: 1.2rem;
@@ -615,9 +608,10 @@ main {
       margin-left: 4.6rem;
       // width: 500px;
       // height: 500px;
-      line-height: 2.1rem;   
+      line-height: 2.1rem;
 
-      >span:first-of-type, >span:last-of-type {
+      > span:first-of-type,
+      > span:last-of-type {
         margin-left: -1rem;
       }
     }
@@ -642,14 +636,13 @@ main {
   padding-left: 1rem;
 }
 
-.markup  *.hover {
+.markup *.hover {
   // color: rgb(255, 255, 255);
   // opacity: 0.6;
   color: black;
   opacity: 0.5;
   transition: all 150ms ease;
 }
-
 
 // Main End
 
@@ -687,12 +680,25 @@ footer {
 
 // Footer End
 
-// styles for js-element 
-.table > napkin, tray {
+// styles for js-element
+.table > napkin,
+tray {
   display: flex !important;
 }
 
-.markup > napkin, tray, #colorMarkup {
+.table > shot,
+.table > chocolate,
+.table > coffee {
+  // max-width: 7rem;
+  background-position: bottom;
+}
+// .table > coffee {
+//   background-position: bottom !important;
+// }
+
+.markup > napkin,
+tray,
+#colorMarkup {
   display: flex !important;
   flex-direction: column;
   flex-wrap: wrap;
@@ -700,56 +706,227 @@ footer {
   width: 100%;
 }
 
-espresso, shot, beer, glass {
+espresso,
+shot,
+beer,
+glass {
   display: block;
 }
 
-napkin > *, tray > * {
+napkin > *,
+tray > * {
   margin-left: 1rem;
 }
 
-napkin > span, tray > span {
+napkin > span,
+tray > span {
   margin-left: 0;
 }
 
-.show-box .table napkin {
-  background-image: url('../assets/napkin.png');
-  background-position: bottom;
-  width: 25rem;
-  height: 10rem;
+.show-box .table {
+  napkin {
+    background-image: url("../assets/napkin.png");
+    background-position: bottom;
+    width: 25rem;
+    height: 12rem;
+    margin-bottom: 1rem;
 
-  text-align: center;
+    text-align: center;
 
+    espresso {
+      // height: 6rem;
+      // width: 4rem;
+      background-position: top;
+      // margin-top: 0.5rem;
+    }
+    shot {
+      height: 5rem;
+      width: 6rem;
+      margin: 2rem;
+      margin-top: 2rem;
+    }
+    beer {
+      height: 8.5rem;
+    }
+    glass {
+      margin-top: 0rem;
+      height: 9rem;
+    }
+  }
+  glass.milk {
+    background-image: url("../assets/glass_milk.png");
+  }
+  glass.ice-tea {
+    background-image: url("../assets/glass_ice_tea.png");
+  }
+  glass.pure-water {
+    background-image: url("../assets/glass_water.png");
+  }
+  glass.water_with_lemon {
+    background-image: url("../assets/glass_water_with_lemon.png");
+    height: 10.2rem;
+  }
+  glass.dirty {
+    background-image: url("../assets/glass_dirty.png");
+  }
+  glass.broken {
+    background-image: url("../assets/glass_broken.png");
+    height: 10.2rem;
+  }
+  glass.nasty {
+    background-image: url("../assets/glass_nasty.png");
+    height: 10.2rem;
+  }
+  vine {
+    background-image: url("../assets/vine_red.png");
+  }
+  vine.white {
+    background-image: url("../assets/vine_white.png");
+  }
+  vine.white.bubble {
+    background-image: url("../assets/vine_white_bubble.png");
+  }
+  vine#y-1905 {
+    background-image: url("../assets/vine_1905.png");
+  }
+  vine#y-2020 {
+    background-image: url("../assets/vine_2020.png");
+  }
+  coffee {
+    background-image: url("../assets/coffee.png");
+  }
   espresso {
-    height: 5rem;
-    width: 4rem;
-    background-position: top;
+    margin-bottom: 6rem;
+    height: 4rem;
+    background-image: url("../assets/espresso.png");
+  }
+  juice {
+    background-image: url("../assets/juice.png");
+  }
+  juice.fresh {
+    background-image: url("../assets/juice_fresh.png");
+  }
+  beer {
+    background-image: url("../assets/beer.png");
+    // width: 8rem;
+  }
+  beer.light {
+    background-image: url("../assets/beer_light.png");
+    width: 8rem;
+  }
+  beer.dark {
+    background-image: url("../assets/beer_dark.png");
+    width: 8rem;
   }
   shot {
-    height: 5rem;
-    width: 4rem;
+    background-image: url("../assets/shot_b-52.png");
+  }
+  shot.got-milk, shot.white {
+    background-image: url("../assets/shot_milk.png");
+  }
+  shot.lime {
+    background-image: url("../assets/shot_lime.png");
+  }
+  shot.brain-blowing {
+    background-image: url("../assets/shot_brain.png");
+    background-position: bottom;
+    width: 6rem;
+    margin-bottom: 1rem;
+  }
+  cocktail {
+    background-image: url("../assets/cocktail.png");
+    height: 18rem;
+    background-size: cover;
+  }
+  cocktail.yesterday {
+    background-image: url("../assets/cocktail_yesterday.png");
+    background-size: contain;
+  }
+  cocktail.today {
+    background-image: url("../assets/cocktail_today.png");
+    background-size: contain;
+  }
+  cocktail.tomorrow {
+    background-image: url("../assets/cocktail_tomorrow.png");
+    background-size: contain;
+  }
+  cake[for='me'] {
+    background-image: url("../assets/cake_2.png");
+    height: 14rem;
+    margin-bottom: 4rem;
+    // width: 12rem;
+  }
+  cake[for='you'] {
+    // background-image: url("../assets/cake.png"); 
+    background-image: url("../assets/ugly_cake.png");
+    width: 12rem;
+    margin-bottom: 3rem;
+  }
+  garlic {
+    background-image: url("../assets/garlic.png");
+    background-position: bottom;
+    height: 12rem;
+    width: 6rem;
+  }
+  peanut {
+    background-image: url("../assets/peanut.png");
+    background-position: top;
+    height: 4rem;
+  }
+  cake {
+    background-image: url("../assets/cake.png"); 
+    height: 10rem;
+  }
+  bug {
+    background-image: url("../assets/bug.png"); 
+    background-position: top;
+    height: 8rem;
+  }
+  chocolate {
+    background-image: url("../assets/chocolate.png"); 
+    background-position: bottom;
+    width: 8rem;
   }
 }
 
-.show-box .table tray { 
+.show-box .table tray {
+  grid-row: 2/4;
   display: flex;
-  width: inherit;
   text-align: center;
+  justify-content: center;
+  flex-direction: row;
+  
+  min-width: 25rem;
+  height: 18rem;
+  margin-bottom: 0rem;
+  padding-bottom: 1rem;
 
-  background: chocolate;
+  background-image: url("../assets/tray.png");
+  background-position: bottom;
 
-
+  > * {
+    margin: 0 auto;
+  }
   espresso {
-    height: 5rem;
-    width: 4rem;
+    // height: 5rem;
+    // width: 4rem;
     background-position: top;
+    margin: 0;
   }
   shot {
-    height: 5rem;
-    width: 4rem;
+    height: 6rem;
+  }
+  shot:nth-of-type(1), shot:nth-of-type(2) {
+    margin-top: 3rem;
+  }
+  coffee, juice {
+    margin-bottom: 1rem;
+    height: unset;
+  }
+  beer {
+    height: unset;
   }
 }
-
 
 .show-box .table napkin > * {
   background-position: top;
@@ -760,9 +937,6 @@ napkin > span, tray > span {
 // }
 
 // #yours * {}
-
-
-
 
 @media (min-width: 550px) {
   .wrapper {
@@ -792,7 +966,7 @@ napkin > span, tray > span {
 }
 
 @media (min-width: 1268px) {
-  .wrapper{
+  .wrapper {
     max-width: 1260px;
   }
   footer {
