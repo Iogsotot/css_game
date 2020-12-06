@@ -118,14 +118,32 @@ function setCompleteStats() {
 }
 
 function win() {
-  fileWindowEl.classList.add('win');
+  // fileWindowEl.classList.add('win');
   // eslint-disable-next-line no-alert
-  alert('вы выиграли!');
-
   setCompleteStats();
+  let integerLever = parseInt(currentLevel, 10);
+  const completeStats = getCompleteStats();
+  const solvedLevels = Object.keys(completeStats).length;
+
+  if (solvedLevels === 20) {
+    if (Object.values(completeStats).includes(0)) {
+      alert('Congratulation! you win, but what did it cost?');
+    } else {
+      alert('Congratulation! You are best of the best in CSS World!');
+    }
+  } else if (currentLevel === 20) {
+    alert('Well done! but for final victory you need to pass all levels');
+    levelsMenuOpen();
+  } else {
+    alert('you pass this level!');
+  }
+
+  integerLever += 1;
+  currentLevel = integerLever;
   updateProgressBar();
   updateMarkColor();
   setTimeout(clearState, 900);
+  setContent();
 }
 
 function makeAGuess() {

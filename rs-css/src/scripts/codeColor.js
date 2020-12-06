@@ -5,7 +5,7 @@
 export default function codeColor(elmnt, mode) {
   let lang = (mode || 'html');
   const elmntObj = (document.getElementById(elmnt) || elmnt);
-  console.log('code-color: ', elmntObj);
+  // console.log('code-color: ', elmntObj);
   let elmntTxt = elmntObj.innerHTML;
   // < >
   const tagcolor = 'purple';
