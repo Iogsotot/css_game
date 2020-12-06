@@ -235,7 +235,8 @@ function highlightSelectedLevel() {
   Array.from(levelsList.children).forEach((element) => {
     element.classList.remove('hover');
   });
-  levelsList.children[currentLevel].classList.add('hover');
+  const levelsListItem = levelsList.querySelectorAll('li');
+  levelsListItem[currentLevel - 1].classList.add('hover');
 }
 
 // возможно есть вариант переписать лисенер на перезапуск функции при каждом
@@ -287,6 +288,7 @@ burgerOpen.addEventListener('click', levelsMenuOpen);
 theoryBtn.addEventListener('click', () => {
   // можно переписать на функцию с анимацией или opacity
   theoryBlock.classList.toggle('hide');
+  theoryBtn.classList.toggle('turn-on');
 });
 levelsList.querySelectorAll('li').forEach((li) => {
   li.addEventListener('click', getCurrentLevelByClick);
