@@ -5,6 +5,7 @@
 export default function codeColor(elmnt, mode) {
   let lang = (mode || 'html');
   const elmntObj = (document.getElementById(elmnt) || elmnt);
+  console.log('code-color: ', elmntObj);
   let elmntTxt = elmntObj.innerHTML;
   // < >
   const tagcolor = 'purple';
@@ -13,8 +14,8 @@ export default function codeColor(elmnt, mode) {
   const attributevaluecolor = '#eca34f';
   const commentcolor = 'grey';
 
-  const cssselectorcolor = '#228eb3';
-  const csspropertycolor = 'red';
+  const cssselectorcolor = 'red';
+  const csspropertycolor = '#228eb3';
   const csspropertyvaluecolor = 'red';
   // { }
   const cssdelimitercolor = 'yellow';

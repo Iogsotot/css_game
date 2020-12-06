@@ -1,3 +1,5 @@
+// import levelsList from './variables';
+
 export default function setLevelsName(maxLevel, levels) {
   const levelsList = document.querySelector('#levelsList');
   levelsList.innerHTML += `

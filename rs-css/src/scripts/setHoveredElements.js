@@ -1,18 +1,42 @@
-import { table, markup } from './app';
-// let table = document.querySelector('#table');
-// let markup = document.querySelector('#markup');
+// import { table, markup } from './app';
+const table = document.querySelector('#table');
+const markup = document.querySelector('#markup');
 
-function setHoveredElements(parent, needUnhover) {
+// function DOMComb(oParent, oCallback) {
+//   if (oParent.hasChildNodes()) {
+//     for (let oNode = oParent.firstChild; oNode; oNode = oNode.nextSibling) {
+//       DOMComb(oNode, oCallback);
+//     }
+//   }
+//   oCallback.call(oParent);
+// }
+
+// function printContent() {
+//   if (this.nodeValue) { console.log(this.nodeValue); }
+// }
+
+function setHoveredElements(parent, parentPosition, needUnhover) {
+  // DOMComb(parent, printContent);
   if (parent.hasChildNodes()) {
     const { children } = parent;
     let mirrorChildren;
     if (parent === table) {
       mirrorChildren = markup.children;
-      // console.log(parent, mirrorChildren)
+    } else if (table.contains(parent)) {
+      mirrorChildren = markup.children.item(parentPosition).children;
     } else if (parent === markup) {
       mirrorChildren = table.children;
+    } else if (markup.contains(parent)) {
+      // console.log(table.children);
+      mirrorChildren = table.children.item(parentPosition).children;
+      // console.log(parent, markup);
       // console.log(parent)
     }
+    // console.log("~~~~~~~~~~~~~~~~~~");
+    // console.log(parent);
+    // console.log(parentPosition);
+    // console.log(mirrorChildren);
+    // console.log("++++++++++++++++++++++++++++");
     if (needUnhover === 'yes') {
       for (let i = 0; i < children.length; i++) {
         mirrorChildren[i].classList.remove('hover');
@@ -30,26 +54,34 @@ function setHoveredElements(parent, needUnhover) {
 }
 
 function unhovered(e) {
+  e.stopPropagation();
   if (e.target.id === 'table' || e.target.id === 'markup') { return; }
-  if (e.target.parentNode.id === 'table') {
-    e.target.classList.remove('hover');
-    setHoveredElements(table, 'yes');
-  } else if (e.target.parentNode.id === 'markup') {
-    e.target.classList.remove('hover');
-    setHoveredElements(markup, 'yes');
+  e.target.classList.remove('hover');
+  let parentPosition = 0;
+  let parent = e.target.parentNode;
+  while ((parent.previousSibling) != null) {
+    parent = parent.previousSibling;
+    if (parent.nodeType !== 3) {
+      parentPosition += 1;
+    }
   }
+  setHoveredElements(e.target.parentNode, parentPosition, 'yes');
 }
 
 function hovered(e) {
+  e.stopPropagation();
   if (e.target.id === 'table' || e.target.id === 'markup') { return; }
-  if (e.target.parentNode.id === 'table') {
-    e.target.classList.add('hover');
-    setHoveredElements(table, 'no');
-  } else if (e.target.parentNode.id === 'markup') {
-    e.target.classList.add('hover');
-    setHoveredElements(markup, 'no');
-  }
   e.target.classList.add('hover');
+  let parentPosition = 0;
+  let parent = e.target.parentNode;
+  // console.log(parent.previousSibling);
+  while ((parent.previousSibling) != null) {
+    parent = parent.previousSibling;
+    if (parent.nodeType !== 3) {
+      parentPosition += 1;
+    }
+  }
+  setHoveredElements(e.target.parentNode, parentPosition, 'no');
 }
 
 export { hovered, unhovered };
