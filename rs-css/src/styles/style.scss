@@ -114,7 +114,7 @@ header {
 .nav__item {
   display: inline-block;
 }
-// .levels__block {
+// .levels__title-block {
 // }
 .level--current {
   // background: linear-gradient(135deg, #12BCB0 20%, #FABE0E 70%);
@@ -221,7 +221,7 @@ aside.levels {
     transform: translateX(0%);
   }
 
-  .levels__block {
+  .levels__title-block {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -254,7 +254,55 @@ aside.levels {
     }
   }
 
+  .theory__block {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 1rem 1rem 1rem 2rem;
+
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+    font-size: 2.2rem;
+
+    background-color: rgb(22, 20, 16);
+    // background-color: green;
+    opacity: 1;
+    z-index: 20;
+
+    .title__block {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      // text-align: center;
+    }
+    .theory__title {
+      text-align: center;
+      margin: 1rem 0 1.5rem;
+      color: $light-color;
+    }
+    .theory__main-text {
+      font-size: 1.6rem;
+    }
+
+    .theory__examples p{
+      font-size: 1.6rem;
+
+      code {
+        font-family: Consolas, "Courier New", monospace;
+        background-color: black;
+      }
+    }
+    .examples__title{
+      text-align: left;
+      margin: 1rem 0 1.5rem;
+      color: $light-color;
+    }
+    &.hide {
+      display: none;
+    }
+  }
+
   .levels__list {
+    position: relative;
     width: 100%;
     list-style: none;
     color: $medium-color;
@@ -283,6 +331,10 @@ aside.levels {
       background: rgb(17, 47, 9);
       background: linear-gradient(90deg, rgba(17, 47, 9, 0) 20%, rgba(11, 64, 13, 1) 100%);
     }
+    &:hover .solved.check-mark--mini,
+    &:hover .cheat.check-mark--mini {
+      opacity: 1;
+    }
   }
   .check-mark--mini {
     height: 1.5rem;
@@ -292,12 +344,12 @@ aside.levels {
     opacity: 0.2;
 
     &.cheat {
-      border-color: yellow;
-      opacity: 1;
+      border-color: rgba(255, 255, 0, 0.9);
+      opacity: 0.9;
     }
     &.solved {
-      border-color: greenyellow;
-      opacity: 1;
+      border-color: rgb(71, 255, 47);
+      opacity: 0.9;
     }
   }
   .level__number {

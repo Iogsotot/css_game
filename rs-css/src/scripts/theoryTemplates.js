@@ -1,0 +1,123 @@
+const allTheory = {
+  1: {
+    title: 'anyTitle',
+    main: 'its a wonderful text',
+    examplesTitle: 'Examples title',
+    examples: 'lalalal',
+  },
+  2: {
+    title: 'anyTitle2',
+    main: 'its a wonderful text',
+    examplesTitle: 'Examples title',
+    examples: 'lalalal <code>id </code>',
+  },
+  3: {
+    title: 'anyTitle3',
+    main: 'its a wonderful text',
+    examplesTitle: 'Examples title',
+    examples: 'lalalal',
+  },
+  4: {
+    title: 'anyTitle4',
+    main: 'its a wonderful text',
+    examplesTitle: 'Examples title',
+    examples: 'lalalal',
+  },
+  5: {
+    title: 'anyTitle5',
+    main: 'its a wonderful text',
+    examplesTitle: 'Examples title',
+    examples: 'lalalal',
+  },
+  6: {
+    title: 'anyTitle6',
+    main: 'its a wonderful text',
+    examplesTitle: 'Examples title',
+    examples: 'lalalal',
+  },
+  7: {
+    title: 'anyTitle7',
+    main: 'its a wonderful text',
+    examplesTitle: 'Examples title',
+    examples: 'lalalal',
+  },
+  8: {
+    title: 'anyTitle',
+    main: 'its a wonderful text',
+    examplesTitle: 'Examples title',
+    examples: 'lalalal',
+  },
+  9: {
+    title: 'anyTitle',
+    main: 'its a wonderful text',
+    examplesTitle: 'Examples title',
+    examples: 'lalalal',
+  },
+  10: {
+    title: 'anyTitle',
+    main: 'its a wonderful text',
+    examplesTitle: 'Examples title',
+    examples: 'lalalal',
+  },
+  11: {
+    title: 'anyTitle',
+    main: 'its a wonderful text',
+    examplesTitle: 'Examples title',
+    examples: 'lalalal',
+  },
+  12: {
+    title: 'anyTitle',
+    main: 'its a wonderful text',
+    examplesTitle: 'Examples title',
+    examples: 'lalalal',
+  },
+  13: {
+    title: 'anyTitle',
+    main: 'its a wonderful text',
+    examplesTitle: 'Examples title',
+    examples: 'lalalal',
+  },
+  14: {
+    title: 'anyTitle',
+    main: 'its a wonderful text',
+    examplesTitle: 'Examples title',
+    examples: 'lalalal',
+  },
+  15: {
+    title: 'anyTitle',
+    main: 'its a wonderful text',
+    examplesTitle: 'Examples title',
+    examples: 'lalalal',
+  },
+  16: {
+    title: 'anyTitle',
+    main: 'its a wonderful text',
+    examplesTitle: 'Examples title',
+    examples: 'lalalal',
+  },
+  17: {
+    title: 'anyTitle',
+    main: 'its a wonderful text',
+    examplesTitle: 'Examples title',
+    examples: 'lalalal',
+  },
+  18: {
+    title: 'anyTitle',
+    main: 'its a wonderful text',
+    examplesTitle: 'Examples title',
+    examples: 'lalalal',
+  },
+  19: {
+    title: 'anyTitle',
+    main: 'its a wonderful text',
+    examplesTitle: 'Examples title',
+    examples: 'lalalal',
+  },
+  20: {
+    title: 'anyTitle',
+    main: 'its a wonderful text',
+    examplesTitle: 'Examples title',
+    examples: 'lalalal',
+  },
+};
+export default allTheory;

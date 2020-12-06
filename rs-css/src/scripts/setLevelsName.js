@@ -6,6 +6,12 @@ export default function setLevelsName(maxLevel, levels) {
   <div class="progress-bar" id="progressBar"></div>
   `;
 
+  const theoryBlock = document.createElement('div');
+  theoryBlock.setAttribute('id', 'theoryBlock');
+  theoryBlock.classList.add('theory__block', 'hide');
+
+  levelsList.appendChild(theoryBlock);
+
   function createLevelItemTemplate(levelNumber) {
     const levelItemTemplate = document.createElement('li');
     // const id = `level_${levelNumber}`;

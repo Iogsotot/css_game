@@ -10,8 +10,7 @@ import codeColor from './codeColor';
 import { levelsMenuClose, levelsMenuOpen } from './levelsMenu';
 import setLevelsName from './setLevelsName';
 // import { levelsList } from './variables';
-// import getCompleteStats from './getCompleteStats';
-// import updateProgressBar from './updateProgressBar';
+import createTheory from './createTheory';
 
 const cssInput = document.querySelector('.css-input');
 const inputColor = document.querySelector('#inputColor');
@@ -25,15 +24,13 @@ const table = document.querySelector('#table');
 const markup = document.querySelector('#markup');
 const colorMarkup = document.querySelector('#colorMarkup');
 
-const iconClose = document.querySelector('.icon--close');
+const levelsIconClose = document.querySelector('#levels__icon--close');
 const burgerOpen = document.querySelector('#burgerOpen');
+const theoryBtn = document.querySelector('#theoryBtn');
 
 // level's complete constance
 const statusEnum = { cheat: 0, solved: 1 };
 let cheatUsed = false;
-
-iconClose.addEventListener('click', levelsMenuClose);
-burgerOpen.addEventListener('click', levelsMenuOpen);
 
 // создаём объект с данными всех уровней и их состоянием
 const levels = createLevels();
@@ -205,6 +202,7 @@ function setContent() {
   maxLevelEls[0].innerHTML = maxLevel;
   levelCurrentEls[1].innerHTML = currentLevel;
   maxLevelEls[1].innerHTML = maxLevel;
+  createTheory(currentLevel);
   highlightSelectedLevel(levelsList, currentLevel);
   addClassCorrect();
   // подсветка кода
@@ -249,6 +247,7 @@ helpBtn.addEventListener('click', showMeAnswer);
 
 setLevelsName(maxLevel, levels);
 setContent(levelsList);
+const theoryBlock = document.querySelector('#theoryBlock');
 
 const progressBar = document.querySelector('#progressBar');
 function updateProgressBar() {
@@ -283,6 +282,12 @@ updateMarkColor();
 
 updateProgressBar(maxLevel);
 
+levelsIconClose.addEventListener('click', levelsMenuClose);
+burgerOpen.addEventListener('click', levelsMenuOpen);
+theoryBtn.addEventListener('click', () => {
+  // можно переписать на функцию с анимацией или opacity
+  theoryBlock.classList.toggle('hide');
+});
 levelsList.querySelectorAll('li').forEach((li) => {
   li.addEventListener('click', getCurrentLevelByClick);
 });

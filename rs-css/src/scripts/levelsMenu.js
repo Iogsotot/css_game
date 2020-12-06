@@ -1,4 +1,4 @@
-const iconClose = document.querySelector('.icon--close');
+const iconClose = document.querySelector('#levels__icon--close');
 const burgerOpen = document.querySelector('#burgerOpen');
 const levelsBlock = document.querySelector('#levels');
 
