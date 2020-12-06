@@ -117,8 +117,10 @@ function setCompleteStats() {
 function win() {
   // fileWindowEl.classList.add('win');
   // eslint-disable-next-line no-alert
-  setCompleteStats();
   let integerLever = parseInt(currentLevel, 10);
+  integerLever += 1;
+  currentLevel = integerLever;
+  setCompleteStats();
   const completeStats = getCompleteStats();
   const solvedLevels = Object.keys(completeStats).length;
 
@@ -135,11 +137,10 @@ function win() {
     alert('you pass this level!');
   }
 
-  integerLever += 1;
-  currentLevel = integerLever;
   updateProgressBar();
   updateMarkColor();
   setTimeout(clearState, 900);
+  console.log(currentLevel);
   setContent();
 }
 

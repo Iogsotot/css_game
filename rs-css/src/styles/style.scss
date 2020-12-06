@@ -181,6 +181,20 @@ header {
   font-size: 2rem;
   line-height: 2rem;
   border: 1px solid $lightest-color;
+
+  // transition: all 500ms linear !important;
+  
+  &:hover {
+    // box-shadow: 0 0 2px 1px $lightest-color;
+    opacity: 0.5;
+  }
+  &.turn-on {
+    box-shadow: 0 0 2px 1px rgba(248, 248, 132, 0.9);
+    opacity: 1;
+    &:hover {
+      box-shadow: none;
+    }
+  }
 }
 // .burger {
 // }
@@ -797,9 +811,9 @@ tray > span {
       margin: 2rem;
       margin-top: 5rem;
     }
-    beer {
-      height: 8.5rem;
-    }
+    // beer {
+    //   // height: 8.5rem;
+    // }
     glass {
       margin-top: 0rem;
       height: 9rem;

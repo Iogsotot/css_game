@@ -4,7 +4,6 @@ import allTheory from './theoryTemplates';
 
 export default function createTheory(currentLevel) {
   const theoryBlock = document.querySelector('#theoryBlock');
-  // const theoryBtn = document.querySelector('#theoryBtn');
 
   // const theoryTemplate = allTheory[currentLevel];
   const theoryTemplate = `
