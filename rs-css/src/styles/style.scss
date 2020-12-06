@@ -728,7 +728,7 @@ tray > span {
     background-image: url("../assets/napkin.png");
     background-position: bottom;
     width: 25rem;
-    height: 12rem;
+    height: 15rem;
     margin-bottom: 1rem;
 
     text-align: center;
@@ -743,7 +743,7 @@ tray > span {
       height: 5rem;
       width: 6rem;
       margin: 2rem;
-      margin-top: 2rem;
+      margin-top: 5rem;
     }
     beer {
       height: 8.5rem;
@@ -758,6 +758,7 @@ tray > span {
   }
   glass.ice-tea {
     background-image: url("../assets/glass_ice_tea.png");
+    width: 8rem;
   }
   glass.pure-water {
     background-image: url("../assets/glass_water.png");
@@ -772,6 +773,9 @@ tray > span {
   glass.broken {
     background-image: url("../assets/glass_broken.png");
     height: 10.2rem;
+  }
+  glass.empty {
+    width: 8rem;
   }
   glass.nasty {
     background-image: url("../assets/glass_nasty.png");
@@ -798,6 +802,7 @@ tray > span {
   espresso {
     margin-bottom: 6rem;
     height: 4rem;
+    width: 8rem;
     background-image: url("../assets/espresso.png");
   }
   juice {
