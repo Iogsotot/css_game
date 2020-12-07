@@ -150,7 +150,11 @@ const config = {
     }),
     new CopyWebpackPlugin([
       { from: './src/assets/', to: './assets/' },
-      { from: './src/favicon.png' },
+      // { from: './src/favicon.png' },
+      {
+        from: path.resolve(__dirname, 'src/favicon.ico'),
+        to: path.resolve(__dirname, 'dist'),
+      },
     ]),
   ],
 

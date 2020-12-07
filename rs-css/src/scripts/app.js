@@ -6,12 +6,10 @@ import createLevels from './task_template';
 import { hovered, unhovered } from './setHoveredElements';
 import typewriterEffect from './typewriter';
 import codeColor from './codeColor';
-// import cssColor from './cssColor.js';
 import { levelsMenuClose, levelsMenuOpen } from './levelsMenu';
 import setLevelsName from './setLevelsName';
 // import { levelsList } from './variables';
-// import getCompleteStats from './getCompleteStats';
-// import updateProgressBar from './updateProgressBar';
+import createTheory from './createTheory';
 
 const cssInput = document.querySelector('.css-input');
 const inputColor = document.querySelector('#inputColor');
@@ -25,15 +23,16 @@ const table = document.querySelector('#table');
 const markup = document.querySelector('#markup');
 const colorMarkup = document.querySelector('#colorMarkup');
 
-const iconClose = document.querySelector('.icon--close');
+const levelsIconClose = document.querySelector('#levels__icon--close');
 const burgerOpen = document.querySelector('#burgerOpen');
+const theoryBtn = document.querySelector('#theoryBtn');
+const winTextCloseBtn = document.querySelector('#winText__icon--close');
+const winTextEl = document.querySelector('#winText');
+const overlayEl = document.querySelector('.overlay');
 
 // level's complete constance
 const statusEnum = { cheat: 0, solved: 1 };
 let cheatUsed = false;
-
-iconClose.addEventListener('click', levelsMenuClose);
-burgerOpen.addEventListener('click', levelsMenuOpen);
 
 // создаём объект с данными всех уровней и их состоянием
 const levels = createLevels();
@@ -68,6 +67,7 @@ function getCurrentLevelByBtn(direction) {
   cheatUsed = false;
   localStorage.setItem('currentLevel', currentLevel);
   setContent();
+  closeWinPopup();
 }
 
 function getCurrentLevelByClick(e) {
@@ -76,6 +76,7 @@ function getCurrentLevelByClick(e) {
   cheatUsed = false;
   localStorage.setItem('currentLevel', currentLevel);
   setContent();
+  closeWinPopup();
 }
 
 function clearState() {
@@ -85,8 +86,6 @@ function clearState() {
 
 function fail() {
   fileWindowEl.classList.add('wrong');
-  // eslint-disable-next-line no-alert
-  // alert('ты дурачок');
   setTimeout(clearState, 900);
 }
 
@@ -102,6 +101,8 @@ function getCompleteStats() {
 
 function setCompleteStats() {
   let completeStats = getCompleteStats();
+  // console.log(completeStats);
+  // console.log(currentLevel);
   if (cheatUsed) {
     levels[currentLevel].isComplete = statusEnum.cheat;
   } else {
@@ -117,15 +118,41 @@ function setCompleteStats() {
   localStorage.setItem('completeStats', JSON.stringify(completeStats));
 }
 
+// тут надо разобраться в зависимостях между функциями и переменными,
+// а то ты постоянно ломаешь старое, добавляя новое.
 function win() {
-  fileWindowEl.classList.add('win');
-  // eslint-disable-next-line no-alert
-  alert('вы выиграли!');
-
+  let integerLever = parseInt(currentLevel, 10);
   setCompleteStats();
+  const completeStats = getCompleteStats();
+  const solvedLevels = Object.keys(completeStats).length;
+
+  // console.log(solvedLevels, currentLevel);
+  if (solvedLevels === 20) {
+    if (Object.values(completeStats).includes(0)) {
+      winTextEl.textContent = 'Congratulation! you win, but what did it cost?';
+    } else {
+      winTextEl.textContent = 'Congratulation! You are best of the best in CSS World!';
+    }
+  } else if (solvedLevels !== 20 && integerLever === 20) {
+    winTextEl.textContent = 'Well done! but for final victory you need to pass all levels';
+    levelsMenuOpen();
+  } else {
+    winTextEl.textContent = 'WIN!';
+  }
+
+  overlayEl.classList.add('show');
+  winTextEl.classList.add('show');
+  winTextCloseBtn.classList.add('show');
+
   updateProgressBar();
   updateMarkColor();
   setTimeout(clearState, 900);
+  // console.log(currentLevel);
+  integerLever += 1;
+  if (currentLevel < 20) {
+    currentLevel = integerLever;
+  }
+  setContent();
 }
 
 function makeAGuess() {
@@ -136,7 +163,7 @@ function makeAGuess() {
       guessEls[i].classList.add('selected');
     }
   } catch (error) {
-    console.log('invalid property in input');
+    // console.log('invalid property in input');
   }
   return guessEls;
 }
@@ -187,6 +214,7 @@ function setContent() {
   maxLevelEls[0].innerHTML = maxLevel;
   levelCurrentEls[1].innerHTML = currentLevel;
   maxLevelEls[1].innerHTML = maxLevel;
+  createTheory(currentLevel);
   highlightSelectedLevel(levelsList, currentLevel);
   addClassCorrect();
   // подсветка кода
@@ -198,11 +226,17 @@ markup.addEventListener('mouseout', unhovered);
 table.addEventListener('mouseover', hovered);
 table.addEventListener('mouseout', unhovered);
 enterBtn.addEventListener('click', checkAnswer);
+cssInput.addEventListener('keydown', (e) => {
+  if (e.keyCode === 13) {
+    checkAnswer();
+  }
+});
 
 function showMeAnswer() {
   cheatUsed = true;
   cssInput.style.opacity = '1';
   inputColor.innerHTML = '';
+  closeWinPopup();
   typewriterEffect('#input', `${levels[currentLevel].answer}`, 0);
 }
 
@@ -219,7 +253,8 @@ function highlightSelectedLevel() {
   Array.from(levelsList.children).forEach((element) => {
     element.classList.remove('hover');
   });
-  levelsList.children[currentLevel].classList.add('hover');
+  const levelsListItem = levelsList.querySelectorAll('li');
+  levelsListItem[currentLevel - 1].classList.add('hover');
 }
 
 // возможно есть вариант переписать лисенер на перезапуск функции при каждом
@@ -231,6 +266,7 @@ helpBtn.addEventListener('click', showMeAnswer);
 
 setLevelsName(maxLevel, levels);
 setContent(levelsList);
+const theoryBlock = document.querySelector('#theoryBlock');
 
 const progressBar = document.querySelector('#progressBar');
 function updateProgressBar() {
@@ -244,7 +280,8 @@ function updateMarkColor() {
   if (completeStats) {
     // eslint-disable-next-line no-restricted-syntax
     for (const [key, value] of Object.entries(completeStats)) {
-      const mark = levelsList.children[key].children[0].children[0];
+      const marks = levelsList.querySelectorAll('.check-mark--mini');
+      const mark = marks[key - 1];
       if (value === 0) {
         mark.classList.add('cheat');
       } else if (value === 1) {
@@ -265,6 +302,13 @@ updateMarkColor();
 
 updateProgressBar(maxLevel);
 
+levelsIconClose.addEventListener('click', levelsMenuClose);
+burgerOpen.addEventListener('click', levelsMenuOpen);
+theoryBtn.addEventListener('click', () => {
+  // можно переписать на функцию с анимацией или opacity
+  theoryBlock.classList.toggle('hide');
+  theoryBtn.classList.toggle('turn-on');
+});
 levelsList.querySelectorAll('li').forEach((li) => {
   li.addEventListener('click', getCurrentLevelByClick);
 });
@@ -279,9 +323,18 @@ levelPrevBtn.addEventListener('click', () => {
 
 resetBtn.addEventListener('click', () => {
   localStorage.removeItem('completeStats');
+  closeWinPopup();
   updateProgressBar();
   resetMark();
 });
 
-// экспортируем всякую фигню, которая потом нигде не работает
-// export { table, markup, colorInput };
+function closeWinPopup() {
+  winTextCloseBtn.classList.toggle('rotate');
+  setTimeout(() => {
+    winTextEl.classList.remove('show');
+    overlayEl.classList.remove('show');
+    winTextCloseBtn.classList.remove('show');
+  }, 150);
+}
+
+winTextCloseBtn.addEventListener('click', closeWinPopup);

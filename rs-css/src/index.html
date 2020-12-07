@@ -2,13 +2,17 @@
 <html lang="en">
 
 <head>
-  <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/styles/default.min.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/highlight.min.js"></script> -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <link rel="stylesheet" href="./styles/style.css"> -->
   <title>rs-css</title>
-  <!-- <script type="text/javascript" src="highlight.js"></script> -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link rel="apple-touch-icon" sizes="180x180" href=".../src/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../src/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../src/favicon/favicon-16x16.png">
+  <link rel="mask-icon" href="../src/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="assets/imgs/favicon.png" type="image/x-icon">
+  <meta name="msapplication-TileColor" content="#ffc40d">
+  <meta name="theme-color" content="#ffffff">
 </head>
 
 <body>
@@ -22,7 +26,7 @@
         <nav class="header__nav nav">
           <ul class="nav__list">
             <li class="nav__item">
-              <div class="levels__block">
+              <div class="levels__title-block">
                 Level <span class="level--current level">1</span> of
                 <span class="level--total level">32</span>
                 <span class="check-mark"></span>
@@ -33,9 +37,6 @@
                 <a href="#" class="arrow arrow-left" id="levelPrev"></a>
                 <a href="#" class="arrow arrow-right" id="levelNext"></a>
               </div>
-            </li>
-            <li class="nav__item">
-              <a href="#" class="level-theory">A</a>
             </li>
             <li class="nav__item">
               <a href="#" class="burger levels-list" id="burgerOpen">
@@ -50,7 +51,8 @@
                     <filter id="filter0_d" x="0" y="0" width="38" height="30" filterUnits="userSpaceOnUse"
                       color-interpolation-filters="sRGB">
                       <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+                      <feColorMatrix in="SourceAlpha" type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
                       <feOffset dy="4" />
                       <feGaussianBlur stdDeviation="2" />
                       <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
@@ -65,16 +67,17 @@
         </nav>
       </div>
     </header>
-  
-  
-    <aside class="levels" id="levels">
-      <div class="levels__block">
+
+
+    <aside class="levels open" id="levels">
+      <div class="levels__title-block">
         <div class="block__text">
           Chose a level <span class="level--current level">1</span> of
           <span class="level--total level">20</span>
         </div>
-        <svg class="icon icon--close" height="365.696pt" viewBox="0 0 365.696 365.696" width="365.696pt"
-          xmlns="http://www.w3.org/2000/svg">
+        <a href="#" class="level-theory" id="theoryBtn" title="open/close theory">A</a>
+        <svg class="icon icon--close" id="levels__icon--close" height="365.696pt" viewBox="0 0 365.696 365.696"
+          width="365.696pt" xmlns="http://www.w3.org/2000/svg">
           <path
             d="m243.1875 182.859375 113.132812-113.132813c12.5-12.5 12.5-32.765624 0-45.246093l-15.082031-15.082031c-12.503906-12.503907-32.769531-12.503907-45.25 0l-113.128906 113.128906-113.132813-113.152344c-12.5-12.5-32.765624-12.5-45.246093 0l-15.105469 15.082031c-12.5 12.503907-12.5 32.769531 0 45.25l113.152344 113.152344-113.128906 113.128906c-12.503907 12.503907-12.503907 32.769531 0 45.25l15.082031 15.082031c12.5 12.5 32.765625 12.5 45.246093 0l113.132813-113.132812 113.128906 113.132812c12.503907 12.5 32.769531 12.5 45.25 0l15.082031-15.082031c12.5-12.503906 12.5-32.769531 0-45.25zm0 0" />
         </svg>
@@ -83,29 +86,25 @@
       </ul>
       <div class="reset-progress btn" id="resetBtn">reset progress</div>
     </aside>
-  
-  
+
     <main>
       <div class="wrapper">
         <h2 class="order">Select <span id="task">empty glasses</span></h2>
-        <div class="help">
-          <h3></h3>
-          <p></p>
-          <p></p>
-          <a href="#" class="help-btn btn help-btn--light">Ok, got it!</a>
-        </div>
-        <a href="#" class="btn--help btn" id="help_btn">Help, I'm stuck!</a>
         <div class="show-box">
           <div class="table" id="table">
           </div>
-  
-          <!-- <div class="tags-show">
-            <div class="tag">&lt;glass class="empty" /&gt; </div>
-            <div class="tag">&lt;glass class="empty" /&gt; </div>
-            <div class="tag">&lt;glass class="empty" /&gt; </div>
-          </div> -->
+          <div class="win-popup">
+            <div class="win-text" id="winText">Well done! but to get the final victory you need to complete all
+              levels</div>
+            <div class="overlay"></div>
+            <svg class="icon icon--close" id="winText__icon--close" height="365.696pt" viewBox="0 0 365.696 365.696"
+              width="365.696pt" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="m243.1875 182.859375 113.132812-113.132813c12.5-12.5 12.5-32.765624 0-45.246093l-15.082031-15.082031c-12.503906-12.503907-32.769531-12.503907-45.25 0l-113.128906 113.128906-113.132813-113.152344c-12.5-12.5-32.765624-12.5-45.246093 0l-15.105469 15.082031c-12.5 12.503907-12.5 32.769531 0 45.25l113.152344 113.152344-113.128906 113.128906c-12.503907 12.503907-12.503907 32.769531 0 45.25l15.082031 15.082031c12.5 12.5 32.765625 12.5 45.246093 0l113.132813-113.132812 113.128906 113.132812c12.503907 12.5 32.769531 12.5 45.25 0l15.082031-15.082031c12.5-12.503906 12.5-32.769531 0-45.25zm0 0" />
+            </svg>
+          </div>
         </div>
-  
+
         <div class="editors">
           <div class="css-editor">
             <h3 class="title">CSS Editor</h3>
@@ -115,8 +114,8 @@
               </div>
               <div id="inputColor"></div>
               <input type="text" class="css-input" id="input" placeholder="Type in a CSS selector"></input>
-              <!-- <div class="wall"></div> -->
               <a href="#" class="btn btn--enter" id="enter">enter</a>
+              <a href="#" class="btn--help btn" id="help_btn">Help!</a>
               <div class="task-reminder-text">
                 { <br>
                 /* Styles would go here. */ <br>
@@ -137,21 +136,16 @@
               </div>
               <div id="colorMarkup"></div>
               <div class="markup" id="markup">
-                <!-- &lt;div class="table"&gt; 
-                  <glass class="empty">&lt;glass class="empty" /&gt;</glass>
-                  <glass class="empty">&lt;glass class="empty" /&gt;</glass>
-                  <glass class="empty">&lt;glass class="empty" /&gt;</glass>
-                &lt;/div&gt;  -->
               </div>
-  
-  
+
+
             </div>
           </div>
         </div>
-  
+
       </div>
     </main>
-  
+
     <footer>
       <div class="social social-block">
         <ul class="social__list">
@@ -168,7 +162,6 @@
     </footer>
 
   </div>
-  <!-- <script src="../src/scripts/app.js" type="module"></script> -->
 </body>
 
 </html>
