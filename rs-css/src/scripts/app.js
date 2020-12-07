@@ -1,6 +1,7 @@
-// import hljs from 'highlight.js';
-// import 'highlight.js/styles/github.css';
-// import { levelsList } from './variables';
+import hljs from 'highlight.js';
+
+import 'highlight.js/styles/atelier-lakeside-light.css';
+
 import '../styles/style.scss';
 import createLevels from './task_template';
 import { hovered, unhovered } from './setHoveredElements';
@@ -239,6 +240,7 @@ function showMeAnswer() {
   inputColor.innerHTML = '';
   closeWinPopup();
   typewriterEffect('#input', `${levels[currentLevel].answer}`, 0);
+  hljs.highlightBlock(inputColor);
 }
 
 // моя самописная обертка вокруг codeColor функции
@@ -247,7 +249,8 @@ function colorInput() {
   inputColor.innerHTML = '';
   inputColor.innerHTML = cssInput.value;
   // console.log(inputColor.innerHTML);
-  codeColor(document.getElementById('inputColor'), 'css');
+  // codeColor(document.getElementById('inputColor'), 'css');
+  hljs.highlightBlock(inputColor);
 }
 
 function highlightSelectedLevel() {
