@@ -266,7 +266,6 @@ cssInput.addEventListener('change', colorInput);
 const helpBtn = document.querySelector('#help_btn');
 helpBtn.addEventListener('click', showMeAnswer);
 
-
 setLevelsName(maxLevel, levels);
 setContent(levelsList);
 const theoryBlock = document.querySelector('#theoryBlock');
