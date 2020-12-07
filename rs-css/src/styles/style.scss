@@ -65,8 +65,6 @@ a,
   color: inherit;
 }
 
-// .nav {
-// }
 // Header Start
 header {
   position: sticky;
@@ -109,28 +107,19 @@ header {
   flex-wrap: nowrap;
   justify-content: space-between;
   list-style: none;
-
-  // padding: 0;
-  // margin: 0;
   width: 34rem;
 }
 .nav__item {
   display: inline-block;
 }
-// .levels__title-block {
-// }
 .level--current {
-  // background: linear-gradient(135deg, #12BCB0 20%, #FABE0E 70%);
-  // -webkit-background-clip: text;
-  // -webkit-text-fill-color: transparent;
+
   display: inline-block;
   font-weight: 700;
 
   background: gold;
   // -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  // box-shadow: 0 -200px 100px -120px crimson inset;
-  // animation: background 3s infinite alternate;
 
   animation: gradient 4s linear infinite;
 }
@@ -141,8 +130,7 @@ header {
   font-size: 2rem;
   text-align: center;
 }
-// .level--total {
-// }
+
 .check-mark {
   display: inline-block;
   width: 1.2rem;
@@ -185,10 +173,7 @@ header {
   line-height: 2rem;
   border: 1px solid $lightest-color;
 
-  // transition: all 500ms linear !important;
-
   &:hover {
-    // box-shadow: 0 0 2px 1px $lightest-color;
     opacity: 0.5;
   }
   &.turn-on {
@@ -411,11 +396,11 @@ main {
   }
 }
 .order {
-  height: 10.5rem;
-  margin: 1rem auto;
+  height: 5rem;
+  margin: 0rem auto;
 
   font-weight: 100;
-  font-size: 4.5rem;
+  font-size: 2.5rem;
   letter-spacing: 0.2rem;
   word-spacing: 0.8rem;
   text-align: center;
@@ -491,8 +476,6 @@ main {
       transition: none;
     }
     *.correct {
-      // border: 0px solid transparent;
-      // border-radius: 1rem;
       animation: dance 1400ms linear infinite;
     }
     *.hover {
@@ -649,7 +632,8 @@ main {
   position: relative;
   display: grid;
   grid-template-columns: 3.6rem 11fr 3fr;
-  grid-template-rows: 3.2rem repeat(19, 2.1rem);
+  grid-template-rows: 3.2rem repeat(11, 2.1rem);
+  // grid-template-rows: 3.2rem repeat(19, 2.1rem);
 
   border: solid 1px $main-lightest;
   border-left: 0;
@@ -722,23 +706,7 @@ main {
 .btn--enter {
   grid-row: 1/2;
   grid-column: 3/4;
-  // padding: 0 1rem 0;
-  // margin-top: 0.5rem;
-
-  // background: #ddd;
-  // padding: 2px 7px 2px 7px;
-  // font-size: 1.2rem;
-  // color: #666;
-  // border: solid 3px #999;
-  // border-radius: 2px;
-  // border-width: 1px 1px 6px 1px;
 }
-
-// .btn--enter:active {
-//   margin-top: 1rem;
-//   // height: 22px;
-//   border-width: 1px 1px 1px 1px;
-// }
 
 .task-reminder-text {
   grid-row: 2/9;
@@ -747,7 +715,6 @@ main {
   line-height: 2.1rem;
   text-align: left;
   margin-left: 1rem;
-  // margin-top: -0.2rem;
 }
 .html-viewer {
   border: solid 1px $main-lightest;
@@ -757,7 +724,6 @@ main {
     color: $medium-color;
   }
   .file-window {
-    // position: relative;
     background-color: #201d18;
     color: $medium-color;
 
@@ -773,8 +739,6 @@ main {
       padding-left: 1rem;
       padding-top: 1rem;
       margin-left: 4.6rem;
-      // width: 500px;
-      // height: 500px;
       line-height: 2.1rem;
 
       > span:first-of-type,
@@ -825,10 +789,8 @@ footer {
   color: rgba(255, 255, 255, 0.302);
 }
 
-// .social {
-// }
 .social-block {
-  padding: 1rem;
+  padding: 0 1rem;
 }
 // .social__list {
 // }
@@ -842,7 +804,7 @@ footer {
 }
 
 .copyright {
-  padding: 1rem;
+  padding: 0 1rem;
 }
 
 // Footer End
@@ -1114,8 +1076,17 @@ tray > span {
     height: 6rem;
     padding: 1rem 1rem 0.5rem;
   }
-  .show-box {
+  // .show-box {
+  //   margin-bottom: 1rem;
+  // }
+}
+
+@media (min-width: 550px) and (min-height: 769px) {
+    .show-box {
     margin-bottom: 1rem;
+  }
+  .social-block, .copyright {
+    padding: 1rem;
   }
 }
 
@@ -1129,7 +1100,6 @@ tray > span {
   footer {
     flex-direction: row;
     justify-content: space-between;
-    // margin: auto;
   }
 
 }
@@ -1153,6 +1123,18 @@ tray > span {
   }
   .show-box, .table {
     height: 39rem;
+  }
+}
+
+@media (min-height: 769px) {
+  html {
+    font-size: 10px;
+  }
+  .order {
+    font-size: 4.5rem;
+    height: 10.5rem;
+    margin: 1rem auto;
+    font-size: 4.5rem;
   }
 }
 
