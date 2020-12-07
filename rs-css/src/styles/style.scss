@@ -376,11 +376,13 @@ aside.levels {
   }
 
   .reset-progress {
+    margin: 3rem 0 4rem 0;
+    padding: 1rem 2rem;
+    border: 2px solid $medium-color;
+    
+    font-size: 1.8rem;
     align-self: center;
 
-    margin: 3rem 0 4rem 0;
-
-    border: 2px solid $medium-color;
     background-color: $main-light;
 
     cursor: pointer;
@@ -388,6 +390,7 @@ aside.levels {
     &:hover {
       background-color: darkred;
       border-color: rgb(189, 39, 39);
+      color: white;
     }
   }
 }
@@ -460,7 +463,7 @@ main {
     grid-template-rows: 2.5fr 3fr 0.3fr;
     width: 500px;
     height: 44.5rem;
-    z-index: 10;
+    z-index: 20;
     // opacity: 0;
 
     background-color: rgb(50, 28, 179);
@@ -487,6 +490,8 @@ main {
       transition: none;
     }
     *.correct {
+      // border: 0px solid transparent;
+      // border-radius: 1rem;
       animation: dance 1400ms linear infinite;
     }
     *.hover {
@@ -552,9 +557,10 @@ main {
 
     transform: scale(0.5);
 
-    z-index: 20;
+    z-index: 10;
     &.show {
       animation: 0.5s slideIn ease-in-out forwards, 1s skewBg ease-in-out;
+      z-index: 20;
     }
   }
   #winText__icon--close {
@@ -1143,19 +1149,19 @@ tray > span {
 
 @keyframes dance {
   0% {
-    transform: skew(0deg);
+    transform: skew(0deg) scale(1);
   }
   25% {
-    transform: skew(-5deg);
+    transform: skew(-5deg) scale(1.1);
   }
   50% {
-    transform: skew(0deg);
+    transform: skew(0deg) scale(1);
   }
   75% {
-    transform: skew(5deg);
+    transform: skew(5deg) scale(1.1);
   }
   100% {
-    transform: skew(0deg);
+    transform: skew(0deg) scale(1);
   }
 }
 

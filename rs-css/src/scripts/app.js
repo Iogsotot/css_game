@@ -145,7 +145,7 @@ function win() {
   overlayEl.classList.add('show');
   winTextEl.classList.add('show');
   winTextCloseBtn.classList.add('show');
-  // setTimeout(() => { winTextEl.classList.remove('show'); }, 3000);
+
   updateProgressBar();
   updateMarkColor();
   setTimeout(clearState, 900);
@@ -156,8 +156,6 @@ function win() {
   }
   setContent();
 }
-
-// document.addEventListener('click', () => { winTextEl.classList.remove('show'); });
 
 function makeAGuess() {
   const selector = cssInput.value;
@@ -230,6 +228,11 @@ markup.addEventListener('mouseout', unhovered);
 table.addEventListener('mouseover', hovered);
 table.addEventListener('mouseout', unhovered);
 enterBtn.addEventListener('click', checkAnswer);
+cssInput.addEventListener('keydown', (e) => {
+  if (e.keyCode === 13) {
+    checkAnswer();
+  }
+});
 
 function showMeAnswer() {
   cheatUsed = true;
@@ -262,6 +265,7 @@ cssInput.addEventListener('change', colorInput);
 
 const helpBtn = document.querySelector('#help_btn');
 helpBtn.addEventListener('click', showMeAnswer);
+
 
 setLevelsName(maxLevel, levels);
 setContent(levelsList);
