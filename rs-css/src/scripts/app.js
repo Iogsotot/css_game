@@ -27,6 +27,9 @@ const colorMarkup = document.querySelector('#colorMarkup');
 const levelsIconClose = document.querySelector('#levels__icon--close');
 const burgerOpen = document.querySelector('#burgerOpen');
 const theoryBtn = document.querySelector('#theoryBtn');
+const winTextCloseBtn = document.querySelector('#winText__icon--close');
+const winTextEl = document.querySelector('#winText');
+const overlayEl = document.querySelector('.overlay');
 
 // level's complete constance
 const statusEnum = { cheat: 0, solved: 1 };
@@ -65,6 +68,7 @@ function getCurrentLevelByBtn(direction) {
   cheatUsed = false;
   localStorage.setItem('currentLevel', currentLevel);
   setContent();
+  closeWinPopup();
 }
 
 function getCurrentLevelByClick(e) {
@@ -73,6 +77,7 @@ function getCurrentLevelByClick(e) {
   cheatUsed = false;
   localStorage.setItem('currentLevel', currentLevel);
   setContent();
+  closeWinPopup();
 }
 
 function clearState() {
@@ -115,38 +120,40 @@ function setCompleteStats() {
   }
   localStorage.setItem('completeStats', JSON.stringify(completeStats));
 }
-const winTextEl = document.querySelector('#winText');
+
+// тут надо разобраться в зависимостях между функциями и переменными,
+// а то ты постоянно ломаешь старое, добавляя новое.
 function win() {
   let integerLever = parseInt(currentLevel, 10);
-  integerLever += 1;
-  if (currentLevel < 20) {
-    currentLevel = integerLever;
-  }
   setCompleteStats();
   const completeStats = getCompleteStats();
   const solvedLevels = Object.keys(completeStats).length;
-  // updateProgressBar();
-  // updateMarkColor();
 
-  // if (solvedLevels === 20) {
-  //   if (Object.values(completeStats).includes(0)) {
-  //     winTextEl.textContent = 'Congratulation! you win, but what did it cost?';
-  //   } else {
-  //     winTextEl.textContent = 'Congratulation! You are best of the best in CSS World!';
-  //   }
-  // } else if (currentLevel === 20) {
-  //   winTextEl.textContent = 'Well done! but for final victory you need to pass all levels';
-  //   levelsMenuOpen();
-  // } else {
-  //   winTextEl.textContent = 'you pass this level!';
-  // }
+  if (solvedLevels === 20) {
+    if (Object.values(completeStats).includes(0)) {
+      winTextEl.textContent = 'Congratulation! you win, but what did it cost?';
+    } else {
+      winTextEl.textContent = 'Congratulation! You are best of the best in CSS World!';
+    }
+  } else if (currentLevel === 20) {
+    winTextEl.textContent = 'Well done! but for final victory you need to pass all levels';
+    levelsMenuOpen();
+  } else {
+    winTextEl.textContent = 'WIN!';
+  }
 
-  // winTextEl.classList.add('show');
+  overlayEl.classList.add('show');
+  winTextEl.classList.add('show');
+  winTextCloseBtn.classList.add('show');
   // setTimeout(() => { winTextEl.classList.remove('show'); }, 3000);
   updateProgressBar();
   updateMarkColor();
   setTimeout(clearState, 900);
   console.log(currentLevel);
+  integerLever += 1;
+  if (currentLevel < 20) {
+    currentLevel = integerLever;
+  }
   setContent();
 }
 
@@ -228,6 +235,7 @@ function showMeAnswer() {
   cheatUsed = true;
   cssInput.style.opacity = '1';
   inputColor.innerHTML = '';
+  closeWinPopup();
   typewriterEffect('#input', `${levels[currentLevel].answer}`, 0);
 }
 
@@ -271,7 +279,10 @@ function updateMarkColor() {
   if (completeStats) {
     // eslint-disable-next-line no-restricted-syntax
     for (const [key, value] of Object.entries(completeStats)) {
-      const mark = levelsList.children[key].children[0].children[0];
+      console.log(key);
+      const marks = levelsList.querySelectorAll('.check-mark--mini');
+      console.log(marks[key - 1]);
+      const mark = marks[key - 1];
       if (value === 0) {
         mark.classList.add('cheat');
       } else if (value === 1) {
@@ -313,9 +324,15 @@ levelPrevBtn.addEventListener('click', () => {
 
 resetBtn.addEventListener('click', () => {
   localStorage.removeItem('completeStats');
+  closeWinPopup();
   updateProgressBar();
   resetMark();
 });
 
-// экспортируем всякую фигню, которая потом нигде не работает
-// export { table, markup, colorInput };
+function closeWinPopup() {
+  winTextEl.classList.remove('show');
+  overlayEl.classList.remove('show');
+  winTextCloseBtn.classList.remove('show');
+}
+
+winTextCloseBtn.addEventListener('click', closeWinPopup);
