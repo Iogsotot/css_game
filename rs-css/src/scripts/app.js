@@ -86,8 +86,6 @@ function clearState() {
 
 function fail() {
   fileWindowEl.classList.add('wrong');
-  // eslint-disable-next-line no-alert
-  // alert('ты дурачок');
   setTimeout(clearState, 900);
 }
 
@@ -128,13 +126,14 @@ function win() {
   const completeStats = getCompleteStats();
   const solvedLevels = Object.keys(completeStats).length;
 
+  // console.log(solvedLevels, currentLevel);
   if (solvedLevels === 20) {
     if (Object.values(completeStats).includes(0)) {
       winTextEl.textContent = 'Congratulation! you win, but what did it cost?';
     } else {
       winTextEl.textContent = 'Congratulation! You are best of the best in CSS World!';
     }
-  } else if (currentLevel === 20) {
+  } else if (solvedLevels !== 20 && integerLever === 20) {
     winTextEl.textContent = 'Well done! but for final victory you need to pass all levels';
     levelsMenuOpen();
   } else {
@@ -281,9 +280,7 @@ function updateMarkColor() {
   if (completeStats) {
     // eslint-disable-next-line no-restricted-syntax
     for (const [key, value] of Object.entries(completeStats)) {
-      // console.log(key);
       const marks = levelsList.querySelectorAll('.check-mark--mini');
-      // console.log(marks[key - 1]);
       const mark = marks[key - 1];
       if (value === 0) {
         mark.classList.add('cheat');
