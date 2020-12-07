@@ -99,6 +99,8 @@ function getCompleteStats() {
 
 function setCompleteStats() {
   let completeStats = getCompleteStats();
+  console.log(completeStats);
+  console.log(currentLevel);
   if (cheatUsed) {
     levels[currentLevel].isComplete = statusEnum.cheat;
   } else {
@@ -113,36 +115,42 @@ function setCompleteStats() {
   }
   localStorage.setItem('completeStats', JSON.stringify(completeStats));
 }
-
+const winTextEl = document.querySelector('#winText');
 function win() {
-  // fileWindowEl.classList.add('win');
-  // eslint-disable-next-line no-alert
   let integerLever = parseInt(currentLevel, 10);
   integerLever += 1;
-  currentLevel = integerLever;
+  if (currentLevel < 20) {
+    currentLevel = integerLever;
+  }
   setCompleteStats();
   const completeStats = getCompleteStats();
   const solvedLevels = Object.keys(completeStats).length;
+  // updateProgressBar();
+  // updateMarkColor();
 
-  if (solvedLevels === 20) {
-    if (Object.values(completeStats).includes(0)) {
-      alert('Congratulation! you win, but what did it cost?');
-    } else {
-      alert('Congratulation! You are best of the best in CSS World!');
-    }
-  } else if (currentLevel === 20) {
-    alert('Well done! but for final victory you need to pass all levels');
-    levelsMenuOpen();
-  } else {
-    alert('you pass this level!');
-  }
+  // if (solvedLevels === 20) {
+  //   if (Object.values(completeStats).includes(0)) {
+  //     winTextEl.textContent = 'Congratulation! you win, but what did it cost?';
+  //   } else {
+  //     winTextEl.textContent = 'Congratulation! You are best of the best in CSS World!';
+  //   }
+  // } else if (currentLevel === 20) {
+  //   winTextEl.textContent = 'Well done! but for final victory you need to pass all levels';
+  //   levelsMenuOpen();
+  // } else {
+  //   winTextEl.textContent = 'you pass this level!';
+  // }
 
+  // winTextEl.classList.add('show');
+  // setTimeout(() => { winTextEl.classList.remove('show'); }, 3000);
   updateProgressBar();
   updateMarkColor();
   setTimeout(clearState, 900);
   console.log(currentLevel);
   setContent();
 }
+
+// document.addEventListener('click', () => { winTextEl.classList.remove('show'); });
 
 function makeAGuess() {
   const selector = cssInput.value;
