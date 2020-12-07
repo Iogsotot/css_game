@@ -6,7 +6,6 @@ import createLevels from './task_template';
 import { hovered, unhovered } from './setHoveredElements';
 import typewriterEffect from './typewriter';
 import codeColor from './codeColor';
-// import cssColor from './cssColor.js';
 import { levelsMenuClose, levelsMenuOpen } from './levelsMenu';
 import setLevelsName from './setLevelsName';
 // import { levelsList } from './variables';
@@ -104,8 +103,8 @@ function getCompleteStats() {
 
 function setCompleteStats() {
   let completeStats = getCompleteStats();
-  console.log(completeStats);
-  console.log(currentLevel);
+  // console.log(completeStats);
+  // console.log(currentLevel);
   if (cheatUsed) {
     levels[currentLevel].isComplete = statusEnum.cheat;
   } else {
@@ -149,7 +148,7 @@ function win() {
   updateProgressBar();
   updateMarkColor();
   setTimeout(clearState, 900);
-  console.log(currentLevel);
+  // console.log(currentLevel);
   integerLever += 1;
   if (currentLevel < 20) {
     currentLevel = integerLever;
@@ -165,7 +164,7 @@ function makeAGuess() {
       guessEls[i].classList.add('selected');
     }
   } catch (error) {
-    console.log('invalid property in input');
+    // console.log('invalid property in input');
   }
   return guessEls;
 }
@@ -282,9 +281,9 @@ function updateMarkColor() {
   if (completeStats) {
     // eslint-disable-next-line no-restricted-syntax
     for (const [key, value] of Object.entries(completeStats)) {
-      console.log(key);
+      // console.log(key);
       const marks = levelsList.querySelectorAll('.check-mark--mini');
-      console.log(marks[key - 1]);
+      // console.log(marks[key - 1]);
       const mark = marks[key - 1];
       if (value === 0) {
         mark.classList.add('cheat');
@@ -333,9 +332,12 @@ resetBtn.addEventListener('click', () => {
 });
 
 function closeWinPopup() {
-  winTextEl.classList.remove('show');
-  overlayEl.classList.remove('show');
-  winTextCloseBtn.classList.remove('show');
+  winTextCloseBtn.classList.toggle('rotate');
+  setTimeout(() => {
+    winTextEl.classList.remove('show');
+    overlayEl.classList.remove('show');
+    winTextCloseBtn.classList.remove('show');
+  }, 150);
 }
 
 winTextCloseBtn.addEventListener('click', closeWinPopup);

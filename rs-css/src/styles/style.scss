@@ -5,20 +5,24 @@
   transition: all 350ms ease;
 }
 
-// text
-$lightest-color: rgba(255, 255, 255, 0.8);
-$light-color: #999999;
-$medium-color: #777777;
+// text (not edit)
+// $lightest-color: rgba(255, 255, 255, 0.8);
+$lightest-color: #f9f6ef;
+$light-color: #5d6e4a;
+$medium-color: #66848d;
 $medium-color-disabled: #aaaaaa;
 $dark-color: #666;
 
 // bg, border
-$main-darkest: rgba(34, 30, 24, 0.8);
-$main-dark: #2e2a23;
-$main-medium: rgba(0, 0, 0, 0.2);
-$main-light: #27241e;
-$main-lightest: rgba(255, 255, 255, 0.051);
+$main-darkest:  #04272d;  // don't use
+$main-dark: #04272dbe;
+$main-medium: #1a6070;
+$main-light: #402420;
+// border
+$main-lightest: #967864;
 
+
+// light-editor only
 $editor-lightest: #efefef;
 $editor-light: #dddddd;
 // $editor-dark: ;
@@ -41,7 +45,7 @@ body {
   // font-family: 'Courier New', Courier, monospace;
   // font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
-  background-color: $main-dark;
+  background-color: $main-medium;
 }
 
 .extra-wrapper {
@@ -69,7 +73,7 @@ header {
   position: sticky;
   top: 0;
   height: 4rem;
-  background-color: $main-darkest;
+  background-color: $main-dark;
   z-index: 10;
 
   .wrapper {
@@ -124,7 +128,7 @@ header {
   font-weight: 700;
 
   background: gold;
-  -webkit-background-clip: text;
+  // -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   // box-shadow: 0 -200px 100px -120px crimson inset;
   // animation: background 3s infinite alternate;
@@ -196,23 +200,12 @@ header {
     }
   }
 }
-// .burger {
-// }
-// .icon {
-// }
-// .burger__icon {
-// }
-// .levels-list {
-// }
-// Header End
 
 // Aside levels Start
 
 aside.levels {
   display: flex;
   flex-direction: column;
-  // justify-content: stretch;
-  // justify-items: start;
   align-items: flex-start;
   align-content: center;
 
@@ -224,12 +217,10 @@ aside.levels {
   height: 100vh;
 
   border: 0px solid transparent;
-  // border-radius: 0 0 0 2rem;
-  background-color: rgb(22, 20, 16);
-  // box-shadow: 1px 0 10px 3px rgba(255, 255, 255, 0.4);
+  background-color: $main-darkest;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.5);
 
-  z-index: 20;
+  z-index: 21;
 
   &.open {
     transform: translateX(0%);
@@ -277,7 +268,7 @@ aside.levels {
     font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
     font-size: 2.2rem;
 
-    background-color: rgb(22, 20, 16);
+    background-color: $main-darkest;
     // background-color: green;
     opacity: 1;
     z-index: 20;
@@ -292,14 +283,24 @@ aside.levels {
       text-align: center;
       margin: 1rem 0 1.5rem;
       color: $light-color;
+
     }
     .theory__main-text {
       font-size: 1.6rem;
+      line-height: 140%;
+      text-align: justify;
+      padding-right: 2rem;
+      &:hover {
+        color: $lightest-color;
+      }
     }
 
     .theory__examples p {
       font-size: 1.6rem;
-
+      line-height: 140%;
+      text-align: justify;
+      padding-right: 2rem;
+      margin-bottom: 2rem;
       code {
         font-family: Consolas, "Courier New", monospace;
         background-color: black;
@@ -334,7 +335,7 @@ aside.levels {
     cursor: pointer;
 
     &:hover {
-      background-color: $main-dark;
+      background-color: $main-medium;
       color: rgba(255, 255, 255, 0.8);
     }
 
@@ -343,7 +344,7 @@ aside.levels {
     }
     &.hover {
       background: rgb(17, 47, 9);
-      background: linear-gradient(90deg, rgba(17, 47, 9, 0) 20%, rgba(11, 64, 13, 1) 100%);
+      background: linear-gradient(90deg, $main-darkest 20%, #5d6e4a 100%);
     }
     &:hover .solved.check-mark--mini,
     &:hover .cheat.check-mark--mini {
@@ -382,15 +383,16 @@ aside.levels {
     
     font-size: 1.8rem;
     align-self: center;
+    color: $main-darkest;
 
-    background-color: $main-light;
+    background-color: $medium-color;
 
     cursor: pointer;
 
     &:hover {
       background-color: darkred;
       border-color: rgb(189, 39, 39);
-      color: white;
+      color: $lightest-color;
     }
   }
 }
@@ -427,14 +429,14 @@ main {
   margin: 0.5rem auto 0;
   padding: 2px 7px 2px 7px;
 
-  border: solid 3px #999;
+  border: solid 3px #81605f;
   border-width: 1px 1px 6px 1px;
   border-radius: 2.5rem;
 
 
   font-size: 1.2rem;
   color: #666;
-  background: #ddd;
+  background: #96786454;
 
   &:active {
     margin-top: 1rem;
@@ -448,7 +450,7 @@ main {
   font-weight: 700;
   line-height: 2.5rem;
 
-  color: white;
+  color: $lightest-color;
   background-color: rgb(177, 75, 75);
   border-color: rgb(102, 43, 43);
 }
@@ -464,7 +466,6 @@ main {
     width: 500px;
     height: 44.5rem;
     z-index: 20;
-    // opacity: 0;
 
     background-color: rgb(50, 28, 179);
     background-image: url("../assets/table.png");
@@ -511,7 +512,7 @@ main {
       white-space: nowrap;
 
       background: lightgoldenrodyellow;
-      color: $main-dark;
+      color: $dark-color;
       text-align: center;
       font-family: "Courier New", Courier, monospace;
       font-size: 14px; /* Размер текста подсказки */
@@ -533,11 +534,11 @@ main {
     text-align: center;
     font-weight: 700;
     font-size: 5rem;
-    color: whitesmoke;
+    color: $lightest-color;
 
     opacity: 0;
     transform: translateY(-600px);
-    z-index: 25;
+    z-index: 26;
     &.show {
       animation: 1.2s slideIn ease-in-out forwards 1s;
     }
@@ -552,16 +553,16 @@ main {
     left: 0;
     right: 0;
 
-    border: 3px solid rgba(0, 0, 0, 0.6);
+    border: 0px solid rgba(0, 0, 0, 0.6);
     // background-color: rgb(0, 0, 0);
-    background-color: rgb(22, 113, 216);
+    background-color: #2faac6;
 
     transform: scale(0.5);
 
     z-index: 10;
     &.show {
       animation: 0.5s slideIn ease-in-out forwards, 1s skewBg ease-in-out;
-      z-index: 20;
+      z-index: 25;
     }
   }
   #winText__icon--close {
@@ -573,17 +574,18 @@ main {
     height: 3rem;
     width: 3rem;
 
-    fill: $light-color;
-    z-index: 35;
+    fill: $lightest-color;
+    z-index: 15;
 
     cursor: pointer;
     transition: fill 150ms linear;
     &:hover {
-      fill: white;
+      fill: $light-color;
       transition: fill 150ms linear;
     }
     &.show{
       animation: 1.2s slideIn ease-in-out forwards 1s;
+      z-index: 35;
     }
   }
 }
@@ -595,11 +597,6 @@ main {
 .wrong {
   animation: wrong 1s linear;
 }
-// .tags-show {
-//   // position: absolute;
-//   // top: 0;
-//   // left: 0;
-// }
 
 .tag {
   display: none;
@@ -637,7 +634,7 @@ main {
   font-family: menlo, monospace;
   // height: 50rem;
   width: 100%;
-  background-color: $main-darkest;
+  background-color: $main-dark;
   padding: 1rem;
 }
 .css-editor {
@@ -646,6 +643,7 @@ main {
 }
 .title {
   font-weight: 300;
+  padding-left: 3.6rem;
 }
 .file-window {
   position: relative;
@@ -654,7 +652,8 @@ main {
   grid-template-rows: 3.2rem repeat(19, 2.1rem);
 
   border: solid 1px $main-lightest;
-  // padding-top: 1rem;
+  border-left: 0;
+  border-right: 0;
 
   background-color: #efefef;
   color: #aaaaaa;
@@ -673,6 +672,9 @@ main {
   line-height: 2.1rem;
   text-align: right;
   border: solid 1px $main-lightest;
+  border-top: 0;
+  border-bottom: 0;
+  border-left: 0;
 
   background-color: $editor-light;
   color: #999999;
@@ -689,11 +691,9 @@ main {
   font-family: Consolas, "Courier New", monospace;
   font-size: 1.4rem;
   z-index: 10;
-  // color: transparent;
-  // opacity: 0.2;
   color: #585858c2;
 
-  // animation: strobe 850ms linear infinite;
+  animation: strobe 850ms linear infinite;
 }
 #inputColor {
   position: absolute;
@@ -750,6 +750,8 @@ main {
   // margin-top: -0.2rem;
 }
 .html-viewer {
+  border: solid 1px $main-lightest;
+  background-color: $main-light;
   .line-numbers {
     background-color: #201d18;
     color: $medium-color;
@@ -899,10 +901,7 @@ tray > span {
     text-align: center;
 
     espresso {
-      // height: 6rem;
-      // width: 4rem;
       background-position: top;
-      // margin-top: 0.5rem;
     }
     shot {
       height: 5rem;
@@ -1083,8 +1082,6 @@ tray > span {
     margin: 0 auto;
   }
   espresso {
-    // height: 5rem;
-    // width: 4rem;
     background-position: top;
     margin: 0;
   }
@@ -1108,12 +1105,6 @@ tray > span {
 .show-box .table napkin > * {
   background-position: top;
 }
-
-// .white {
-//   display: flex;
-// }
-
-// #yours * {}
 
 @media (min-width: 550px) {
   .wrapper {
