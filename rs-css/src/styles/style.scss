@@ -39,7 +39,6 @@ body {
   grid-template-rows: auto auto auto;
   grid-template-areas: "header", "main", "footer";
   margin: auto;
-  // overflow-x: hidden !important;
 
   font-size: 1.6rem;
   // font-family: 'Courier New', Courier, monospace;
@@ -50,9 +49,9 @@ body {
 
 .extra-wrapper {
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
   width: inherit;
-  height: 100vh;
+  // height: 100vh;
 }
 
 .wrapper {
@@ -467,7 +466,7 @@ main {
     height: 44.5rem;
     z-index: 20;
 
-    background-image: url("../assets/table.png");
+    background-image: url("../assets/imgs/table.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -483,7 +482,7 @@ main {
       width: 10rem;
       margin: auto;
 
-      background-image: url("../assets/empty_glass.png");
+      background-image: url("../assets/imgs/empty_glass.png");
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
@@ -891,7 +890,7 @@ tray > span {
 
 .show-box .table {
   napkin {
-    background-image: url("../assets/napkin.png");
+    background-image: url("../assets/imgs/napkin.png");
     background-position: bottom;
     width: 25rem;
     height: 15rem;
@@ -917,143 +916,143 @@ tray > span {
     }
   }
   glass.milk {
-    background-image: url("../assets/glass_milk.png");
+    background-image: url("../assets/imgs/glass_milk.png");
   }
   glass.ice-tea {
-    background-image: url("../assets/glass_ice_tea.png");
+    background-image: url("../assets/imgs/glass_ice_tea.png");
     width: 8rem;
   }
   glass.pure-water {
-    background-image: url("../assets/glass_water.png");
+    background-image: url("../assets/imgs/glass_water.png");
   }
   glass.water_with_lemon {
-    background-image: url("../assets/glass_water_with_lemon.png");
+    background-image: url("../assets/imgs/glass_water_with_lemon.png");
     height: 10.2rem;
   }
   glass.dirty {
-    background-image: url("../assets/glass_dirty.png");
+    background-image: url("../assets/imgs/glass_dirty.png");
   }
   glass.broken {
-    background-image: url("../assets/glass_broken.png");
+    background-image: url("../assets/imgs/glass_broken.png");
     height: 10.2rem;
   }
   glass.empty {
     width: 8rem;
   }
   glass.nasty {
-    background-image: url("../assets/glass_nasty.png");
+    background-image: url("../assets/imgs/glass_nasty.png");
     height: 10.2rem;
   }
   vine {
-    background-image: url("../assets/vine_red.png");
+    background-image: url("../assets/imgs/vine_red.png");
   }
   vine.white {
-    background-image: url("../assets/vine_white.png");
+    background-image: url("../assets/imgs/vine_white.png");
   }
   vine.white.bubble {
-    background-image: url("../assets/vine_white_bubble.png");
+    background-image: url("../assets/imgs/vine_white_bubble.png");
   }
   vine#y-1905 {
-    background-image: url("../assets/vine_1905.png");
+    background-image: url("../assets/imgs/vine_1905.png");
   }
   vine#y-2020 {
-    background-image: url("../assets/vine_2020.png");
+    background-image: url("../assets/imgs/vine_2020.png");
   }
   coffee {
-    background-image: url("../assets/coffee.png");
+    background-image: url("../assets/imgs/coffee.png");
   }
   espresso {
     margin-bottom: 6rem;
     height: 4rem;
     width: 8rem;
-    background-image: url("../assets/espresso.png");
+    background-image: url("../assets/imgs/espresso.png");
   }
   juice {
-    background-image: url("../assets/juice.png");
+    background-image: url("../assets/imgs/juice.png");
   }
   juice.fresh {
-    background-image: url("../assets/juice_fresh.png");
+    background-image: url("../assets/imgs/juice_fresh.png");
   }
   beer {
-    background-image: url("../assets/beer.png");
+    background-image: url("../assets/imgs/beer.png");
     // width: 8rem;
   }
   beer.light {
-    background-image: url("../assets/beer_light.png");
+    background-image: url("../assets/imgs/beer_light.png");
     width: 8rem;
   }
   beer.dark {
-    background-image: url("../assets/beer_dark.png");
+    background-image: url("../assets/imgs/beer_dark.png");
     width: 8rem;
   }
   shot {
-    background-image: url("../assets/shot_b-52.png");
+    background-image: url("../assets/imgs/shot_b-52.png");
   }
   shot.got-milk,
   shot.white {
-    background-image: url("../assets/shot_milk.png");
+    background-image: url("../assets/imgs/shot_milk.png");
   }
   shot.lime {
-    background-image: url("../assets/shot_lime.png");
+    background-image: url("../assets/imgs/shot_lime.png");
   }
   shot.brain-blowing {
-    background-image: url("../assets/shot_brain.png");
+    background-image: url("../assets/imgs/shot_brain.png");
     background-position: bottom;
     width: 6rem;
     margin-bottom: 1rem;
   }
   cocktail {
-    background-image: url("../assets/cocktail.png");
+    background-image: url("../assets/imgs/cocktail.png");
     height: 18rem;
     background-size: cover;
   }
   cocktail.yesterday {
-    background-image: url("../assets/cocktail_yesterday.png");
+    background-image: url("../assets/imgs/cocktail_yesterday.png");
     background-size: contain;
   }
   cocktail.today {
-    background-image: url("../assets/cocktail_today.png");
+    background-image: url("../assets/imgs/cocktail_today.png");
     background-size: contain;
   }
   cocktail.tomorrow {
-    background-image: url("../assets/cocktail_tomorrow.png");
+    background-image: url("../assets/imgs/cocktail_tomorrow.png");
     background-size: contain;
   }
   cake[for="me"] {
-    background-image: url("../assets/cake_2.png");
+    background-image: url("../assets/imgs/cake_2.png");
     height: 14rem;
     margin-bottom: 4rem;
     // width: 12rem;
   }
   cake[for="you"] {
-    // background-image: url("../assets/cake.png");
-    background-image: url("../assets/ugly_cake.png");
+    // background-image: url("../assets/imgs/cake.png");
+    background-image: url("../assets/imgs/ugly_cake.png");
     width: 12rem;
     margin-bottom: 3rem;
   }
   garlic {
-    background-image: url("../assets/garlic.png");
+    background-image: url("../assets/imgs/garlic.png");
     background-position: bottom;
     height: 12rem;
     width: 6rem;
     &.hover::after { z-index: 200; }
   }
   peanut {
-    background-image: url("../assets/peanut.png");
+    background-image: url("../assets/imgs/peanut.png");
     background-position: top;
     height: 4rem;
   }
   cake {
-    background-image: url("../assets/cake.png");
+    background-image: url("../assets/imgs/cake.png");
     height: 10rem;
   }
   bug {
-    background-image: url("../assets/bug.png");
+    background-image: url("../assets/imgs/bug.png");
     background-position: top;
     height: 8rem;
   }
   chocolate {
-    background-image: url("../assets/chocolate.png");
+    background-image: url("../assets/imgs/chocolate.png");
     background-position: bottom;
     width: 8rem;
   }
@@ -1071,11 +1070,11 @@ tray > span {
   margin-bottom: 0rem;
   padding-bottom: 1rem;
 
-  background-image: url("../assets/tray2.png");
+  background-image: url("../assets/imgs/tray2.png");
   background-position: bottom;
 
-  &#yours {background-image: url("../assets/tray_yours.png");}
-  &#mine {background-image: url("../assets/tray_mine.png");}
+  &#yours {background-image: url("../assets/imgs/tray_yours.png");}
+  &#mine {background-image: url("../assets/imgs/tray_mine.png");}
 
   > * {
     margin: 0 auto;
