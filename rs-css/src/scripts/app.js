@@ -234,6 +234,7 @@ cssInput.addEventListener('keydown', (e) => {
 
 function showMeAnswer() {
   cheatUsed = true;
+  setCompleteStats();
   cssInput.style.opacity = '1';
   inputColor.innerHTML = '';
   closeWinPopup();
