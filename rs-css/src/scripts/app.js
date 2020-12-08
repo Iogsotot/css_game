@@ -342,3 +342,7 @@ function closeWinPopup() {
 }
 
 winTextCloseBtn.addEventListener('click', closeWinPopup);
+
+window.onload = () => {
+  hljs.initHighlightingOnLoad();
+};
