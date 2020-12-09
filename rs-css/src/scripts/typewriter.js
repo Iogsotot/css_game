@@ -1,11 +1,16 @@
-import codeColor from './codeColor';
+// import codeColor from './codeColor';
+import hljs from 'highlight.js';
 
 const cssInput = document.querySelector('#input');
 const inputColor = document.querySelector('#inputColor');
 
 function colorInput() {
   inputColor.innerHTML = cssInput.value;
-  codeColor(document.getElementById('inputColor'), 'css');
+  try {
+    hljs.highlightBlock(inputColor);
+  } catch (error) {
+    inputColor.style.color = 'rgb(219, 147, 13)';
+  }
   cssInput.style.opacity = '0';
 }
 

@@ -1,6 +1,7 @@
-// import hljs from 'highlight.js';
-// import 'highlight.js/styles/github.css';
-// import { levelsList } from './variables';
+import hljs from 'highlight.js';
+
+import 'highlight.js/styles/atelier-lakeside-light.css';
+
 import '../styles/style.scss';
 import createLevels from './task_template';
 import { hovered, unhovered } from './setHoveredElements';
@@ -163,7 +164,7 @@ function makeAGuess() {
       guessEls[i].classList.add('selected');
     }
   } catch (error) {
-    // console.log('invalid property in input');
+    console.log('invalid property in input');
   }
   return guessEls;
 }
@@ -234,10 +235,16 @@ cssInput.addEventListener('keydown', (e) => {
 
 function showMeAnswer() {
   cheatUsed = true;
+  setCompleteStats();
   cssInput.style.opacity = '1';
   inputColor.innerHTML = '';
   closeWinPopup();
   typewriterEffect('#input', `${levels[currentLevel].answer}`, 0);
+  try {
+    hljs.highlightBlock(inputColor);
+  } catch (error) {
+    inputColor.style.color = 'rgb(219, 147, 13)';
+  }
 }
 
 // моя самописная обертка вокруг codeColor функции
@@ -246,7 +253,12 @@ function colorInput() {
   inputColor.innerHTML = '';
   inputColor.innerHTML = cssInput.value;
   // console.log(inputColor.innerHTML);
-  codeColor(document.getElementById('inputColor'), 'css');
+  // codeColor(document.getElementById('inputColor'), 'css');
+  try {
+    hljs.highlightBlock(inputColor);
+  } catch (error) {
+    inputColor.style.color = 'rgb(219, 147, 13)';
+  }
 }
 
 function highlightSelectedLevel() {
@@ -338,3 +350,7 @@ function closeWinPopup() {
 }
 
 winTextCloseBtn.addEventListener('click', closeWinPopup);
+
+window.onload = () => {
+  hljs.initHighlightingOnLoad();
+};
