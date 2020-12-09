@@ -164,7 +164,7 @@ function makeAGuess() {
       guessEls[i].classList.add('selected');
     }
   } catch (error) {
-    // console.log('invalid property in input');
+    console.log('invalid property in input');
   }
   return guessEls;
 }
@@ -240,7 +240,11 @@ function showMeAnswer() {
   inputColor.innerHTML = '';
   closeWinPopup();
   typewriterEffect('#input', `${levels[currentLevel].answer}`, 0);
-  hljs.highlightBlock(inputColor);
+  try {
+    hljs.highlightBlock(inputColor);
+  } catch (error) {
+    inputColor.style.color = 'rgb(219, 147, 13)';
+  }
 }
 
 // моя самописная обертка вокруг codeColor функции
@@ -250,7 +254,11 @@ function colorInput() {
   inputColor.innerHTML = cssInput.value;
   // console.log(inputColor.innerHTML);
   // codeColor(document.getElementById('inputColor'), 'css');
-  hljs.highlightBlock(inputColor);
+  try {
+    hljs.highlightBlock(inputColor);
+  } catch (error) {
+    inputColor.style.color = 'rgb(219, 147, 13)';
+  }
 }
 
 function highlightSelectedLevel() {

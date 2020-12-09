@@ -6,7 +6,11 @@ const inputColor = document.querySelector('#inputColor');
 
 function colorInput() {
   inputColor.innerHTML = cssInput.value;
-  hljs.highlightBlock(inputColor);
+  try {
+    hljs.highlightBlock(inputColor);
+  } catch (error) {
+    inputColor.style.color = 'rgb(219, 147, 13)';
+  }
   cssInput.style.opacity = '0';
 }
 

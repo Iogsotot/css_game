@@ -688,7 +688,6 @@ main {
 
   font-family: Consolas, "Courier New", monospace;
   font-size: 1.4rem;
-
   background-color: transparent;
   z-index: 1;
 }
@@ -1118,7 +1117,7 @@ tray > span {
   .show-box .table {
     background-image: url('../assets/imgs/table_medium.png');
   }
-  .show-box, .table {
+  .show-box,  .show-box .table {
     height: 39rem;
   }
 }
