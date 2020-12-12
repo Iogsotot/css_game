@@ -7,7 +7,7 @@ import '../styles/style.scss';
 import createLevels from '../task_template';
 import { hovered, unhovered } from '../setHoveredElements';
 import typewriterEffect from '../typewriter';
-import codeColor from '../codeColor';
+// import codeColor from '../codeColor';
 import { levelsMenuClose, levelsMenuOpen } from '../levelsMenu';
 import setLevelsName from '../setLevelsName';
 // import { levelsList } from './variables';
@@ -42,12 +42,12 @@ let cheatUsed = false;
 // создаём объект с данными всех уровней и их состоянием
 const levels = createLevels();
 
-let currentLevel = getCurrentLevel();
-const maxLevel = 20;
+// let currentLevel = getCurrentLevel();
+// const maxLevel = 20;
 const levelPrevBtn = document.querySelector('#levelPrev');
 const levelNextBtn = document.querySelector('#levelNext');
-const levelCurrentEls = document.querySelectorAll('.level--current');
-const maxLevelEls = document.querySelectorAll('.level--total');
+// const levelCurrentEls = document.querySelectorAll('.level--current');
+// const maxLevelEls = document.querySelectorAll('.level--total');
 
 const levelsList = document.querySelector('#levelsList');
 
@@ -95,137 +95,135 @@ function fail() {
   setTimeout(clearState, 900);
 }
 
-function getCurrentLevel() {
-  const currentLevelFromStorage = localStorage.getItem('currentLevel');
-  return currentLevelFromStorage ? parseInt(currentLevelFromStorage, 10) : 1;
-}
+// function getCurrentLevel() {
+//   const currentLevelFromStorage = localStorage.getItem('currentLevel');
+//   return currentLevelFromStorage ? parseInt(currentLevelFromStorage, 10) : 1;
+// }
 
-function getCompleteStats() {
-  const completeStats = localStorage.getItem('completeStats');
-  return JSON.parse(completeStats);
-}
+// function getCompleteStats() {
+//   const completeStats = localStorage.getItem('completeStats');
+//   return JSON.parse(completeStats);
+// }
 
-function setCompleteStats() {
-  let completeStats = getCompleteStats();
-  // console.log(completeStats);
-  // console.log(currentLevel);
-  if (cheatUsed) {
-    levels[currentLevel].isComplete = statusEnum.cheat;
-  } else {
-    levels[currentLevel].isComplete = statusEnum.solved;
-  }
-  if (completeStats) {
-    if (!(currentLevel in completeStats)) {
-      completeStats = { ...completeStats, [currentLevel]: levels[currentLevel].isComplete };
-    }
-  } else {
-    completeStats = { [currentLevel]: levels[currentLevel].isComplete };
-  }
-  localStorage.setItem('completeStats', JSON.stringify(completeStats));
-}
+// function setCompleteStats() {
+//   let completeStats = getCompleteStats();
+//   if (cheatUsed) {
+//     levels[currentLevel].isComplete = statusEnum.cheat;
+//   } else {
+//     levels[currentLevel].isComplete = statusEnum.solved;
+//   }
+//   if (completeStats) {
+//     if (!(currentLevel in completeStats)) {
+//       completeStats = { ...completeStats, [currentLevel]: levels[currentLevel].isComplete };
+//     }
+//   } else {
+//     completeStats = { [currentLevel]: levels[currentLevel].isComplete };
+//   }
+//   localStorage.setItem('completeStats', JSON.stringify(completeStats));
+// }
 
-// тут надо разобраться в зависимостях между функциями и переменными,
-// а то ты постоянно ломаешь старое, добавляя новое.
-function win() {
-  let integerLever = parseInt(currentLevel, 10);
-  setCompleteStats();
-  const completeStats = getCompleteStats();
-  const solvedLevels = Object.keys(completeStats).length;
+// // тут надо разобраться в зависимостях между функциями и переменными,
+// // а то ты постоянно ломаешь старое, добавляя новое.
+// function win() {
+//   let integerLever = parseInt(currentLevel, 10);
+//   setCompleteStats();
+//   const completeStats = getCompleteStats();
+//   const solvedLevels = Object.keys(completeStats).length;
 
-  // console.log(solvedLevels, currentLevel);
-  if (solvedLevels === 20) {
-    if (Object.values(completeStats).includes(0)) {
-      winTextEl.textContent = 'Congratulation! you win, but what did it cost?';
-    } else {
-      winTextEl.textContent = 'Congratulation! You are best of the best in CSS World!';
-    }
-  } else if (solvedLevels !== 20 && integerLever === 20) {
-    winTextEl.textContent = 'Well done! but for final victory you need to pass all levels';
-    levelsMenuOpen();
-  } else {
-    winTextEl.textContent = 'WIN!';
-  }
+//   // console.log(solvedLevels, currentLevel);
+//   if (solvedLevels === 20) {
+//     if (Object.values(completeStats).includes(0)) {
+//       winTextEl.textContent = 'Congratulation! you win, but what did it cost?';
+//     } else {
+//       winTextEl.textContent = 'Congratulation! You are best of the best in CSS World!';
+//     }
+//   } else if (solvedLevels !== 20 && integerLever === 20) {
+//     winTextEl.textContent = 'Well done! but for final victory you need to pass all levels';
+//     levelsMenuOpen();
+//   } else {
+//     winTextEl.textContent = 'WIN!';
+//   }
+// 
+//   overlayEl.classList.add('show');
+//   winTextEl.classList.add('show');
+//   winTextCloseBtn.classList.add('show');
 
-  overlayEl.classList.add('show');
-  winTextEl.classList.add('show');
-  winTextCloseBtn.classList.add('show');
+//   updateProgressBar();
+//   updateMarkColor();
+//   setTimeout(clearState, 900);
+//   // console.log(currentLevel);
+//   integerLever += 1;
+//   if (currentLevel < 20) {
+//     currentLevel = integerLever;
+//   }
+//   setContent();
+// }
 
-  updateProgressBar();
-  updateMarkColor();
-  setTimeout(clearState, 900);
-  // console.log(currentLevel);
-  integerLever += 1;
-  if (currentLevel < 20) {
-    currentLevel = integerLever;
-  }
-  setContent();
-}
+// function makeAGuess() {
+//   const selector = cssInput.value;
+//   try {
+//     guessEls = table.querySelectorAll(selector); // array or null
+//     for (let i = 0; i < guessEls.length; i++) {
+//       guessEls[i].classList.add('selected');
+//     }
+//   } catch (error) {
+//     console.log('invalid property in input');
+//   }
+//   return guessEls;
+// }
 
-function makeAGuess() {
-  const selector = cssInput.value;
-  try {
-    guessEls = table.querySelectorAll(selector); // array or null
-    for (let i = 0; i < guessEls.length; i++) {
-      guessEls[i].classList.add('selected');
-    }
-  } catch (error) {
-    console.log('invalid property in input');
-  }
-  return guessEls;
-}
+// function checkAnswer() {
+//   // метим классом selected элементы, которые выбрал юзер
+//   makeAGuess();
+//   let result = null;
+//   const tableProgeny = table.querySelectorAll('*');
 
-function checkAnswer() {
-  // метим классом selected элементы, которые выбрал юзер
-  makeAGuess();
-  let result = null;
-  const tableProgeny = table.querySelectorAll('*');
+//   for (let j = 0; j < tableProgeny.length; j++) {
+//     if (tableProgeny[j].classList.contains('selected')) {
+//       // проверяем есть ли у детей с selected ещё и класс correct
+//       if (tableProgeny[j].classList.contains('correct') && (result == null || result === true)) {
+//         result = true;
+//       } else {
+//         result = false;
+//       }
+//     } else if (tableProgeny[j].classList.contains('correct')) {
+//       result = false;
+//     }
+//   }
 
-  for (let j = 0; j < tableProgeny.length; j++) {
-    if (tableProgeny[j].classList.contains('selected')) {
-      // проверяем есть ли у детей с selected ещё и класс correct
-      if (tableProgeny[j].classList.contains('correct') && (result == null || result === true)) {
-        result = true;
-      } else {
-        result = false;
-      }
-    } else if (tableProgeny[j].classList.contains('correct')) {
-      result = false;
-    }
-  }
+//   if (result === true) {
+//     win();
+//     // очищаем состояние (возможно, стоит это вынести в отдельную функцию - clearState)
+//     table.querySelectorAll('*').forEach((el) => el.classList.remove('selected'));
+//   } else if (result === false) {
+//     fail();
+//     table.querySelectorAll('*').forEach((el) => el.classList.remove('selected'));
+//   }
+// }
 
-  if (result === true) {
-    win();
-    // очищаем состояние (возможно, стоит это вынести в отдельную функцию - clearState)
-    table.querySelectorAll('*').forEach((el) => el.classList.remove('selected'));
-  } else if (result === false) {
-    fail();
-    table.querySelectorAll('*').forEach((el) => el.classList.remove('selected'));
-  }
-}
+// function addClassCorrect() {
+//   const correctSelector = levels[currentLevel].answer;
+//   const correctEls = table.querySelectorAll(correctSelector);
+//   for (let i = 0; i < correctEls.length; i++) {
+//     correctEls[i].classList.add('correct');
+//   }
+// }
 
-function addClassCorrect() {
-  const correctSelector = levels[currentLevel].answer;
-  const correctEls = table.querySelectorAll(correctSelector);
-  for (let i = 0; i < correctEls.length; i++) {
-    correctEls[i].classList.add('correct');
-  }
-}
-
-function setContent() {
-  table.innerHTML = levels[currentLevel].divTemplate;
-  markup.innerHTML = levels[currentLevel].markupTemplate;
-  colorMarkup.innerHTML = levels[currentLevel].markupTemplate;
-  taskField.innerHTML = levels[currentLevel].task;
-  levelCurrentEls[0].innerHTML = currentLevel;
-  levelCurrentEls[1].innerHTML = currentLevel;
-  maxLevelEls[0].innerHTML = maxLevel;
-  maxLevelEls[1].innerHTML = maxLevel;
-  createTheory(currentLevel);
-  highlightSelectedLevel(levelsList, currentLevel);
-  addClassCorrect();
-  // подсветка кода
-  codeColor(document.getElementById('colorMarkup'));
-}
+// function setContent() {
+//   table.innerHTML = levels[currentLevel].divTemplate;
+//   markup.innerHTML = levels[currentLevel].markupTemplate;
+//   colorMarkup.innerHTML = levels[currentLevel].markupTemplate;
+//   taskField.innerHTML = levels[currentLevel].task;
+//   levelCurrentEls[0].innerHTML = currentLevel;
+//   levelCurrentEls[1].innerHTML = currentLevel;
+//   maxLevelEls[0].innerHTML = maxLevel;
+//   maxLevelEls[1].innerHTML = maxLevel;
+//   createTheory(currentLevel);
+//   highlightSelectedLevel(levelsList, currentLevel);
+//   addClassCorrect();
+//   подсветка кода
+//   codeColor(document.getElementById('colorMarkup'));
+// }
 
 markup.addEventListener('mouseover', hovered);
 markup.addEventListener('mouseout', unhovered);
@@ -238,33 +236,33 @@ cssInput.addEventListener('keydown', (e) => {
   }
 });
 
-function showMeAnswer() {
-  cheatUsed = true;
-  setCompleteStats();
-  cssInput.style.opacity = '1';
-  inputColor.innerHTML = '';
-  closeWinPopup();
-  typewriterEffect('#input', `${levels[currentLevel].answer}`, 0);
-  try {
-    hljs.highlightBlock(inputColor);
-  } catch (error) {
-    inputColor.style.color = 'rgb(219, 147, 13)';
-  }
-}
+// function showMeAnswer() {
+//   cheatUsed = true;
+//   setCompleteStats();
+//   cssInput.style.opacity = '1';
+//   inputColor.innerHTML = '';
+//   closeWinPopup();
+//   typewriterEffect('#input', `${levels[currentLevel].answer}`, 0);
+//   try {
+//     hljs.highlightBlock(inputColor);
+//   } catch (error) {
+//     inputColor.style.color = 'rgb(219, 147, 13)';
+//   }
+// }
 
-// моя самописная обертка вокруг codeColor функции
-function colorInput() {
-  cssInput.style.opacity = '0';
-  inputColor.innerHTML = '';
-  inputColor.innerHTML = cssInput.value;
-  // console.log(inputColor.innerHTML);
-  // codeColor(document.getElementById('inputColor'), 'css');
-  try {
-    hljs.highlightBlock(inputColor);
-  } catch (error) {
-    inputColor.style.color = 'rgb(219, 147, 13)';
-  }
-}
+// // моя самописная обертка вокруг codeColor функции
+// function colorInput() {
+//   cssInput.style.opacity = '0';
+//   inputColor.innerHTML = '';
+//   inputColor.innerHTML = cssInput.value;
+//   // console.log(inputColor.innerHTML);
+//   // codeColor(document.getElementById('inputColor'), 'css');
+//   try {
+//     hljs.highlightBlock(inputColor);
+//   } catch (error) {
+//     inputColor.style.color = 'rgb(219, 147, 13)';
+//   }
+// }
 
 // function highlightSelectedLevel() {
 //   Array.from(levelsList.children).forEach((element) => {
@@ -276,14 +274,14 @@ function colorInput() {
 
 // возможно есть вариант переписать лисенер на перезапуск функции при каждом
 // нажатии клавиши и/или каждом изменении длины .value
-cssInput.addEventListener('change', colorInput);
+// cssInput.addEventListener('change', colorInput);
 
 const helpBtn = document.querySelector('#help_btn');
 helpBtn.addEventListener('click', showMeAnswer);
 
 // setLevelsName(maxLevel, levels);
 setContent(levelsList);
-const theoryBlock = document.querySelector('#theoryBlock');
+// const theoryBlock = document.querySelector('#theoryBlock');
 
 const progressBar = document.querySelector('#progressBar');
 function updateProgressBar() {
@@ -292,32 +290,32 @@ function updateProgressBar() {
   progressBar.style.width = `${progress * (100 / maxLevel)}%`;
 }
 
-function updateMarkColor() {
-  const completeStats = getCompleteStats();
-  if (completeStats) {
-    // eslint-disable-next-line no-restricted-syntax
-    for (const [key, value] of Object.entries(completeStats)) {
-      const marks = levelsList.querySelectorAll('.check-mark--mini');
-      const mark = marks[key - 1];
-      if (value === 0) {
-        mark.classList.add('cheat');
-      } else if (value === 1) {
-        mark.classList.add('solved');
-      }
-    }
-  }
-}
+// function updateMarkColor() {
+//   const completeStats = getCompleteStats();
+//   if (completeStats) {
+//     // eslint-disable-next-line no-restricted-syntax
+//     for (const [key, value] of Object.entries(completeStats)) {
+//       const marks = levelsList.querySelectorAll('.check-mark--mini');
+//       const mark = marks[key - 1];
+//       if (value === 0) {
+//         mark.classList.add('cheat');
+//       } else if (value === 1) {
+//         mark.classList.add('solved');
+//       }
+//     }
+//   }
+// }
 
-function resetMark() {
-  const marks = levelsList.querySelectorAll('.check-mark--mini');
-  marks.forEach((mark) => {
-    mark.classList.remove('cheat', 'solved');
-  });
-}
+// function resetMark() {
+//   const marks = levelsList.querySelectorAll('.check-mark--mini');
+//   marks.forEach((mark) => {
+//     mark.classList.remove('cheat', 'solved');
+//   });
+// }
 
-updateMarkColor();
+// updateMarkColor();
 
-updateProgressBar(maxLevel);
+// updateProgressBar(maxLevel);
 
 // levelsIconClose.addEventListener('click', levelsMenuClose);
 // burgerOpen.addEventListener('click', levelsMenuOpen);
@@ -345,16 +343,16 @@ resetBtn.addEventListener('click', () => {
   resetMark();
 });
 
-function closeWinPopup() {
-  winTextCloseBtn.classList.toggle('rotate');
-  setTimeout(() => {
-    winTextEl.classList.remove('show');
-    overlayEl.classList.remove('show');
-    winTextCloseBtn.classList.remove('show');
-  }, 150);
-}
+// function closeWinPopup() {
+//   winTextCloseBtn.classList.toggle('rotate');
+//   setTimeout(() => {
+//     winTextEl.classList.remove('show');
+//     overlayEl.classList.remove('show');
+//     winTextCloseBtn.classList.remove('show');
+//   }, 150);
+// }
 
-winTextCloseBtn.addEventListener('click', closeWinPopup);
+// winTextCloseBtn.addEventListener('click', closeWinPopup);
 
 window.onload = () => {
   hljs.initHighlightingOnLoad();

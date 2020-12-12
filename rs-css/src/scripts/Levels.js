@@ -6,17 +6,25 @@ import createTheory from './createTheory';
 export default class Levels {
   constructor(maxLevel, currentLevel) {
     this.levelsList = document.querySelector('#levelsList');
-    // this.levelsTemplate = levelsTemplate;
+    this.levelNextBtn = document.querySelector('#levelNext');
+    this.levelPrevBtn = document.querySelector('#levelPrev');
+    this.levelsBlock = document.querySelector('#levels');
+    this.levelsIconClose = document.querySelector('#levelsCloseBtn');
+    this.levelsIconClose.addEventListener('click', () => { this.levelsMenuClose(); });
+    this.burgerOpen = document.querySelector('#burgerOpen');
+    this.burgerOpen.addEventListener('click', () => { this.levelsMenuOpen(); });
+
+    this.levelsTemplate = levelsTemplate;
     this.currentLevel = currentLevel;
     this.maxLevel = maxLevel;
 
-    this.setTheoryBlock(currentLevel);
     this.setLevelsName();
-    this.highlightSelectedLevel();
+    this.setTheoryBlock(currentLevel);
+    this.highlightSelectedLevel(currentLevel);
   }
 
   createLevelItemTemplate(levelNumber) {
-    this.levelsTemplate = levelsTemplate;
+    // this.levelsTemplate = levelsTemplate;
     // Аня, запомни - порядок очень важен. Это тебе не функции, которые будут ругаться - это классы!
     this.levelItemHTML = `
     <span class="mark"><span class="check-mark check-mark--mini"></span></span>
@@ -36,11 +44,18 @@ export default class Levels {
   }
 
   setTheoryBlock(currentLevel) {
+    this.currentLevel = currentLevel;
     this.theoryBlock = createHTMLEl('div', 'theory__block hide', null, this.levelsList, ['id', 'theoryBlock']);
-    this.theoryBlock.innerHTML = createTheory(currentLevel);
+    this.theoryBlock.innerHTML = createTheory(this.currentLevel);
   }
 
-  highlightSelectedLevel() {
+  updateTheoryBlock(currentLevel) {
+    this.currentLevel = currentLevel;
+    this.theoryBlock.innerHTML = createTheory(this.currentLevel);
+  }
+
+  highlightSelectedLevel(currentLevel) {
+    this.currentLevel = currentLevel;
     Array.from(this.levelsList.children).forEach((element) => {
       element.classList.remove('hover');
     });
@@ -49,18 +64,19 @@ export default class Levels {
     levelsListItems[this.currentLevel - 1].classList.add('hover');
   }
 
-  static changeCurrentLevelByClick(e) {
+  changeCurrentLevelByClick(e) {
     this.levelItem = e.currentTarget;
     this.currentLevel = parseInt(this.levelItem.id.replace(/^\D+/g, ''), 10);
     // this.cheatUsed = false;
     localStorage.setItem('currentLevel', this.currentLevel);
     // setContent();
     // closeWinPopup();
-    console.log(this.currentLevel);
+    // console.log(this.currentLevel);
   }
 
-  static changeCurrentLevelByBtn(direction) {
+  changeCurrentLevelByBtn(direction) {
     this.direction = direction;
+    // this.currentLevel = currentLevel;
     if (this.direction === 'next') {
       if (this.currentLevel === this.maxLevel) {
         this.currentLevel = this.maxLevel;
@@ -79,5 +95,19 @@ export default class Levels {
     console.log(this.currentLevel);
     // setContent();
     // closeWinPopup();
+  }
+
+  levelsMenuClose() {
+    this.levelsIconClose.classList.toggle('rotate');
+    const softAnimationTime = 150;
+    setTimeout(() => {
+      this.levelsBlock.classList.remove('open');
+      this.burgerOpen.style.opacity = '1';
+    }, softAnimationTime);
+  }
+
+  levelsMenuOpen() {
+    this.burgerOpen.style.opacity = '0';
+    this.levelsBlock.classList.add('open');
   }
 }

@@ -4,21 +4,56 @@ import '../styles/style.scss';
 
 import createHTMLEl from './createHTMLEl';
 import createBaseHTML from './createBaseHTML';
-import baseHTMLTemplate from './baseHTMLTemplate';
 // import { levelsList, levelsCloseBtn, theoryBtn, } from './variables';
 import Levels from './Levels';
+// import Listeners from './Listeners';
+// import createTheory from './createTheory';
+import codeColor from './codeColor';
+import { colorInput, typewriterEffect } from './typewriter';
+import { hovered, unhovered } from './setHoveredElements';
+import StatsManager from './StatsManager';
 
 class App {
   constructor(parentEl, currentLevel = 1) {
     this.parentEl = parentEl;
     this.maxLevel = 20;
-    // this.currentLevel = currentLevel;
-    // this.currentLevel = this.getCurrentLevel();
-    this.burger = document.querySelector('#burgerOpen');
+    // eslint-disable-next-line max-len
+    this.currentLevel = this.getCurrentLevel() ? parseInt(this.getCurrentLevel(), 10) : currentLevel;
 
     this.init();
-    this.updateContent();
     this.levels = new Levels(this.maxLevel, this.currentLevel);
+    this.statsManager = new StatsManager(this.levels);
+    this.updateContent(this.currentLevel);
+    this.createContent(this.currentLevel);
+
+    const theoryBtn = document.querySelector('#theoryBtn');
+    const theoryBlock = document.querySelector('#theoryBlock');
+
+    theoryBtn.addEventListener('click', () => {
+      // можно переписать на функцию с анимацией или opacity
+      theoryBlock.classList.toggle('hide');
+      theoryBtn.classList.toggle('turn-on');
+    });
+
+    this.levels.levelsList.querySelectorAll('li').forEach((li) => {
+      li.addEventListener('click', (e) => {
+        this.levels.changeCurrentLevelByClick(e);
+        this.updateContent();
+        this.statsManager.cheatUsed = false;
+      });
+    });
+    this.levels.levelNextBtn.addEventListener('click', () => {
+      this.levels.changeCurrentLevelByBtn('next');
+      this.statsManager.cheatUsed = false;
+      console.log(this.currentLevel);
+      this.updateContent();
+    });
+    this.levels.levelPrevBtn.addEventListener('click', () => {
+      this.levels.changeCurrentLevelByBtn('prev');
+      this.statsManager.cheatUsed = false;
+      console.log(this.currentLevel);
+      this.updateContent(this.currentLevel);
+    });
   }
 
   init() {
@@ -35,6 +70,30 @@ class App {
     this.progressBar = createHTMLEl('div', 'progress-bar', null, null, ['id', 'progressBar']);
     this.levelsList = createHTMLEl('ul', 'levels__list', this.progressBar, this.aside, ['id', 'levelsList']);
     this.resetBtn = createHTMLEl('div', 'reset-progress btn', 'reset progress', this.aside, ['id', 'resetBtn']);
+
+    this.table = document.querySelector('#table');
+    this.markup = document.querySelector('#markup');
+    this.markup.addEventListener('mouseover', hovered);
+    this.markup.addEventListener('mouseout', unhovered);
+    this.table.addEventListener('mouseover', hovered);
+    this.table.addEventListener('mouseout', unhovered);
+    this.colorMarkup = document.querySelector('#colorMarkup');
+    this.fileWindowEl = document.querySelector('.css-editor > .file-window');
+    this.taskField = document.querySelector('#task');
+    this.levelCurrentEls = document.querySelectorAll('.level--current');
+    this.maxLevelEls = document.querySelectorAll('.level--total');
+    this.winTextEl = document.querySelector('#winText');
+    this.winTextCloseBtn = document.querySelector('#winText__icon--close');
+    this.winTextCloseBtn.addEventListener('click', () => { this.closeWinPopup(); });
+    this.overlayEl = document.querySelector('.overlay');
+    this.cssInput = document.querySelector('.css-input');
+    this.cssInput.addEventListener('change', colorInput);
+    this.inputColor = document.querySelector('#inputColor');
+    this.enterBtn = document.querySelector('#enter');
+    this.enterBtn.addEventListener('click', () => { this.checkAnswer(); });
+    this.helpBtn = document.querySelector('#help_btn');
+    this.helpBtn.addEventListener('click', () => { this.showMeAnswer(); });
+    // this.progressBar = document.querySelector('#progressBar');
   }
 
   getCurrentLevel() {
@@ -43,65 +102,189 @@ class App {
   }
 
   updateContent() {
+    // console.log(this.currentLevel);
     this.currentLevel = this.getCurrentLevel();
-    // Levels.highlightSelectedLevel(this.currentLevel);
+    // this.currentLevel = currentLevel;
+    console.log(this.currentLevel);
+    this.levels.updateTheoryBlock(this.currentLevel);
+    this.levels.highlightSelectedLevel(this.currentLevel);
+    this.updateMarkColor();
+    
+    this.updateProgressBar();
+    this.createContent(this.currentLevel);
+  }
+
+  createContent(currentLevel) {
+    this.currentLevel = currentLevel;
+    this.path = this.levels.levelsTemplate[[`level${this.currentLevel}`]];
+
+    this.table.innerHTML = this.path.divTemplate;
+    this.markup.innerHTML = this.path.markupTemplate;
+    this.colorMarkup.innerHTML = this.path.markupTemplate;
+    this.taskField.innerHTML = this.path.task;
+    this.levelCurrentEls[0].innerHTML = this.currentLevel;
+    this.levelCurrentEls[1].innerHTML = this.currentLevel;
+    this.maxLevelEls[0].innerHTML = this.maxLevel;
+    this.maxLevelEls[1].innerHTML = this.maxLevel;
+
+    this.addClassCorrect(this.currentLevel);
+    codeColor(document.getElementById('colorMarkup'));
+  }
+
+  addClassCorrect(currentLevel) {
+    this.currentLevel = currentLevel;
+    this.path = this.levels.levelsTemplate[[`level${this.currentLevel}`]];
+
+    this.correctSelector = this.path.answer;
+    const correctEls = this.table.querySelectorAll(this.correctSelector);
+    for (let i = 0; i < correctEls.length; i++) {
+      correctEls[i].classList.add('correct');
+    }
+  }
+
+  closeWinPopup() {
+    this.winTextCloseBtn.classList.toggle('rotate');
+    const self = this;
+    setTimeout(() => {
+      self.winTextEl.classList.remove('show');
+      self.overlayEl.classList.remove('show');
+      self.winTextCloseBtn.classList.remove('show');
+    }, 150);
+  }
+
+  showMeAnswer() {
+    this.path = this.levels.levelsTemplate[`level${this.currentLevel}`];
+
+    this.statsManager.cheatUsed = true;
+    this.statsManager.setCompleteStats(this.currentLevel);
+    this.cssInput.style.opacity = '1';
+    this.inputColor.innerHTML = '';
+    this.closeWinPopup();
+    typewriterEffect('#input', `${this.path.answer}`, 0);
+    const anyContrastColor = 'rgb(219, 147, 13)';
+    try {
+      hljs.highlightBlock(this.inputColor);
+    } catch (error) {
+      this.inputColor.style.color = anyContrastColor;
+    }
+  }
+
+  // eslint-disable-next-line consistent-return
+  makeAGuess() {
+    const selector = this.cssInput.value;
+    try {
+      const guessEls = this.table.querySelectorAll(selector); // array or null
+      for (let i = 0; i < guessEls.length; i++) {
+        guessEls[i].classList.add('selected');
+      }
+      return guessEls;
+    } catch (error) {
+      console.log('invalid property in input');
+    }
+  }
+
+  checkAnswer() {
+    this.makeAGuess();
+    let result = null;
+    const tableProgeny = this.table.querySelectorAll('*');
+    for (let j = 0; j < tableProgeny.length; j++) {
+      if (tableProgeny[j].classList.contains('selected')) {
+        // проверяем есть ли у детей с selected ещё и класс correct
+        if (tableProgeny[j].classList.contains('correct') && (result == null || result === true)) {
+          result = true;
+        } else {
+          result = false;
+        }
+      } else if (tableProgeny[j].classList.contains('correct')) {
+        result = false;
+      }
+    }
+    if (result === true) {
+      this.win();
+      // очищаем состояние (возможно, стоит это вынести в отдельную функцию - clearState)
+      this.table.querySelectorAll('*').forEach((el) => el.classList.remove('selected'));
+    } else if (result === false) {
+      this.fail();
+      this.table.querySelectorAll('*').forEach((el) => el.classList.remove('selected'));
+    }
+  }
+
+  clearState(self) {
+    self.fileWindowEl.classList.remove('wrong');
+    // нет прописанного класса win для fileWindowEl
+    self.fileWindowEl.classList.remove('win');
+  }
+
+  fail() {
+    this.fileWindowEl.classList.add('wrong');
+    const self = this;
+    setTimeout(self.clearState, 900, self);
+  }
+
+  win() {
+    this.statsManager.setCompleteStats(this.currentLevel);
+    const completeStats = this.statsManager.getCompleteStats();
+    const solvedLevels = Object.keys(completeStats).length;
+
+    if (solvedLevels === 20) {
+      if (Object.values(completeStats).includes(0)) {
+        this.winTextEl.textContent = 'Congratulation! you win, but what did it cost?';
+      } else {
+        this.winTextEl.textContent = 'Congratulation! You are best of the best in CSS World!';
+      }
+    } else if (solvedLevels !== 20 && this.currentLevel === 20) {
+      this.winTextEl.textContent = 'Well done! but for final victory you need to pass all levels';
+      this.levels.levelsMenuOpen();
+    } else {
+      this.winTextEl.textContent = 'WIN!';
+    }
+    this.overlayEl.classList.add('show');
+    this.winTextEl.classList.add('show');
+    this.winTextCloseBtn.classList.add('show');
+
+    const self = this;
+    setTimeout(self.clearState, 900, self);
+    this.currentLevel += 1;
+    if (this.currentLevel >= this.maxLevel) {
+      this.currentLevel = this.maxLevel;
+    }
+    console.log(this.currentLevel);
+    this.updateContent(this.currentLevel);
+  }
+
+  updateProgressBar() {
+    this.progressBarEl = document.querySelector('#progressBar');
+
+    const completeStats = this.statsManager.getCompleteStats();
+    const progress = completeStats ? Object.keys(completeStats).length : 0;
+    this.progressBarEl.style.width = `${progress * (100 / this.maxLevel)}%`;
+  }
+
+  updateMarkColor() {
+    const completeStats = this.statsManager.getCompleteStats();
+    if (completeStats) {
+      // eslint-disable-next-line no-restricted-syntax
+      for (const [key, value] of Object.entries(completeStats)) {
+        const marks = this.levels.levelsList.querySelectorAll('.check-mark--mini');
+        const mark = marks[key - 1];
+        if (value === 0) {
+          mark.classList.add('cheat');
+        } else if (value === 1) {
+          mark.classList.add('solved');
+        }
+      }
+    }
+  }
+
+  resetMark() {
+    const marks = this.levels.levelsList.querySelectorAll('.check-mark--mini');
+    marks.forEach((mark) => {
+      mark.classList.remove('cheat', 'solved');
+    });
   }
 }
 
 const app = new App(document.querySelector('body'));
-// const app2 = new App(document.querySelector('body'), 10);
-
-// я знаю, что это всё должно жить в классах App и Levels, но я не смогла найти способ пробрасывать
-// методы класса в качестве коллбэков в методы другого класса
-const levelsIconClose = document.querySelector('#levelsCloseBtn');
-const burgerOpen = document.querySelector('#burgerOpen');
-const levelNextBtn = document.querySelector('#levelNext');
-const levelPrevBtn = document.querySelector('#levelPrev');
-const levelsBlock = document.querySelector('#levels');
-const levelsList = document.querySelector('#levelsList');
-const theoryBtn = document.querySelector('#theoryBtn');
-const theoryBlock = document.querySelector('#theoryBlock');
-
-function levelsMenuClose() {
-  levelsIconClose.classList.toggle('rotate');
-  const softAnimationTime = 150;
-  setTimeout(() => {
-    levelsBlock.classList.remove('open');
-    burgerOpen.style.opacity = '1';
-  }, softAnimationTime);
-}
-
-function levelsMenuOpen() {
-  burgerOpen.style.opacity = '0';
-  levelsBlock.classList.add('open');
-}
-
-levelsIconClose.addEventListener('click', levelsMenuClose);
-burgerOpen.addEventListener('click', levelsMenuOpen);
-theoryBtn.addEventListener('click', () => {
-  // можно переписать на функцию с анимацией или opacity
-  theoryBlock.classList.toggle('hide');
-  theoryBtn.classList.toggle('turn-on');
-});
-
-levelsList.querySelectorAll('li').forEach((li) => {
-  li.addEventListener('click', (e) => {
-    Levels.changeCurrentLevelByClick(e);
-    console.log(App.currentLevel);
-    console.log( () => {this.currentLevel()});
-  });
-});
-levelNextBtn.addEventListener('click', () => {
-  Levels.changeCurrentLevelByBtn('next');
-  // setContent();
-  console.log(App.currentLevel);
-  console.log( () => {this.currentLevel()});
-});
-levelPrevBtn.addEventListener('click', () => {
-  Levels.changeCurrentLevelByBtn('prev');
-  console.log(App.currentLevel);
-  console.log( () => {this.currentLevel()});
-});
 
 window.onload = () => {
   hljs.initHighlightingOnLoad();
