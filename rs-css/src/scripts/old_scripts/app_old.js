@@ -52,37 +52,37 @@ const maxLevelEls = document.querySelectorAll('.level--total');
 const levelsList = document.querySelector('#levelsList');
 
 // всё, что связано с переключением уровня (ну кроме контента, он отдельно)
-function getCurrentLevelByBtn(direction) {
-  let integerLever = parseInt(currentLevel, 10);
-  if (direction === 'next') {
-    if (parseInt(currentLevel, 10) === maxLevel) {
-      currentLevel = maxLevel;
-    } else {
-      integerLever += 1;
-      currentLevel = integerLever;
-    }
-  } else if (direction === 'prev') {
-    if (currentLevel === 1) {
-      currentLevel = 1;
-    } else {
-      integerLever -= 1;
-      currentLevel = integerLever;
-    }
-  }
-  cheatUsed = false;
-  localStorage.setItem('currentLevel', currentLevel);
-  setContent();
-  closeWinPopup();
-}
+// function getCurrentLevelByBtn(direction) {
+//   let integerLever = parseInt(currentLevel, 10);
+//   if (direction === 'next') {
+//     if (parseInt(currentLevel, 10) === maxLevel) {
+//       currentLevel = maxLevel;
+//     } else {
+//       integerLever += 1;
+//       currentLevel = integerLever;
+//     }
+//   } else if (direction === 'prev') {
+//     if (currentLevel === 1) {
+//       currentLevel = 1;
+//     } else {
+//       integerLever -= 1;
+//       currentLevel = integerLever;
+//     }
+//   }
+//   cheatUsed = false;
+//   localStorage.setItem('currentLevel', currentLevel);
+//   setContent();
+//   closeWinPopup();
+// }
 
-function getCurrentLevelByClick(e) {
-  const levelItem = e.currentTarget;
-  currentLevel = levelItem.id.replace(/^\D+/g, '');
-  cheatUsed = false;
-  localStorage.setItem('currentLevel', currentLevel);
-  setContent();
-  closeWinPopup();
-}
+// function getCurrentLevelByClick(e) {
+//   const levelItem = e.currentTarget;
+//   currentLevel = levelItem.id.replace(/^\D+/g, '');
+//   cheatUsed = false;
+//   localStorage.setItem('currentLevel', currentLevel);
+//   setContent();
+//   closeWinPopup();
+// }
 
 function clearState() {
   fileWindowEl.classList.remove('wrong');
@@ -266,13 +266,13 @@ function colorInput() {
   }
 }
 
-function highlightSelectedLevel() {
-  Array.from(levelsList.children).forEach((element) => {
-    element.classList.remove('hover');
-  });
-  const levelsListItem = levelsList.querySelectorAll('li');
-  levelsListItem[currentLevel - 1].classList.add('hover');
-}
+// function highlightSelectedLevel() {
+//   Array.from(levelsList.children).forEach((element) => {
+//     element.classList.remove('hover');
+//   });
+//   const levelsListItem = levelsList.querySelectorAll('li');
+//   levelsListItem[currentLevel - 1].classList.add('hover');
+// }
 
 // возможно есть вариант переписать лисенер на перезапуск функции при каждом
 // нажатии клавиши и/или каждом изменении длины .value
@@ -281,7 +281,7 @@ cssInput.addEventListener('change', colorInput);
 const helpBtn = document.querySelector('#help_btn');
 helpBtn.addEventListener('click', showMeAnswer);
 
-setLevelsName(maxLevel, levels);
+// setLevelsName(maxLevel, levels);
 setContent(levelsList);
 const theoryBlock = document.querySelector('#theoryBlock');
 
@@ -319,24 +319,24 @@ updateMarkColor();
 
 updateProgressBar(maxLevel);
 
-levelsIconClose.addEventListener('click', levelsMenuClose);
-burgerOpen.addEventListener('click', levelsMenuOpen);
-theoryBtn.addEventListener('click', () => {
-  // можно переписать на функцию с анимацией или opacity
-  theoryBlock.classList.toggle('hide');
-  theoryBtn.classList.toggle('turn-on');
-});
-levelsList.querySelectorAll('li').forEach((li) => {
-  li.addEventListener('click', getCurrentLevelByClick);
-});
+// levelsIconClose.addEventListener('click', levelsMenuClose);
+// burgerOpen.addEventListener('click', levelsMenuOpen);
+// theoryBtn.addEventListener('click', () => {
+//   // можно переписать на функцию с анимацией или opacity
+//   theoryBlock.classList.toggle('hide');
+//   theoryBtn.classList.toggle('turn-on');
+// });
+// levelsList.querySelectorAll('li').forEach((li) => {
+//   li.addEventListener('click', getCurrentLevelByClick);
+// });
 
-levelNextBtn.addEventListener('click', () => {
-  getCurrentLevelByBtn('next');
-  setContent();
-});
-levelPrevBtn.addEventListener('click', () => {
-  getCurrentLevelByBtn('prev');
-});
+// levelNextBtn.addEventListener('click', () => {
+//   getCurrentLevelByBtn('next');
+//   setContent();
+// });
+// levelPrevBtn.addEventListener('click', () => {
+//   getCurrentLevelByBtn('prev');
+// });
 
 resetBtn.addEventListener('click', () => {
   localStorage.removeItem('completeStats');

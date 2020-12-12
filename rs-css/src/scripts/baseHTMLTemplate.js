@@ -130,6 +130,7 @@ Made by <a href="https://github.com/Iogsotot" class="copyright__link link">Anne 
 </div>
 `;
 
+// можно раздробить на куску, но я не вижу в этом целесообразности
 const baseHTMLTemplate = {
   headerNav,
   levelsTitleBlock,
