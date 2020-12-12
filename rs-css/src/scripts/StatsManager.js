@@ -6,8 +6,8 @@ export default class StatsManager {
   }
 
   getCompleteStats() {
-    const completeStats = localStorage.getItem('completeStats');
-    return JSON.parse(completeStats);
+    this.completeStats = localStorage.getItem('completeStats');
+    return JSON.parse(this.completeStats);
   }
 
   setCompleteStats(currentLevel) {

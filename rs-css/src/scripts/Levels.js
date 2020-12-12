@@ -24,15 +24,12 @@ export default class Levels {
   }
 
   createLevelItemTemplate(levelNumber) {
-    // this.levelsTemplate = levelsTemplate;
-    // Аня, запомни - порядок очень важен. Это тебе не функции, которые будут ругаться - это классы!
     this.levelItemHTML = `
     <span class="mark"><span class="check-mark check-mark--mini"></span></span>
     <span class="level__number">${levelNumber}</span>
     <span class="level__name">${this.levelsTemplate[`level${levelNumber}`].name}</span>
     `;
     this.levelsItemTemplate = createHTMLEl('li', 'level__item', this.levelItemHTML, null, ['id', `level_${levelNumber}`]);
-    // console.log(this.levelsItemTemplate.outerHTML);
     return this.levelsItemTemplate.outerHTML;
   }
 
@@ -69,14 +66,10 @@ export default class Levels {
     this.currentLevel = parseInt(this.levelItem.id.replace(/^\D+/g, ''), 10);
     // this.cheatUsed = false;
     localStorage.setItem('currentLevel', this.currentLevel);
-    // setContent();
-    // closeWinPopup();
-    // console.log(this.currentLevel);
   }
 
   changeCurrentLevelByBtn(direction) {
     this.direction = direction;
-    // this.currentLevel = currentLevel;
     if (this.direction === 'next') {
       if (this.currentLevel === this.maxLevel) {
         this.currentLevel = this.maxLevel;
@@ -90,11 +83,7 @@ export default class Levels {
         this.currentLevel -= 1;
       }
     }
-    // cheatUsed = false;
     localStorage.setItem('currentLevel', this.currentLevel);
-    console.log(this.currentLevel);
-    // setContent();
-    // closeWinPopup();
   }
 
   levelsMenuClose() {

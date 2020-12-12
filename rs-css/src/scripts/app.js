@@ -28,11 +28,19 @@ class App {
 
     const theoryBtn = document.querySelector('#theoryBtn');
     const theoryBlock = document.querySelector('#theoryBlock');
+    const resetBtn = document.querySelector('#resetBtn');
 
     theoryBtn.addEventListener('click', () => {
       // можно переписать на функцию с анимацией или opacity
       theoryBlock.classList.toggle('hide');
       theoryBtn.classList.toggle('turn-on');
+    });
+
+    resetBtn.addEventListener('click', () => {
+      localStorage.removeItem('completeStats');
+      this.closeWinPopup();
+      this.updateProgressBar();
+      this.resetMark();
     });
 
     this.levels.levelsList.querySelectorAll('li').forEach((li) => {
@@ -45,13 +53,11 @@ class App {
     this.levels.levelNextBtn.addEventListener('click', () => {
       this.levels.changeCurrentLevelByBtn('next');
       this.statsManager.cheatUsed = false;
-      console.log(this.currentLevel);
       this.updateContent();
     });
     this.levels.levelPrevBtn.addEventListener('click', () => {
       this.levels.changeCurrentLevelByBtn('prev');
       this.statsManager.cheatUsed = false;
-      console.log(this.currentLevel);
       this.updateContent(this.currentLevel);
     });
   }
@@ -102,14 +108,11 @@ class App {
   }
 
   updateContent() {
-    // console.log(this.currentLevel);
     this.currentLevel = this.getCurrentLevel();
-    // this.currentLevel = currentLevel;
-    console.log(this.currentLevel);
     this.levels.updateTheoryBlock(this.currentLevel);
     this.levels.highlightSelectedLevel(this.currentLevel);
     this.updateMarkColor();
-    
+
     this.updateProgressBar();
     this.createContent(this.currentLevel);
   }
@@ -169,18 +172,18 @@ class App {
     }
   }
 
-  // eslint-disable-next-line consistent-return
   makeAGuess() {
     const selector = this.cssInput.value;
+    let guessEls;
     try {
-      const guessEls = this.table.querySelectorAll(selector); // array or null
+      guessEls = this.table.querySelectorAll(selector); // array or null
       for (let i = 0; i < guessEls.length; i++) {
         guessEls[i].classList.add('selected');
       }
-      return guessEls;
     } catch (error) {
       console.log('invalid property in input');
     }
+    return guessEls;
   }
 
   checkAnswer() {
@@ -201,7 +204,7 @@ class App {
     }
     if (result === true) {
       this.win();
-      // очищаем состояние (возможно, стоит это вынести в отдельную функцию - clearState)
+      // очищаем состояние
       this.table.querySelectorAll('*').forEach((el) => el.classList.remove('selected'));
     } else if (result === false) {
       this.fail();
@@ -210,6 +213,8 @@ class App {
   }
 
   clearState(self) {
+    // совершенно бессмысленная строчка, но линтер был непреклонен.
+    this.self = self;
     self.fileWindowEl.classList.remove('wrong');
     // нет прописанного класса win для fileWindowEl
     self.fileWindowEl.classList.remove('win');
@@ -248,7 +253,6 @@ class App {
     if (this.currentLevel >= this.maxLevel) {
       this.currentLevel = this.maxLevel;
     }
-    console.log(this.currentLevel);
     this.updateContent(this.currentLevel);
   }
 
@@ -285,6 +289,7 @@ class App {
 }
 
 const app = new App(document.querySelector('body'));
+console.log(app);
 
 window.onload = () => {
   hljs.initHighlightingOnLoad();

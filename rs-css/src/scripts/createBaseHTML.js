@@ -1,5 +1,5 @@
 import createHTMLEl from './createHTMLEl';
-import baseHTMLTemplate from './baseHTMLTemplate'
+import baseHTMLTemplate from './baseHTMLTemplate';
 // createHTMLEl(el, classNames, progeny, parent, ...dataAttr)
 
 export default function createBaseHTML() {
