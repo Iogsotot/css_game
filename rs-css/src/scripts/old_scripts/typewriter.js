@@ -1,8 +1,10 @@
+// import codeColor from './codeColor';
 import hljs from 'highlight.js';
 
+const cssInput = document.querySelector('#input');
+const inputColor = document.querySelector('#inputColor');
+
 function colorInput() {
-  const cssInput = document.querySelector('#input');
-  const inputColor = document.querySelector('#inputColor');
   inputColor.innerHTML = cssInput.value;
   try {
     hljs.highlightBlock(inputColor);
@@ -12,10 +14,8 @@ function colorInput() {
   cssInput.style.opacity = '0';
 }
 
-function typewriterEffect(selector, text, i) {
+export default function typewriterEffect(selector, text, i) {
   const input = document.querySelector(`${selector}`);
-  const cssInput = document.querySelector('#input');
-  cssInput.addEventListener('change', colorInput);
   input.value = text.substring(0, i);
   // I disabled eslint, because I need this param re-assign,
   // I can't imagine how  this can be rewritten
@@ -27,5 +27,3 @@ function typewriterEffect(selector, text, i) {
   }
   setTimeout(typewriterEffect, 200, selector, text, i);
 }
-
-export { colorInput, typewriterEffect };

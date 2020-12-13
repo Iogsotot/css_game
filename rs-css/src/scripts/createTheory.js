@@ -1,25 +1,23 @@
-// эту функцию надо запускать _после_ setLevelsName
-// теория должна генерится при каждом обновлении контента - переходе уровня, выигрыше и тд
-import allTheory from './theoryTemplates';
+import levelsTemplate from './levelsTemplate';
 
 export default function createTheory(currentLevel) {
-  const theoryBlock = document.querySelector('#theoryBlock');
+  // const theoryBlock = document.querySelector('#theoryBlock');
 
   // const theoryTemplate = allTheory[currentLevel];
+  const { theory } = levelsTemplate[`level${currentLevel}`];
   const theoryTemplate = `
     <h3 class="theory__title">
-        ${allTheory[currentLevel].title}
+        ${theory.title}
     </h3>
     </div>
     <div class="theory__main-text">
-      ${allTheory[currentLevel].main}
+      ${theory.main}
     </div>
     <div class="theory__examples">
-      <h4 class="examples__title">${allTheory[currentLevel].examplesTitle}</h4>
-      <p>${allTheory[currentLevel].examples}</p>
+      <h4 class="examples__title">${theory.examplesTitle}</h4>
+      <p>${theory.examples}</p>
     </div>
   `;
-  theoryBlock.innerHTML = theoryTemplate;
+  return theoryTemplate;
+  // theoryBlock.innerHTML = theoryTemplate;
 }
-
-// export { createTheory };

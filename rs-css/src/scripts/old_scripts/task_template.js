@@ -28,7 +28,7 @@ export default function createLevels() {
     3:
     {
       level: 3,
-      task: 'white and bubble vine',
+      task: 'white and bubble wine',
       isComplete: false,
       answer: '.white.bubble',
       name: 'several classes',
@@ -39,7 +39,7 @@ export default function createLevels() {
     4:
     {
       level: 4,
-      task: 'oldest vine by id',
+      task: 'oldest wine by id',
       isComplete: false,
       answer: '#y-1905',
       name: 'id',
@@ -160,7 +160,7 @@ export default function createLevels() {
     15:
     {
       level: 15,
-      task: 'vine from "top"',
+      task: 'wine from "top"',
       isComplete: false,
       answer: '[class |= "top"]',
       name: '[attr |= value]',
@@ -260,27 +260,27 @@ export default function createLevels() {
     }
     if (level === 3) {
       HTML = `
-      <vine class="white" data-title="&lt;vine class='white' /&gt;"></vine>
-      <vine class="red" data-title="&lt;vine class='red' /&gt;"></vine>
-      <vine class="white bubble" data-title="&lt;vine class='white bubble' /&gt;"></vine>
+      <wine class="white" data-title="&lt;wine class='white' /&gt;"></wine>
+      <wine class="red" data-title="&lt;wine class='red' /&gt;"></wine>
+      <wine class="white bubble" data-title="&lt;wine class='white bubble' /&gt;"></wine>
       `;
       markup = `
       &lt;div class='table'&gt;
-        <vine class="white">&lt;vine class='white' /&gt;</vine>
-        <vine class="red">&lt;vine class='red' /&gt;</vine>
-        <vine class="white bubble">&lt;vine class='white bubble' /&gt;</vine>
+        <wine class="white">&lt;wine class='white' /&gt;</wine>
+        <wine class="red">&lt;wine class='red' /&gt;</wine>
+        <wine class="white bubble">&lt;wine class='white bubble' /&gt;</wine>
       &lt;/div&gt;
       `;
     }
     if (level === 4) {
       HTML = `
-      <vine id='y-1905' class='red'  data-title="&lt;vine id='y-1905' class='red' /&gt;"></vine>
-      <vine id='y-2020' class='red'  data-title="&lt;vine id='y-2020' class='red' /&gt;"></vine>
+      <wine id='y-1905' class='red'  data-title="&lt;wine id='y-1905' class='red' /&gt;"></wine>
+      <wine id='y-2020' class='red'  data-title="&lt;wine id='y-2020' class='red' /&gt;"></wine>
       `;
       markup = `
       &lt;div class='table'&gt;
-        <vine id='y-1905' class='red'>&lt;vine id='y-1905' class='red' /&gt;</vine>
-        <vine id='y-2020' class='red'>&lt;vine id='y-2020' class='red' /&gt;</vine>
+        <wine id='y-1905' class='red'>&lt;wine id='y-1905' class='red' /&gt;</wine>
+        <wine id='y-2020' class='red'>&lt;wine id='y-2020' class='red' /&gt;</wine>
       &lt;/div&gt;
       `;
     }
@@ -463,17 +463,17 @@ export default function createLevels() {
     }
     if (level === 15) {
       HTML = `
-      <vine class='top-10'  data-title="&lt;vine class='top-10' /&gt;"></vine>
-      <vine class='toppest'  data-title="&lt;vine class='toppest' /&gt;"></vine>
-      <vine class='not-in-any-top'  data-title="&lt;vine class='not-in-any-top' /&gt;"></vine>
-      <vine class='top-50'  data-title="&lt;vine class='top-50' /&gt;"></vine>
+      <wine class='top-10'  data-title="&lt;wine class='top-10' /&gt;"></wine>
+      <wine class='toppest'  data-title="&lt;wine class='toppest' /&gt;"></wine>
+      <wine class='not-in-any-top'  data-title="&lt;wine class='not-in-any-top' /&gt;"></wine>
+      <wine class='top-50'  data-title="&lt;wine class='top-50' /&gt;"></wine>
       `;
       markup = `
       &lt;div class='table'&gt;
-        <vine class='top-10'>&lt;vine class='top-10' /&gt;</vine>
-        <vine class='toppest'>&lt;vine class='toppest' /&gt;</vine>
-        <vine class='not-in-any-top'>&lt;vine class='not-in-any-top' /&gt;</vine>
-        <vine class='top-50'>&lt;vine class='top-50' /&gt;</vine>
+        <wine class='top-10'>&lt;wine class='top-10' /&gt;</wine>
+        <wine class='toppest'>&lt;wine class='toppest' /&gt;</wine>
+        <wine class='not-in-any-top'>&lt;wine class='not-in-any-top' /&gt;</wine>
+        <wine class='top-50'>&lt;wine class='top-50' /&gt;</wine>
       &lt;/div&gt;
       `;
     }

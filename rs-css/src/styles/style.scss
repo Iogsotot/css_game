@@ -245,6 +245,7 @@ aside.levels {
     position: absolute;
     width: 100%;
     height: 100%;
+    top: 0;
     padding: 1rem 1rem 1rem 2rem;
 
     font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
@@ -904,20 +905,20 @@ tray > span {
     background-image: url("../assets/imgs/glass_nasty.png");
     height: 10.2rem;
   }
-  vine {
-    background-image: url("../assets/imgs/vine_red.png");
+  wine {
+    background-image: url("../assets/imgs/wine_red.png");
   }
-  vine.white {
-    background-image: url("../assets/imgs/vine_white.png");
+  wine.white {
+    background-image: url("../assets/imgs/wine_white.png");
   }
-  vine.white.bubble {
-    background-image: url("../assets/imgs/vine_white_bubble.png");
+  wine.white.bubble {
+    background-image: url("../assets/imgs/wine_white_bubble.png");
   }
-  vine#y-1905 {
-    background-image: url("../assets/imgs/vine_1905.png");
+  wine#y-1905 {
+    background-image: url("../assets/imgs/wine_1905.png");
   }
-  vine#y-2020 {
-    background-image: url("../assets/imgs/vine_2020.png");
+  wine#y-2020 {
+    background-image: url("../assets/imgs/wine_2020.png");
   }
   coffee {
     background-image: url("../assets/imgs/coffee.png");

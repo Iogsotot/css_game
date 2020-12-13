@@ -1,8 +1,22 @@
 // import { table, markup } from './app';
+const table = document.querySelector('#table');
+const markup = document.querySelector('#markup');
+
+// function DOMComb(oParent, oCallback) {
+//   if (oParent.hasChildNodes()) {
+//     for (let oNode = oParent.firstChild; oNode; oNode = oNode.nextSibling) {
+//       DOMComb(oNode, oCallback);
+//     }
+//   }
+//   oCallback.call(oParent);
+// }
+
+// function printContent() {
+//   if (this.nodeValue) { console.log(this.nodeValue); }
+// }
 
 function setHoveredElements(parent, parentPosition, needUnhover) {
-  const table = document.querySelector('#table');
-  const markup = document.querySelector('#markup');
+  // DOMComb(parent, printContent);
   if (parent.hasChildNodes()) {
     const { children } = parent;
     let mirrorChildren;
@@ -13,8 +27,16 @@ function setHoveredElements(parent, parentPosition, needUnhover) {
     } else if (parent === markup) {
       mirrorChildren = table.children;
     } else if (markup.contains(parent)) {
+      // console.log(table.children);
       mirrorChildren = table.children.item(parentPosition).children;
+      // console.log(parent, markup);
+      // console.log(parent)
     }
+    // console.log("~~~~~~~~~~~~~~~~~~");
+    // console.log(parent);
+    // console.log(parentPosition);
+    // console.log(mirrorChildren);
+    // console.log("++++++++++++++++++++++++++++");
     if (needUnhover === 'yes') {
       for (let i = 0; i < children.length; i++) {
         mirrorChildren[i].classList.remove('hover');
@@ -52,6 +74,7 @@ function hovered(e) {
   e.target.classList.add('hover');
   let parentPosition = 0;
   let parent = e.target.parentNode;
+  // console.log(parent.previousSibling);
   while ((parent.previousSibling) != null) {
     parent = parent.previousSibling;
     if (parent.nodeType !== 3) {
